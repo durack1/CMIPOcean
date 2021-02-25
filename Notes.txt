@@ -1,0 +1,15 @@
+
+gravitational acceleration (m/s2)
+angular rotation of planet (radians per second).  
+EOS and the constants associated with the implementation
+freezing equation
+(boussinesq) reference density
+specific heat capacity
+sea water volume
+obs climatology that the model was initialized from
+spinup time period (from obs climatology)
+
+branch times
+CMIP historical, ssp r1-X
+FAFMIP, all r1-X
+OMIP, all r1-X
