@@ -8,6 +8,8 @@ specific heat capacity
 sea water volume
 obs climatology that the model was initialized from
 spinup time period (from obs climatology)
+Mixed-layer depth scheme
+Volcanic forcing used (relevant for OHC analysis)
 
 branch times
 CMIP historical, ssp r1-X
