@@ -32,3 +32,13 @@ for key in keys:
     stdout,stderr = process.communicate()
     pdb.set_trace()
     stdout,stderr
+
+
+#%%
+
+3982
+https://esgf-node.llnl.gov/solr/datasets/select?q=*:*&wt=json&facet=true&rows=4000&fq=type:Dataset&fq=mip_era:CMIP6&fq=activity_id:CMIP&fq=experiment_id:historical&fq=variable_id:tos&shards=localhost:8983/solr/datasets,localhost:8985/solr/datasets,localhost:8987/solr/datasets,localhost:8988/solr/datasets,localhost:8990/solr/datasets,localhost:8993/solr/datasets,localhost:8994/solr/datasets,localhost:8995/solr/datasets,localhost:8996/solr/datasets,localhost:8997/solr/datasets
+2204
+https://esgf-node.llnl.gov/solr/datasets/select?q=*:*&wt=json&facet=true&rows=2161&fq=type:Dataset&fq=mip_era:CMIP6&fq=activity_id:CMIP&fq=experiment_id:historical&fq=variable_id:tos
+Shards
+https://esgf-node.llnl.gov/esg-search/search/?limit=0&format=application%2Fsolr%2Bjson

@@ -28,7 +28,7 @@ timeFormat = timeNow.strftime('%y%m%d')
 
 #%%
 def get_solr_query_url():
-    search_url = 'https://esgf-node.llnl.gov/esg-search/search/' \
+    varosearch_url = 'https://esgf-node.llnl.gov/esg-search/search/' \
                  '?limit=0&format=application%2Fsolr%2Bjson'
 
     req = requests.get(search_url)
@@ -53,6 +53,8 @@ def get_dataset_time_data(project, start_date, end_date, activity_id=None,
     https://esgf-node.llnl.gov/solr/datasets/select?q=*:*&wt=json&facet=true&rows=2165&fq=type:Dataset&fq=project:CMIP5&fq=experiment:historical&fq=variable:tos
     
     https://esgf-node.llnl.gov/solr/datasets/select?q=*:*&wt=json&facet=true&rows=2165&fq=type:Dataset&fq=project:CMIP3&fq=experiment:historical&fq=variable:tos
+    
+    https://esgf-node.llnl.gov/solr/datasets/select?q=*:*&wt=json&facet=true&rows=4000&fq=type:Dataset&fq=mip_era:CMIP6&fq=activity_id:CMIP&fq=experiment_id:historical&fq=variable_id:tos&shards=localhost:8983/solr/datasets,localhost:8985/solr/datasets,localhost:8987/solr/datasets,localhost:8988/solr/datasets,localhost:8990/solr/datasets,localhost:8993/solr/datasets,localhost:8994/solr/datasets,localhost:8995/solr/datasets,localhost:8996/solr/datasets,localhost:8997/solr/datasets
 
 
 [ml-9585568:sync/git/McDougalletal21GMD] durack1% python
