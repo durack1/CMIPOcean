@@ -25,10 +25,11 @@ import requests
 #%%
 timeNow = datetime.datetime.now()
 timeFormat = timeNow.strftime('%y%m%d')
+timeFormatY = timeNow.strftime('%Y-%m-%d')
 
 #%%
 def get_solr_query_url():
-    varosearch_url = 'https://esgf-node.llnl.gov/esg-search/search/' \
+    search_url = 'https://esgf-node.llnl.gov/esg-search/search/' \
                  '?limit=0&format=application%2Fsolr%2Bjson'
 
     req = requests.get(search_url)
@@ -36,29 +37,33 @@ def get_solr_query_url():
     shards = js['responseHeader']['params']['shards']
 
     solr_url = 'https://esgf-node.llnl.gov/solr/datasets/select' \
-               '?q=*:*&wt=json&facet=true&fq=type:Dataset' \
-               '&fq=replica:false&fq=latest:true&shards={shards}&{{query}}'
+               '?q=*:*&wt=json&facet=true&rows=1000000&fq=type:Dataset' \
+               '&{{query}}&shards={shards}'
+               #'&fq=replica:false&fq=latest:true&{{query}}&shards={shards}'
+    # Set row size to 1M - &rows=1000000
 
     return solr_url.format(shards=shards)
 
 #%%
-def get_dataset_time_data(project, start_date, end_date, activity_id=None,
-                          experiment_id=None, variable_id=None):
+def get_dataset_time_data(project, activity_id, variable_id,
+                          experiment_id=None,
+                          start_date="2018-07-01",
+                          end_date=timeFormatY):
     """
     dfd.
     https://esgf-node.llnl.gov/solr/datasets/select?q=*:*&wt=json&facet=true&rows=2165&fq=type:Dataset&fq=variable_id:tos&fq=activity_id:CMIP&fq=experiment_id:historical
-    
+
     https://esgf-node.llnl.gov/solr/datasets/select?q=*:*&wt=json&facet=true&rows=2165&fq=type:Dataset&fq=mip_era:CMIP6&fq=activity_id:CMIP&fq=experiment_id:historical&fq=variable_id:tos
-    
+
     https://esgf-node.llnl.gov/solr/datasets/select?q=*:*&wt=json&facet=true&rows=2165&fq=type:Dataset&fq=project:CMIP5&fq=experiment:historical&fq=variable:tos
-    
+
     https://esgf-node.llnl.gov/solr/datasets/select?q=*:*&wt=json&facet=true&rows=2165&fq=type:Dataset&fq=project:CMIP3&fq=experiment:historical&fq=variable:tos
-    
+
     https://esgf-node.llnl.gov/solr/datasets/select?q=*:*&wt=json&facet=true&rows=4000&fq=type:Dataset&fq=mip_era:CMIP6&fq=activity_id:CMIP&fq=experiment_id:historical&fq=variable_id:tos&shards=localhost:8983/solr/datasets,localhost:8985/solr/datasets,localhost:8987/solr/datasets,localhost:8988/solr/datasets,localhost:8990/solr/datasets,localhost:8993/solr/datasets,localhost:8994/solr/datasets,localhost:8995/solr/datasets,localhost:8996/solr/datasets,localhost:8997/solr/datasets
 
 
 [ml-9585568:sync/git/McDougalletal21GMD] durack1% python
-Python 3.8.5 (default, Sep  4 2020, 02:22:02) 
+Python 3.8.5 (default, Sep  4 2020, 02:22:02)
 [Clang 10.0.0 ] :: Anaconda, Inc. on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import json
@@ -101,12 +106,12 @@ dict_keys(['id', 'version', 'access', 'activity_drs', 'activity_id', 'branch_met
 
     """
     date_format = '%Y-%m-%dT%H:%M:%SZ'
-    start_str = start_date.strftime(date_format)
-    end_str = end_date.strftime(date_format)
+    start_str = start_date #start_date.strftime(date_format)
+    end_str = end_date #end_date.strftime(date_format)
 
     solr_url = get_solr_query_url()
 
-    query = 'rows=100000&fq=project:{project}'
+    query = '&fq=project:{project}'
     if activity_id:
         query += '&fq=activity_id:{activity_id}'
     if experiment_id:
@@ -120,32 +125,25 @@ dict_keys(['id', 'version', 'access', 'activity_drs', 'activity_id', 'branch_met
                                                    experiment_id=experiment_id,
                                                    variable_id=variable_id))
 
+    print('query_url:\n', query_url)
+
     req = requests.get(query_url)
     js = json.loads(req.text)
 
     return js
 
-#    ts_counts = js['facet_counts']['facet_ranges']['_timestamp']
-#    ts = ts_counts['counts'][0::2]
-#    counts = ts_counts['counts'][1::2]
-
-#    datetimes = [datetime.datetime.strptime(t,date_format) for t in ts]
-
-#    if cumulative:
-#        counts = numpy.cumsum(counts)
-
-#    return (datetimes, counts)
 
 #%%
 def main():
 
+    #timeNow = datetime.datetime.now().strftime('%Y-%m-%d')
     parser = argparse.ArgumentParser(description="Gather dataset counts per day from ESGF")
     parser.add_argument("--project", "-p", dest="project", type=str, default="CMIP6", help="MIP project name (default is CMIP6)")
     parser.add_argument("--activity_id", "-ai", dest="activity_id", type=str, default=None, help="MIP activity id (default is None)")
     parser.add_argument("--experiment_id", "-ei", dest="experiment_id", type=str, default=None, help="MIP experiment id (default is None)")
     parser.add_argument("--variable_id", "-vi", dest="variable_id", type=str, default="tos", help="MIP variable id (default is 'tos')")
     parser.add_argument("--start_date", "-sd", dest="start_date", type=str, default="2018-07-01", help="Start date in YYYY-MM-DD format (default is 2018-07-01)")
-    parser.add_argument("--end_date", "-ed", dest="end_date", type=str, default=None, help="End date in YYYY-MM-DD format (default is None)")
+    parser.add_argument("--end_date", "-ed", dest="end_date", type=str, default=datetime.datetime.now().strftime('%Y-%m-%d'), help="End date in YYYY-MM-DD format (default is current date)")
     parser.add_argument("--output", "-o", dest="output", type=str, default=os.path.curdir, help="Output directory (default is current directory)")
     args = parser.parse_args()
 
@@ -173,20 +171,16 @@ def main():
         print("{} is not a directory. Exiting.".format(args.output))
         return
 
+    print('call get_dataset_time_data')
     js = get_dataset_time_data(project=args.project,
                                start_date=start_date,
                                end_date=end_date,
                                activity_id=args.activity_id,
                                experiment_id=args.experiment_id,
                                variable_id=args.variable_id)
-    
+
     return js
 
-    # Write output
-    #pdb.set_trace()
-    #outFile = '_'.join([timeFormat,'esgf_dataset.json'])
-    #with open(outFile, 'w', encoding='utf-8') as f:
-    #    json.dump(js, f, ensure_ascii=False, indent=4)
 
 if __name__ == '__main__':
     main()
