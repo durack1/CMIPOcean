@@ -1,26 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed Mar 31 13:38:23 2021
+Created on Tue May  4 14:27:40 2021
 
 Extract model information from CMIP6 project direct from ESGF API
 
 PJD 31 Mar 2021 - Started
+PJD  4 May 2021 - Finalized working version across CMIP6, 5, 3
 
 @author: durack1
 """
 
-import pdb
-
 import argparse
 import datetime
 import json
-import numpy
 import os
+#import pdb
 import requests
-#import csv
-#import collections
-#import matplotlib.pyplot as plt
 
 #%%
 timeNow = datetime.datetime.now()
@@ -37,10 +33,10 @@ def get_solr_query_url():
     shards = js['responseHeader']['params']['shards']
 
     solr_url = 'https://esgf-node.llnl.gov/solr/datasets/select' \
-               '?q=*:*&wt=json&facet=true&rows=1000000&fq=type:Dataset' \
-               '&{{query}}&shards={shards}'
-               #'&fq=replica:false&fq=latest:true&{{query}}&shards={shards}'
-    # Set row size to 1M - &rows=1000000
+               '?q=*:*&wt=json&facet=true&rows=50000&fq=type:Dataset' \
+               '{{query}}&shards={shards}'
+    # Limit to unique/latest only - '&fq=replica:false&fq=latest:true&{{query}}&shards={shards}'
+    # Set row size to 1M - &rows=1000000; CMIP5 'tos' == 31050, max out at 50k
 
     return solr_url.format(shards=shards)
 
@@ -86,18 +82,16 @@ dict_keys(['id', 'version', 'access', 'activity_drs', 'activity_id', 'branch_met
     ----------
     project : TYPE
         DESCRIPTION.
-    start_date : TYPE
+    activity_id : TYPE
         DESCRIPTION.
-    end_date : TYPE
+    experiment_id : TYPE
+        DESCRIPTION. The default is None.
+    variable_id : TYPE
         DESCRIPTION.
-    activity_id : TYPE, optional
+    start_date : TYPE, optional
         DESCRIPTION. The default is None.
-    experiment_id : TYPE, optional
+    end_date : TYPE, optional
         DESCRIPTION. The default is None.
-    variable_id : TYPE, optional
-        DESCRIPTION. The default is None.
-    cumulative : TYPE, optional
-        DESCRIPTION. The default is False.
 
     Returns
     -------
@@ -111,13 +105,17 @@ dict_keys(['id', 'version', 'access', 'activity_drs', 'activity_id', 'branch_met
 
     solr_url = get_solr_query_url()
 
+    # Set query URL by ESGF project
     query = '&fq=project:{project}'
-    if activity_id:
-        query += '&fq=activity_id:{activity_id}'
-    if experiment_id:
-        query += '&fq=experiment_id:{experiment_id}'
-    if variable_id:
-        query += '&fq=variable_id:{variable_id}'
+    if project == 'CMIP6':
+        if activity_id:
+            query += '&fq=activity_id:{activity_id}'
+        if variable_id:
+            query += '&fq=variable_id:{variable_id}'
+    else:
+        if variable_id:
+            query += '&fq=variable:{variable_id}'
+
     query_url = solr_url.format(query=query.format(project=project,
                                                    start_date=start_str,
                                                    end_date=end_str,
@@ -136,7 +134,6 @@ dict_keys(['id', 'version', 'access', 'activity_drs', 'activity_id', 'branch_met
 #%%
 def main():
 
-    #timeNow = datetime.datetime.now().strftime('%Y-%m-%d')
     parser = argparse.ArgumentParser(description="Gather dataset counts per day from ESGF")
     parser.add_argument("--project", "-p", dest="project", type=str, default="CMIP6", help="MIP project name (default is CMIP6)")
     parser.add_argument("--activity_id", "-ai", dest="activity_id", type=str, default=None, help="MIP activity id (default is None)")
