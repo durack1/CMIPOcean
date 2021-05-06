@@ -3,6 +3,8 @@
 """
 Created on Tue May  4 14:27:40 2021
 
+PJD  6 May 2021 - Add sort by key
+
 @author: durack1
 """
 
@@ -47,4 +49,4 @@ for mipEra in mips.keys():
         print('outFile:', outFile)
         print('JSON response numFound:', js['response']['numFound'])
         with open(outFile, 'w', encoding='utf-8') as f:
-            json.dump(js, f, ensure_ascii=False, indent=4)
+            json.dump(js, f, ensure_ascii=False, indent=4, sort_keys=True)
