@@ -3,21 +3,57 @@
 """
 Created on Tue May  4 14:33:10 2021
 
+PJD 6 May 2021 - Regex testing https://regex101.com/
+
 @author: durack1
 """
 
-#%% Imports
+# %% Imports
 import datetime
 import json
 import os
-import pdb
+#import pdb
 import re
 import sys
 import time
 
-#%% functions
+# %% functions
+
 
 def siftBits(tmpId):
+    """
+
+    Parameters
+    ----------
+    tmpId : TYPE
+        DESCRIPTION.
+
+    Returns
+    -------
+    mipEra : TYPE
+        DESCRIPTION.
+    actId : TYPE
+        DESCRIPTION.
+    instId : TYPE
+        DESCRIPTION.
+    srcId : TYPE
+        DESCRIPTION.
+    expId : TYPE
+        DESCRIPTION.
+    ripfId : TYPE
+        DESCRIPTION.
+    tabId : TYPE
+        DESCRIPTION.
+    varId : TYPE
+        DESCRIPTION.
+    gridId : TYPE
+        DESCRIPTION.
+    verId : TYPE
+        DESCRIPTION.
+    nodeId : TYPE
+        DESCRIPTION.
+
+    """
     # CMIP6.ScenarioMIP.NCAR.CESM2-WACCM.ssp126.r1i1p1f1.Oday.tos.gn.v20190815|esgf-data3.ceda.ac.uk
     # cmip5.output1.NOAA-GFDL.GFDL-ESM2M.historicalMisc.day.ocean.day.r1i1p3.v20110601|aims3.llnl.gov
     # cmip3.GFDL.gfdl_cm2_0.historical.mon.ocean.run3.tos.v1|aims3.llnl.gov
@@ -49,6 +85,10 @@ def siftBits(tmpId):
         srcId = modId[3]
         # validate srcId
         expId = modId[4]
+        # Kludge actId from expId
+        expTest = re.compile('^rcp\d{1,2}')
+        if expTest.match(expId):
+            actId = 'ScenarioMIP'
         # Kludge - poor indexes, missing tableId
         if ('CCCma' in instId and 'CanCM4' in srcId and
             'v20130331' in modId[-1]
@@ -97,6 +137,10 @@ def siftBits(tmpId):
         srcId = modId[2]
         # validate srcId
         expId = modId[3]
+        # Kludge actId from expId
+        expTest = re.compile('^sres[a-b]\d')
+        if expTest.match(expId):
+            actId = 'ScenarioMIP'
         ripfId = modId[6]
         ripfTest = re.compile('^run\d{1}')
         tabId = '.'.join([modId[5], modId[4]])
@@ -138,6 +182,19 @@ def siftBits(tmpId):
 
 
 def instRemap(instId):
+    """
+
+    Parameters
+    ----------
+    instId : TYPE
+        DESCRIPTION.
+
+    Returns
+    -------
+    instId : TYPE
+        DESCRIPTION.
+
+    """
     # Create CMIP6 alias for earlier mipEras
     if instId in ['BCC', 'BCCR']:
         instId = 'BCC'
@@ -218,20 +275,22 @@ https://github.com/WCRP-CMIP/CMIP6_CVs/blob/master/CMIP6_institution_id.json 210
 "UofT":"Department of Physics, University of Toronto, 60 St George Street, Toronto, ON M5S1A7, Canada"
 '''
 
-#%% Build list of models per MIP
+# %% Build list of models per MIP
 # Get time
 timeFormatDir = datetime.datetime.now().strftime('%y%m%d')
 # List input files
 fileList = os.listdir(timeFormatDir)
 fileList.sort()
 
-#%% Build entries keying off source_id
+# %% Build dictionary keying off source_id
 mips = {}
 mips['CMIP6'] = {}
 mips['CMIP5'] = {}
 mips['CMIP3'] = {}
 
 for count1, filePath in enumerate(fileList):
+    if 'ESGF.json' in filePath:
+        continue
     print('count1', count1, 'filePath:', filePath)
     fullPath = os.path.join(timeFormatDir, filePath)
     print('fullPath:', fullPath)
@@ -295,3 +354,5 @@ outFile = os.path.join(timeFormatDir, '_'.join([timeFormatDir,
 print('outFile:', outFile)
 with open(outFile, 'w', encoding='utf-8') as outJson:
     json.dump(mips, outJson, ensure_ascii=False, indent=4, sort_keys=True)
+
+# %% Build webpages per mipEra
