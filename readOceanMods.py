@@ -39,15 +39,19 @@ for count, filePath in enumerate(fileList):
                 print('docId:', docId)
                 modId = docId[0].split('.')
                 mipEra = modId[0]
+                # validate mipEra
                 actId = modId[1]
                 instId = modId[2]
                 srcId = modId[3]
+                # validate srcId
                 expId = modId[4]
                 ripfId = modId[5]
+                # validate ripfId
                 tabId = modId[6]
                 varId = modId[7]
                 gridId = modId[8]
                 verId = modId[9]
+                # validate verId
                 nodeId = docId[1]
                 print('mipEra:', mipEra)
                 print('actId:', actId)
@@ -61,3 +65,10 @@ for count, filePath in enumerate(fileList):
                 print('verId:', verId)
                 print('nodeId:', nodeId)
                 pdb.set_trace()
+                
+                
+    elif 'CMIP5' in filePath:
+        pass
+    elif 'CMIP3' in filePath:
+        pass
+

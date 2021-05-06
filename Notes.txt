@@ -1,15 +1,17 @@
 
 gravitational acceleration (m/s2)
-angular rotation of planet (radians per second).  
+angular rotation of planet (radians per second).
 EOS and the constants associated with the implementation
 freezing equation
+vertical diffusivity scheme
 (boussinesq) reference density
 specific heat capacity
 sea water volume
 obs climatology that the model was initialized from
 spinup time period (from obs climatology)
-Mixed-layer depth scheme
-Volcanic forcing used (relevant for OHC analysis)
+mixed-layer depth scheme
+volcanic forcing used (relevant for OHC analysis)
+aerosol forcing (natural and anthropogenic) used (relevant for OHC analysis)
 
 branch times
 CMIP historical, ssp r1-X
