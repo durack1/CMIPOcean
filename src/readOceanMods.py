@@ -3,7 +3,8 @@
 """
 Created on Tue May  4 14:33:10 2021
 
-PJD 6 May 2021 - Regex testing https://regex101.com/
+PJD  6 May 2021     - Regex testing https://regex101.com/
+PJD  6 May 2021     - Update to persistent data file
 
 @author: durack1
 """
@@ -279,7 +280,7 @@ https://github.com/WCRP-CMIP/CMIP6_CVs/blob/master/CMIP6_institution_id.json 210
 # Get time
 timeFormatDir = datetime.datetime.now().strftime('%y%m%d')
 # List input files
-fileList = os.listdir(timeFormatDir)
+fileList = os.listdir(os.path.join('..', timeFormatDir))
 fileList.sort()
 
 # %% Build dictionary keying off source_id
@@ -289,10 +290,10 @@ mips['CMIP5'] = {}
 mips['CMIP3'] = {}
 
 for count1, filePath in enumerate(fileList):
-    if 'ESGF.json' in filePath:
+    if filePath in ['.DS_Store', 'ESGF.json']:
         continue
     print('count1', count1, 'filePath:', filePath)
-    fullPath = os.path.join(timeFormatDir, filePath)
+    fullPath = os.path.join('..', timeFormatDir, filePath)
     print('fullPath:', fullPath)
     with open(fullPath) as jsonFile:
         a = json.load(jsonFile)
@@ -349,8 +350,7 @@ for count1, filePath in enumerate(fileList):
         time.sleep(3)
 
 # Process mipEra result
-outFile = os.path.join(timeFormatDir, '_'.join([timeFormatDir,
-                                                'CMIP_ESGF.json']))
+outFile = os.path.join('..', 'CMIP_ESGF.json')
 print('outFile:', outFile)
 with open(outFile, 'w', encoding='utf-8') as outJson:
     json.dump(mips, outJson, ensure_ascii=False, indent=4, sort_keys=True)
