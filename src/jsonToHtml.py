@@ -16,6 +16,7 @@ PJD  6 May 2021     - Download jquery 3.6.0, dataTables 1.10.24
                     ,aLengthMenu:[5,10,25,50,100,150,200,250,300,350,400], (use jquery.dataTables.js for location lookup [non-minified])
                     https://www.w3.org/International/questions/qa-html-encoding-declarations
                     https://validator.w3.org/check
+PJD 11 May 2021     - Updated to working version
                    - TODO: Update default page lengths
 '''
 # This script takes the json file and turns it into a nice jquery/data-tabled html doc
@@ -44,17 +45,6 @@ $(document).ready( function () {
     } );
 //]]>
 </script>"""
-
-# 190425 Updates below fail
-# <script type="text/javascript">
-# //<![CDATA[
-# $(document).ready( function () {
-#    $('#table_id').DataTable( {
-#      "pageLength": 50,
-#      "lengthMenu": [ [5,10,25,50,100,150,200,250,300,-1], [5,10,25,50,100,150,200,250,300,"All"] ]
-#    } );
-# //]]>
-# </script>"""
 
 # %% Argparse extract
 # Matching version format 0.10.23
@@ -89,46 +79,37 @@ versionInfo = CMIP.get('version')
 for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
     print(mipEra)
     CMIP = eval(mipEra)
+    # Preformat inputs to be a single line for each source_id
+    CMIPList = []  # [[] for _ in range(1)]
+    for count1, instId in enumerate(CMIP.keys()):
+        print(count1, instId)
+        for count2, srcId in enumerate(CMIP[instId].keys()):
+            print(count2, instId, srcId)
+            for count3, actId in enumerate(CMIP[instId][srcId].keys()):
+                print(count3, instId, srcId, actId)
+                for count4, expId in enumerate(CMIP[instId][srcId][actId]):
+                    print(count4, instId, srcId, actId, expId)
+                    ripfList = []
+                    for count5, ripId in\
+                            enumerate(CMIP[instId][srcId][actId][expId]):
+                        print(count5, instId, srcId, actId, expId, ripId)
+                        ripfList.append(ripId)
+                    dump = [instId, srcId, actId, expId, ripfList]
+                    print(dump)
+                    CMIPList.append(dump)
+    print(CMIPList)
+    print('len:', len(CMIPList))
+    for count1, val in enumerate(CMIPList):
+        print(count1, val)
 
     fout = os.path.join('..', 'docs', '.'.join([mipEra, 'html']))
     print("processing", fout)
-    # fout = fout.split('/')[-1] ; # Write to local directory
     fo = open(fout, 'w')
-
-    #print(header)
-    #print(mipEra)
-    #print(version)
     html = ''.join([header, '<title>', mipEra,
                     ' ocean model configurations</title>\n</head>\n<body>',
-                    '<p>CMIPOcean version: ', version, '</p>',
+                    '<p>CMIPOcean version: ', version, ' - ', mipEra, '</p>',
                     '<table id="table_id" class="display">\n'])
-    #print(html)
     fo.write(html)
-
-    # dictOrder = [
-    #     'label_extended', 'atmospheric_chemistry', 'atmosphere',
-    #     'ocean_biogeochemistry', 'release_year', 'cohort', 'sea_ice', 'label',
-    #     'institution_id', 'land_surface', 'aerosol', 'source_id', 'ocean',
-    #     'land_ice', 'activity_participation',
-    #     'native_nominal_resolution_atmos', 'native_nominal_resolution_landIce',
-    #     'native_nominal_resolution_ocean']
-    # dictOrderKold = [
-    #     'institution_id', 'release_year', 'activity_participation',
-    #     'atmosphere', 'nominal_resolution_atmos', 'ocean',
-    #     'nominal_resolution_ocean', 'aerosol', 'atmospheric_chemistry',
-    #     'cohort', 'label', 'label_extended', 'land_ice',
-    #     'nominal_resolution_landIce', 'land_surface', 'ocean_biogeochemistry',
-    #     'sea_ice']
-    # dictOrderK = [
-    #     'institution_id', 'release_year', 'activity_participation', 'cohort',
-    #     'label', 'label_extended', 'atmos', 'natNomRes_atmos', 'ocean',
-    #     'natNomRes_ocean', 'landIce', 'natNomRes_landIce', 'aerosol',
-    #     'atmosChem', 'land', 'ocnBgchem', 'seaIce']
-    # dictRealmKeys = [
-    #     'atmos', 'ocean', 'aerosol', 'landIce', 'atmosChem', 'land',
-    #     'ocnBgchem', 'seaIce']
-    # dictNomResKeys = ['natNomRes_atmos',
-    #                   'natNomRes_ocean', 'natNomRes_landIce']
 
     modKeys = ['source_id', 'activity_id', 'experiment_id', 'ripf',
                'angular rotation of planet (radians s-1)',
@@ -157,58 +138,25 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
             fo.write("</tr>\n</%s>\n" % hf)
     first_row = True
     # Get data and populate rows
-    for instId in CMIP.keys():
+    for count, instEntry in enumerate(CMIPList):
+        print('instEntry:', instEntry)
+        instId, srcId, actId, expId, ripfId = instEntry
+        print('instId:', instId)
+        print('srcId: ', srcId)
+        print('actId: ', actId)
+        print('expId: ', expId)
+        print('ripfId:', ripfId)
         fo.write("<tr>\n<td>%s</td>\n" % instId)
         # Deal with more than single model
-        srcId = CMIP[instId]
-        print('srcId:', srcId)
         fo.write("<td>%s</td>\n" % srcId)
-        actId = CMIP[instId][srcId]
-        print('actId:', actId)
         fo.write("<td>%s</td>\n" % actId)
-        expId = CMIP[instId][srcId][actId]
         fo.write("<td>%s</td>\n" % expId)
-        ripf = CMIP[instId][srcId][actId][expId]
-        fo.write("<td>%s</td>\n" % ripf)
-        # Fill rows with values
-        for k in modKeys:
-            val = CMIP[instId][srcId][actId][expId][k]
-            fo.write("<td>%s</td>\n" % val)
+        ripfStr = ''
+        ripfStr = ', '.join([str(rip) for rip in ripfId])
+        print('ripfStr:', ripfStr)
+        fo.write("<td>%s</td>\n" % ripfStr)
+        del(ripfStr)
         fo.write("</tr>\n")
     fo.write("</table>")
     fo.write("""\n</body>\n</html>\n""")
     fo.close()
-
-    # first_row = False
-    # print(CMIP.keys())
-    # print(CMIP['AS-RCEC'].keys())
-    # for exp in CMIP.keys():
-    #     exp_dict = CMIP[exp]
-    #     # Create table columns
-    #     if not first_row:
-    #         for hf in ["thead", "tfoot"]:
-    #             fo.write("<%s>\n<tr>\n<th>institutionId</th>\n" % hf)
-    #             for i in modKeys:
-    #                 i = i.replace('_id', 'Id')  # Remove '_' from table titles
-    #                 fo.write("<th>%s</th>\n" % i)
-    #             fo.write("</tr>\n</%s>\n" % hf)
-    #     first_row = True
-    #     fo.write("<tr>\n<td>%s</td>\n" % exp)
-    #     # Fill rows with values
-    #     for k in modKeys:
-    #         # Deal with embeds
-    #         if k in dictRealmKeys:
-    #             st = exp_dict['model_component'][k]['description']
-    #         elif k in dictNomResKeys:
-    #             keyVal = k.replace('natNomRes_', '')
-    #             st = exp_dict['model_component'][keyVal]
-    #             ['native_nominal_resolution']
-    #         else:
-    #             st = exp_dict[k]
-    #         if isinstance(st, (list, tuple)):
-    #             st = " ".join(st)
-    #         fo.write("<td>%s</td>\n" % st)
-    #     fo.write("</tr>\n")
-    # fo.write("</table>")
-    # fo.write("""\n</body>\n</html>\n""")
-    # fo.close()
