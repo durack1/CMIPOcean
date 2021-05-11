@@ -35,9 +35,9 @@ header = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www
 <meta name="description" content="CMIP ocean model configuration information" />
 <meta name="keywords" content="HTML, CSS, JavaScript" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" charset="utf-8" href="../src/jquery.dataTables-1.10.24.min.css" />
-<script type="text/javascript" charset="utf-8" src="../src/jquery-3.6.0.slim.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="../src/jquery.dataTables-1.10.24.min.js"></script>
+<link rel="stylesheet" type="text/css" charset="utf-8" href="https://wcrp-cmip.github.io/CMIP6_CVs/src/jquery.dataTables-1.10.20.min.css" />
+<script type="text/javascript" charset="utf-8" src="https://wcrp-cmip.github.io/CMIP6_CVs/src/jquery-3.5.0.slim.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://wcrp-cmip.github.io/CMIP6_CVs/src/jquery.dataTables-1.10.20.min.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(document).ready( function () {
@@ -45,6 +45,11 @@ $(document).ready( function () {
     } );
 //]]>
 </script>"""
+
+
+# <link rel="stylesheet" type="text/css" charset="utf-8" href="../src/jquery.dataTables-1.10.24.min.css" />
+# <script type="text/javascript" charset="utf-8" src="../src/jquery-3.6.0.slim.min.js"></script>
+# <script type="text/javascript" charset="utf-8" src="../src/jquery.dataTables-1.10.24.min.js"></script>
 
 # %% Argparse extract
 # Matching version format 0.10.23
