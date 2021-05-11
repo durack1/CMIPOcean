@@ -44,7 +44,7 @@ $(document).ready( function () {
     $('#table_id').DataTable();
     } );
 //]]>
-</script>"""
+</script>\n"""
 
 # <link rel="stylesheet" type="text/css" charset="utf-8" href="https://wcrp-cmip.github.io/CMIP6_CVs/src/jquery.dataTables-1.10.20.min.css" />
 # <script type="text/javascript" charset="utf-8" src="https://wcrp-cmip.github.io/CMIP6_CVs/src/jquery-3.5.0.slim.min.js"></script>
