@@ -111,7 +111,7 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
     print("processing", fout)
     fo = open(fout, 'w')
     html = ''.join([header, '<title>', mipEra,
-                    ' ocean model configurations</title>\n</head>\n<body>',
+                    ' ocean model configurations</title>\n</head>\n<body>\n',
                     '<p>CMIPOcean version: ', version, ' - ', mipEra, '</p>\n',
                     '<table id="table_id" class="display">\n'])
     fo.write(html)
