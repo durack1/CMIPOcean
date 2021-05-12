@@ -7,6 +7,7 @@ PJD  6 May 2021     - Regex testing https://regex101.com/
 PJD  6 May 2021     - Update to persistent data file
 PJD 11 May 2021     - Dealt with new directory info
                     TODO: add version info
+                    TODO: collapse all decadal* exps into DCPP actId
 
 @author: durack1
 """
@@ -15,7 +16,6 @@ PJD 11 May 2021     - Dealt with new directory info
 import datetime
 import json
 import os
-#import pdb
 import re
 import sys
 import time
