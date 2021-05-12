@@ -102,6 +102,37 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
                             enumerate(CMIP[instId][srcId][actId][expId]):
                         print(count5, instId, srcId, actId, expId, ripId)
                         ripfList.append(ripId)
+                        # Get first ripf values
+                        if count5 == 0:
+                            angRot = CMIP[instId][srcId][actId][expId][ripId][
+                                'angular rotation of planet (radians s-1)']
+                            print('angRot:', angRot)
+                            antAer = CMIP[instId][srcId][actId][expId][ripId][
+                                'anthropogenic aerosol forcing']
+                            eos = CMIP[instId][srcId][actId][expId][
+                                ripId]['equation of state (and constants)']
+                            frzEqn = CMIP[instId][srcId][actId][expId][ripId][
+                                'freezing equation']
+                            graAcc = CMIP[instId][srcId][actId][expId][
+                                ripId]['gravitational acceleration (m s-2)']
+                            horRes = CMIP[instId][srcId][actId][expId][ripId][
+                                'horizontal resolution']
+                            initCl = CMIP[instId][srcId][actId][expId][ripId][
+                                'initialization observed climatology']
+                            mldSch = CMIP[instId][srcId][actId][expId][ripId][
+                                'mixed-layer scheme']
+                            refRho = CMIP[instId][srcId][actId][expId][
+                                ripId]['reference density (boussinesq)']
+                            vol = CMIP[instId][srcId][actId][expId][ripId][
+                                'sea water volume']
+                            spinYr = CMIP[instId][srcId][actId][
+                                expId][ripId]['spinup length (years)']
+                            vertK = CMIP[instId][srcId][actId][expId][ripId][
+                                'vertical diffusivity scheme']
+                            verRes = CMIP[instId][srcId][actId][expId][ripId][
+                                'vertical resolution']
+                            volcFo = CMIP[instId][srcId][actId][expId][ripId][
+                                'volcanic forcing']
                     dump = [instId, srcId, actId, expId, ripfList]
                     print(dump)
                     CMIPList.append(dump)
@@ -164,6 +195,22 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
         print('ripfStr:', ripfStr)
         fo.write("<td>%s</td>\n" % ripfStr)
         del(ripfStr)
+        # Write entries for ripf #1
+        fo.write("<td>%s</td>\n" % angRot)
+        print('angRot:', angRot)
+        fo.write("<td>%s</td>\n" % antAer)
+        fo.write("<td>%s</td>\n" % eos)
+        fo.write("<td>%s</td>\n" % frzEqn)
+        fo.write("<td>%s</td>\n" % graAcc)
+        fo.write("<td>%s</td>\n" % horRes)
+        fo.write("<td>%s</td>\n" % initCl)
+        fo.write("<td>%s</td>\n" % mldSch)
+        fo.write("<td>%s</td>\n" % refRho)
+        fo.write("<td>%s</td>\n" % vol)
+        fo.write("<td>%s</td>\n" % spinYr)
+        fo.write("<td>%s</td>\n" % vertK)
+        fo.write("<td>%s</td>\n" % verRes)
+        fo.write("<td>%s</td>\n" % volcFo)
         fo.write("</tr>\n")
     fo.write("</table>")
     fo.write("""\n</body>\n</html>\n""")
