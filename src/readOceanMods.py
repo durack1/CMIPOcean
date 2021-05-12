@@ -282,6 +282,7 @@ timeFormatDir = datetime.datetime.now().strftime('%y%m%d')
 # List input files
 fileList = os.listdir(os.path.join('..', timeFormatDir))
 fileList.sort()
+print('fileList:', fileList)
 
 # %% Build dictionary keying off source_id
 mips = {}
