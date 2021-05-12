@@ -5,6 +5,8 @@ Created on Tue May  4 14:33:10 2021
 
 PJD  6 May 2021     - Regex testing https://regex101.com/
 PJD  6 May 2021     - Update to persistent data file
+PJD 11 May 2021     - Dealt with new directory info
+                    TODO: add version info
 
 @author: durack1
 """
