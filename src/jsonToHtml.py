@@ -36,16 +36,15 @@ import sys
 def humanSort(inList):
     """
 
-
     Parameters
     ----------
-    inList : TYPE
-        DESCRIPTION.
+    inList : list
+        input data list
 
     Returns
     -------
-    TYPE
-        DESCRIPTION.
+    outList : list
+        output data sorted alphanumerically
 
     """
     outList = copy.copy(inList)
@@ -57,6 +56,7 @@ def humanSort(inList):
         return [convert(c) for c in re.split('([0-9]+)', key)]
 
     outList.sort(key=alphanum)
+
     return outList
 
 
@@ -79,16 +79,6 @@ $(document).ready( function () {
     } );
 //]]>
 </script>\n"""
-
-# <script type="text/javascript" charset="utf-8" src="../src/jquery-3.6.0.slim.min.js"></script>
-
-# <link rel="stylesheet" type="text/css" charset="utf-8" href="../src/jquery.dataTables-1.10.24.min.css" />
-# <script type="text/javascript" charset="utf-8" src="../src/jquery-3.3.1.min.js"></script>
-# <script type="text/javascript" charset="utf-8" src="../src/jquery.dataTables-1.10.24.min.js"></script>
-
-# <link rel="stylesheet" type="text/css" charset="utf-8" href="https://wcrp-cmip.github.io/CMIP6_CVs/src/jquery.dataTables-1.10.20.min.css" />
-# <script type="text/javascript" charset="utf-8" src="https://wcrp-cmip.github.io/CMIP6_CVs/src/jquery-3.5.0.slim.min.js"></script>
-# <script type="text/javascript" charset="utf-8" src="https://wcrp-cmip.github.io/CMIP6_CVs/src/jquery.dataTables-1.10.20.min.js"></script>
 
 # %% Argparse extract
 # Matching version format 0.10.23
