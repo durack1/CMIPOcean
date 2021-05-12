@@ -17,9 +17,11 @@ PJD  6 May 2021     - Download jquery 3.6.0, dataTables 1.10.24
                     https://www.w3.org/International/questions/qa-html-encoding-declarations
                     https://validator.w3.org/check
 PJD 11 May 2021     - Updated to working version
+PJD 11 May 2021     - Correct *.dataTables-* capitalization
                    - TODO: Update default page lengths
 '''
-# This script takes the json file and turns it into a nice jquery/data-tabled html doc
+# This script takes the json file and turns it into a nice
+# jquery/data-tabled html doc
 import argparse
 import json
 import os
@@ -45,11 +47,6 @@ $(document).ready( function () {
     } );
 //]]>
 </script>\n"""
-
-# <link rel="stylesheet" type="text/css" charset="utf-8" href="https://wcrp-cmip.github.io/CMIP6_CVs/src/jquery.dataTables-1.10.20.min.css" />
-# <script type="text/javascript" charset="utf-8" src="https://wcrp-cmip.github.io/CMIP6_CVs/src/jquery-3.5.0.slim.min.js"></script>
-# <script type="text/javascript" charset="utf-8" src="https://wcrp-cmip.github.io/CMIP6_CVs/src/jquery.dataTables-1.10.20.min.js"></script>
-
 
 # %% Argparse extract
 # Matching version format 0.10.23
