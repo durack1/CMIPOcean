@@ -18,15 +18,47 @@ PJD  6 May 2021     - Download jquery 3.6.0, dataTables 1.10.24
                     https://validator.w3.org/check
 PJD 11 May 2021     - Updated to working version
 PJD 11 May 2021     - Correct *.dataTables-* capitalization
+PJD 11 May 2021     - Add humanSort function
                    - TODO: Update default page lengths
 '''
 # This script takes the json file and turns it into a nice
 # jquery/data-tabled html doc
 import argparse
+import copy
 import json
 import os
 import re
 import sys
+
+# %% Functions
+
+
+def humanSort(inList):
+    """
+
+
+    Parameters
+    ----------
+    inList : TYPE
+        DESCRIPTION.
+
+    Returns
+    -------
+    TYPE
+        DESCRIPTION.
+
+    """
+    outList = copy.copy(inList)
+
+    def convert(text):
+        return int(text) if text.isdigit() else text
+
+    def alphanum(key):
+        return [convert(c) for c in re.split('([0-9]+)', key)]
+
+    outList.sort(key=alphanum)
+    return outList
+
 
 # %% Create generic header
 header = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -189,6 +221,8 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
         print('actId: ', actId)
         print('expId: ', expId)
         print('ripfId:', ripfId)
+        ripfId = humanSort(ripfId)
+        print('ripfId (humanSort):', ripfId)
         fo.write("<tr>\n<td>%s</td>\n" % instId)
         # Deal with more than single model
         fo.write("<td>%s</td>\n" % srcId)
