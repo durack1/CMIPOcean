@@ -24,6 +24,7 @@ PJD 13 May 2021     - Update queries (order and description)
 PJD 13 May 2021     - Update instId, srcId etc mappings, remove _, add space
 PJD 13 May 2021     - Update html table titles with - to allow word multi-line
 PJD 13 May 2021     - queries, add cpocean (specific heat capacity, realign to Griffies et al., 2016 GMD)
+PJD 13 May 2021     - More html table titles updated with - to allow word multi-line
                    - TODO: Update default page lengths
 '''
 # This script takes the json file and turns it into a nice
@@ -174,15 +175,15 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
     fo.write(html)
 
     modKeys = ['source_id', 'activity_id', 'experiment_id', 'ripf',
-               'EOS (+constants)',
+               'EOS (+ constants)',
                'specific heat capacity (cpocean)',
                'ref. density (bouss-inesq, rhozero)',
                'freezing eqn.',
                'planet ang. rotation (radians s-1)',
                'gravit-ational accel. (m s-2)',
-               'native horiz. resolution',
-               'native vert. resolution',
-               'vertical diffusivity scheme',
+               'native horiz. resol-ution',
+               'native vert. resol-ution',
+               'vertical diffus-ivity scheme',
                'boundary-layer (mld) scheme',
                'sea water volume',
                'initial-ization obs. clim.',
