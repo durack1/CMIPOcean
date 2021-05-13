@@ -21,6 +21,7 @@ PJD 11 May 2021     - Updated to working version
 PJD 11 May 2021     - Correct *.dataTables-* capitalization
 PJD 11 May 2021     - Add humanSort function
 PJD 13 May 2021     - Update queries (order and description)
+PJD 13 May 2021     - Update instId, srcId etc mappings, remove _, add space
                    - TODO: Update default page lengths
 '''
 # This script takes the json file and turns it into a nice
@@ -190,9 +191,9 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
     # Create table columns
     if not first_row:
         for hf in ["thead", "tfoot"]:
-            fo.write("<%s>\n<tr>\n<th>institutionId</th>\n" % hf)
+            fo.write("<%s>\n<tr>\n<th>institution id</th>\n" % hf)
             for i in modKeys:
-                i = i.replace('_id', 'Id')  # Remove '_' from table titles
+                i = i.replace('_id', ' id')  # Remove '_' from table titles
                 fo.write("<th>%s</th>\n" % i)
             fo.write("</tr>\n</%s>\n" % hf)
     first_row = True

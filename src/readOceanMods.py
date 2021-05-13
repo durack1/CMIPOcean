@@ -6,7 +6,17 @@ Created on Tue May  4 14:33:10 2021
 PJD  6 May 2021     - Regex testing https://regex101.com/
 PJD  6 May 2021     - Update to persistent data file
 PJD 11 May 2021     - Dealt with new directory info
-PJD 13 May 2021     - Update queries, sync with jsonToHtml (order and description)
+PJD 13 May 2021     - Update queries, sync with jsonToHtml (order and
+                        description)
+PJD 13 May 2021     - Reassign actId to decadal* (DCPP)
+                        sst2030, sst2090 (ScenarioMIP - AMIP rcp45, table 2,
+                                          tier 1, #2.1)
+                        https://pcmdi.llnl.gov/mips/cmip5/docs/Taylor_CMIP5_design.pdf#Page=12
+                        esmFdbk1, esmFdbk2 (C4MIP - carbon feedbacks)
+                        esmFixClim1, esmFixClim2 (C4MIP - radiation feedbacks)
+                        historicalExt (CMIP - extension beyond 2005)
+                        historicalGHG, historicalMisc, historicalNat (DAMIP)
+                        https://pcmdi.llnl.gov/mips/cmip5/docs/cmip5_data_reference_syntax_v1-02_marked.pdf
                     TODO: add version info
                     TODO: collapse all decadal* exps into DCPP actId
 
@@ -90,7 +100,18 @@ def siftBits(tmpId):
         # validate srcId
         expId = modId[4]
         # Kludge actId from expId
+        expTest = re.compile('^esmF*')
+        if expTest.match(expId):
+            actId = 'C4MIP'
+        if expId in ['historicalGHG', 'historicalMisc', 'historicalNat']:
+            actId = 'DAMIP'
+        expTest = re.compile('^decadal\d{1,4}')
+        if expTest.match(expId):
+            actId = 'DCPP'
         expTest = re.compile('^rcp\d{1,2}')
+        if expTest.match(expId):
+            actId = 'ScenarioMIP'
+        expTest = re.compile('^sst20\d{1,2}')
         if expTest.match(expId):
             actId = 'ScenarioMIP'
         # Kludge - poor indexes, missing tableId
