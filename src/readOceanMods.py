@@ -6,6 +6,7 @@ Created on Tue May  4 14:33:10 2021
 PJD  6 May 2021     - Regex testing https://regex101.com/
 PJD  6 May 2021     - Update to persistent data file
 PJD 11 May 2021     - Dealt with new directory info
+PJD 13 May 2021     - Update queries, sync with jsonToHtml (order and description)
                     TODO: add version info
                     TODO: collapse all decadal* exps into DCPP actId
 
@@ -292,6 +293,22 @@ mips['CMIP6'] = {}
 mips['CMIP5'] = {}
 mips['CMIP3'] = {}
 
+queries = {'eos': 'equation of state (+ constants)',
+           'frzEqn': 'freezing equation',
+           'angRot': 'planet angular rotation (radians s-1)',
+           'graAcc': 'gravitational acceleration (m s-2)',
+           'horRes': 'native horizontal resolution',
+           'verRes': 'native vertical resolution',
+           'vertK': 'vertical diffusivity scheme',
+           'mldSch': 'boundary-layer (mixed-layer) scheme',
+           'refRho': 'reference density (boussinesq)',
+           'vol': 'sea water volume',
+           'initCl': 'initialization observed climatology',
+           'spinYr': 'spinup length (years)',
+           'antAer': 'anthropogenic aerosol forcing',
+           'volcFo': 'volcanic forcing',
+           'aerInd': 'aerosol indirect effects'}
+
 for count1, filePath in enumerate(fileList):
     if filePath in ['.DS_Store', 'ESGF.json']:
         continue
@@ -329,24 +346,10 @@ for count1, filePath in enumerate(fileList):
                 mips[mipEra][instId][srcId][actId][expId] = {}
             if ripfId not in mips[mipEra][instId][srcId][actId][expId].keys():
                 mips[mipEra][instId][srcId][actId][expId][ripfId] = {}
-                # Populate all fields with queries
-                queries = ['angular rotation of planet (radians s-1)',
-                           'anthropogenic aerosol forcing',
-                           'equation of state (and constants)',
-                           'freezing equation',
-                           'gravitational acceleration (m s-2)',
-                           'horizontal resolution',
-                           'initialization observed climatology',
-                           'mixed-layer scheme',
-                           'reference density (boussinesq)',
-                           'sea water volume',
-                           'spinup length (years)',
-                           'vertical diffusivity scheme',
-                           'vertical resolution',
-                           'volcanic forcing']
-                for count3, query in enumerate(queries):
-                    mips[mipEra][instId][srcId][actId][expId][ripfId][query]\
-                        = None
+                for count3, query in enumerate(queries.keys()):
+                    print(count3, query)
+                    mips[mipEra][instId][srcId][actId][expId][ripfId][queries[
+                        query]] = None
         print(fullPath)
         print('----------')
         print('----------')
