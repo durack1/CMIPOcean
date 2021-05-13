@@ -22,6 +22,7 @@ PJD 11 May 2021     - Correct *.dataTables-* capitalization
 PJD 11 May 2021     - Add humanSort function
 PJD 13 May 2021     - Update queries (order and description)
 PJD 13 May 2021     - Update instId, srcId etc mappings, remove _, add space
+PJD 13 May 2021     - Update html table titles with - to allow word multi-line
                    - TODO: Update default page lengths
 '''
 # This script takes the json file and turns it into a nice
@@ -174,14 +175,14 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
                'EOS (+constants)',
                'freezing eqn.',
                'planet ang. rotation (radians s-1)',
-               'gravitational accel. (m s-2)',
+               'gravit-ational accel. (m s-2)',
                'native horiz. resolution',
                'native vert. resolution',
                'vertical diffusivity scheme',
                'boundary-layer (mld) scheme',
-               'ref. density (boussinesq)',
+               'ref. density (bouss-inesq)',
                'sea water volume',
-               'initialization obs. clim.',
+               'initial-ization obs. clim.',
                'spinup length (years)',
                'anthrop. aerosol forcing',
                'volcanic forcing',
