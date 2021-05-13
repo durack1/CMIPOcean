@@ -225,26 +225,7 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
         # Write entries for ripf #1
         for count2, key in enumerate(queries):
             fo.write("<td>%s</td>\n" % eval(key))
-            print(key,':',eval(key))
-
-        # fo.write("<td>%s</td>\n" % eos)
-        # fo.write("<td>%s</td>\n" % cp)
-        # fo.write("<td>%s</td>\n" % refRho)
-        # fo.write("<td>%s</td>\n" % frzEqn)
-        # fo.write("<td>%s</td>\n" % angRot)
-        # print('angRot:', angRot)
-        # fo.write("<td>%s</td>\n" % graAcc)
-        # fo.write("<td>%s</td>\n" % horRes)
-        # fo.write("<td>%s</td>\n" % verRes)
-        # fo.write("<td>%s</td>\n" % vertK)
-        # fo.write("<td>%s</td>\n" % mldSch)
-        # fo.write("<td>%s</td>\n" % vol)
-        # fo.write("<td>%s</td>\n" % initCl)
-        # fo.write("<td>%s</td>\n" % spinYr)
-        # fo.write("<td>%s</td>\n" % antAer)
-        # fo.write("<td>%s</td>\n" % volcFo)
-        # fo.write("<td>%s</td>\n" % aerInd)
-
+            print(key.ljust(6), ':', eval(key))
         fo.write("</tr>\n")
     fo.write("</table>")
     fo.write("""\n</body>\n</html>\n""")
