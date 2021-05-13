@@ -6,6 +6,17 @@ Created on Tue May  4 14:33:10 2021
 PJD  6 May 2021     - Regex testing https://regex101.com/
 PJD  6 May 2021     - Update to persistent data file
 PJD 11 May 2021     - Dealt with new directory info
+PJD 13 May 2021     - Update queries, sync with jsonToHtml (order and
+                        description)
+PJD 13 May 2021     - Reassign actId to decadal* (DCPP)
+                        sst2030, sst2090 (ScenarioMIP - AMIP rcp45, table 2,
+                                          tier 1, #2.1)
+                        https://pcmdi.llnl.gov/mips/cmip5/docs/Taylor_CMIP5_design.pdf#Page=12
+                        esmFdbk1, esmFdbk2 (C4MIP - carbon feedbacks)
+                        esmFixClim1, esmFixClim2 (C4MIP - radiation feedbacks)
+                        historicalExt (CMIP - extension beyond 2005)
+                        historicalGHG, historicalMisc, historicalNat (DAMIP)
+                        https://pcmdi.llnl.gov/mips/cmip5/docs/cmip5_data_reference_syntax_v1-02_marked.pdf
                     TODO: add version info
                     TODO: collapse all decadal* exps into DCPP actId
 
@@ -89,7 +100,18 @@ def siftBits(tmpId):
         # validate srcId
         expId = modId[4]
         # Kludge actId from expId
+        expTest = re.compile('^esmF*')
+        if expTest.match(expId):
+            actId = 'C4MIP'
+        if expId in ['historicalGHG', 'historicalMisc', 'historicalNat']:
+            actId = 'DAMIP'
+        expTest = re.compile('^decadal\d{1,4}')
+        if expTest.match(expId):
+            actId = 'DCPP'
         expTest = re.compile('^rcp\d{1,2}')
+        if expTest.match(expId):
+            actId = 'ScenarioMIP'
+        expTest = re.compile('^sst20\d{1,2}')
         if expTest.match(expId):
             actId = 'ScenarioMIP'
         # Kludge - poor indexes, missing tableId
@@ -292,6 +314,22 @@ mips['CMIP6'] = {}
 mips['CMIP5'] = {}
 mips['CMIP3'] = {}
 
+queries = {'eos': 'equation of state (+ constants)',
+           'frzEqn': 'freezing equation',
+           'angRot': 'planet angular rotation (radians s-1)',
+           'graAcc': 'gravitational acceleration (m s-2)',
+           'horRes': 'native horizontal resolution',
+           'verRes': 'native vertical resolution',
+           'vertK': 'vertical diffusivity scheme',
+           'mldSch': 'boundary-layer (mixed-layer) scheme',
+           'refRho': 'reference density (boussinesq)',
+           'vol': 'sea water volume',
+           'initCl': 'initialization observed climatology',
+           'spinYr': 'spinup length (years)',
+           'antAer': 'anthropogenic aerosol forcing',
+           'volcFo': 'volcanic forcing',
+           'aerInd': 'aerosol indirect effects'}
+
 for count1, filePath in enumerate(fileList):
     if filePath in ['.DS_Store', 'ESGF.json']:
         continue
@@ -329,24 +367,10 @@ for count1, filePath in enumerate(fileList):
                 mips[mipEra][instId][srcId][actId][expId] = {}
             if ripfId not in mips[mipEra][instId][srcId][actId][expId].keys():
                 mips[mipEra][instId][srcId][actId][expId][ripfId] = {}
-                # Populate all fields with queries
-                queries = ['angular rotation of planet (radians s-1)',
-                           'anthropogenic aerosol forcing',
-                           'equation of state (and constants)',
-                           'freezing equation',
-                           'gravitational acceleration (m s-2)',
-                           'horizontal resolution',
-                           'initialization observed climatology',
-                           'mixed-layer scheme',
-                           'reference density (boussinesq)',
-                           'sea water volume',
-                           'spinup length (years)',
-                           'vertical diffusivity scheme',
-                           'vertical resolution',
-                           'volcanic forcing']
-                for count3, query in enumerate(queries):
-                    mips[mipEra][instId][srcId][actId][expId][ripfId][query]\
-                        = None
+                for count3, query in enumerate(queries.keys()):
+                    print(count3, query)
+                    mips[mipEra][instId][srcId][actId][expId][ripfId][queries[
+                        query]] = None
         print(fullPath)
         print('----------')
         print('----------')

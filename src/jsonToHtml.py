@@ -3,7 +3,8 @@
 '''
 To run conversion:
 (cdat)duro@ocean:[src]:[master]:[1168]> jsonToHtml.py ../CMIP6_experiment_id.json experiment_id CMIP6_experiment_id.html
-{u'note': u'Correct getGitInfo call', u'author': u'Paul J. Durack <durack1@llnl.gov>', u'creation_date': u'Wed Aug 31 16:36:15 2016 -0700', u'institution_id': u'PCMDI', u'commit': u'43c311fab67ef26acadbe81f22868691c1357f12', u'latest_tag_point': u'None'}
+{u'note': u'Correct getGitInfo call', u'author': u'Paul J. Durack <durack1@llnl.gov>', u'creation_date': u'Wed Aug 31 16:36:15 2016 -0700',
+    u'institution_id': u'PCMDI', u'commit': u'43c311fab67ef26acadbe81f22868691c1357f12', u'latest_tag_point': u'None'}
 Notes:
 http://stackoverflow.com/questions/6551446/can-i-run-html-files-directly-from-github-instead-of-just-viewing-their-source
 
@@ -19,6 +20,8 @@ PJD  6 May 2021     - Download jquery 3.6.0, dataTables 1.10.24
 PJD 11 May 2021     - Updated to working version
 PJD 11 May 2021     - Correct *.dataTables-* capitalization
 PJD 11 May 2021     - Add humanSort function
+PJD 13 May 2021     - Update queries (order and description)
+PJD 13 May 2021     - Update instId, srcId etc mappings, remove _, add space
                    - TODO: Update default page lengths
 '''
 # This script takes the json file and turns it into a nice
@@ -110,6 +113,23 @@ versionInfo = CMIP.get('version')
 
 # %% Process html
 
+# Names and varId
+queries = {'eos': 'equation of state (+ constants)',
+           'frzEqn': 'freezing equation',
+           'angRot': 'planet angular rotation (radians s-1)',
+           'graAcc': 'gravitational acceleration (m s-2)',
+           'horRes': 'native horizontal resolution',
+           'verRes': 'native vertical resolution',
+           'vertK': 'vertical diffusivity scheme',
+           'mldSch': 'boundary-layer (mixed-layer) scheme',
+           'refRho': 'reference density (boussinesq)',
+           'vol': 'sea water volume',
+           'initCl': 'initialization observed climatology',
+           'spinYr': 'spinup length (years)',
+           'antAer': 'anthropogenic aerosol forcing',
+           'volcFo': 'volcanic forcing',
+           'aerInd': 'aerosol indirect effects'}
+
 for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
     print(mipEra)
     CMIP = eval(mipEra)
@@ -130,35 +150,9 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
                         ripfList.append(ripId)
                         # Get first ripf values
                         if count5 == 0:
-                            angRot = CMIP[instId][srcId][actId][expId][ripId][
-                                'angular rotation of planet (radians s-1)']
-                            print('angRot:', angRot)
-                            antAer = CMIP[instId][srcId][actId][expId][ripId][
-                                'anthropogenic aerosol forcing']
-                            eos = CMIP[instId][srcId][actId][expId][
-                                ripId]['equation of state (and constants)']
-                            frzEqn = CMIP[instId][srcId][actId][expId][ripId][
-                                'freezing equation']
-                            graAcc = CMIP[instId][srcId][actId][expId][
-                                ripId]['gravitational acceleration (m s-2)']
-                            horRes = CMIP[instId][srcId][actId][expId][ripId][
-                                'horizontal resolution']
-                            initCl = CMIP[instId][srcId][actId][expId][ripId][
-                                'initialization observed climatology']
-                            mldSch = CMIP[instId][srcId][actId][expId][ripId][
-                                'mixed-layer scheme']
-                            refRho = CMIP[instId][srcId][actId][expId][
-                                ripId]['reference density (boussinesq)']
-                            vol = CMIP[instId][srcId][actId][expId][ripId][
-                                'sea water volume']
-                            spinYr = CMIP[instId][srcId][actId][
-                                expId][ripId]['spinup length (years)']
-                            vertK = CMIP[instId][srcId][actId][expId][ripId][
-                                'vertical diffusivity scheme']
-                            verRes = CMIP[instId][srcId][actId][expId][ripId][
-                                'vertical resolution']
-                            volcFo = CMIP[instId][srcId][actId][expId][ripId][
-                                'volcanic forcing']
+                            for count6, query in enumerate(queries.keys()):
+                                vars()[query] = CMIP[instId][srcId][actId][
+                                    expId][ripId][queries[query]]
                     dump = [instId, srcId, actId, expId, ripfList]
                     print(dump)
                     CMIPList.append(dump)
@@ -177,28 +171,29 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
     fo.write(html)
 
     modKeys = ['source_id', 'activity_id', 'experiment_id', 'ripf',
-               'angular rotation of planet (radians s-1)',
-               'anthropogenic aerosol forcing',
-               'equation of state (and constants)',
-               'freezing equation',
-               'gravitational acceleration (m s-2)',
-               'horizontal resolution',
-               'initialization observed climatology',
-               'mixed-layer scheme',
-               'reference density (boussinesq)',
-               'sea water volume',
-               'spinup length (years)',
+               'EOS (+constants)',
+               'freezing eqn.',
+               'planet ang. rotation (radians s-1)',
+               'gravitational accel. (m s-2)',
+               'native horiz. resolution',
+               'native vert. resolution',
                'vertical diffusivity scheme',
-               'vertical resolution',
-               'volcanic forcing']
+               'boundary-layer (mld) scheme',
+               'ref. density (boussinesq)',
+               'sea water volume',
+               'initialization obs. clim.',
+               'spinup length (years)',
+               'anthrop. aerosol forcing',
+               'volcanic forcing',
+               'aerosol indirect effects']
 
     first_row = False
     # Create table columns
     if not first_row:
         for hf in ["thead", "tfoot"]:
-            fo.write("<%s>\n<tr>\n<th>institutionId</th>\n" % hf)
+            fo.write("<%s>\n<tr>\n<th>institution id</th>\n" % hf)
             for i in modKeys:
-                i = i.replace('_id', 'Id')  # Remove '_' from table titles
+                i = i.replace('_id', ' id')  # Remove '_' from table titles
                 fo.write("<th>%s</th>\n" % i)
             fo.write("</tr>\n</%s>\n" % hf)
     first_row = True
@@ -224,21 +219,22 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
         fo.write("<td>%s</td>\n" % ripfStr)
         del(ripfStr)
         # Write entries for ripf #1
-        fo.write("<td>%s</td>\n" % angRot)
-        print('angRot:', angRot)
-        fo.write("<td>%s</td>\n" % antAer)
         fo.write("<td>%s</td>\n" % eos)
         fo.write("<td>%s</td>\n" % frzEqn)
+        fo.write("<td>%s</td>\n" % angRot)
+        print('angRot:', angRot)
         fo.write("<td>%s</td>\n" % graAcc)
         fo.write("<td>%s</td>\n" % horRes)
-        fo.write("<td>%s</td>\n" % initCl)
+        fo.write("<td>%s</td>\n" % verRes)
+        fo.write("<td>%s</td>\n" % vertK)
         fo.write("<td>%s</td>\n" % mldSch)
         fo.write("<td>%s</td>\n" % refRho)
         fo.write("<td>%s</td>\n" % vol)
+        fo.write("<td>%s</td>\n" % initCl)
         fo.write("<td>%s</td>\n" % spinYr)
-        fo.write("<td>%s</td>\n" % vertK)
-        fo.write("<td>%s</td>\n" % verRes)
+        fo.write("<td>%s</td>\n" % antAer)
         fo.write("<td>%s</td>\n" % volcFo)
+        fo.write("<td>%s</td>\n" % aerInd)
         fo.write("</tr>\n")
     fo.write("</table>")
     fo.write("""\n</body>\n</html>\n""")
