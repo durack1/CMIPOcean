@@ -23,6 +23,7 @@ PJD 11 May 2021     - Add humanSort function
 PJD 13 May 2021     - Update queries (order and description)
 PJD 13 May 2021     - Update instId, srcId etc mappings, remove _, add space
 PJD 13 May 2021     - Update html table titles with - to allow word multi-line
+PJD 13 May 2021     - queries, add cpocean (specific heat capacity, realign to Griffies et al., 2016 GMD)
                    - TODO: Update default page lengths
 '''
 # This script takes the json file and turns it into a nice
@@ -116,14 +117,15 @@ versionInfo = CMIP.get('version')
 
 # Names and varId
 queries = {'eos': 'equation of state (+ constants)',
-           'frzEqn': 'freezing equation',
+           'cp': 'specific heat capacity (cpocean, J kg-1 K-1)',
+           'refRho': 'reference density (boussinesq; rhozero, kg m-3)',
+           'frzEqn': 'freezing point (equation)',
            'angRot': 'planet angular rotation (radians s-1)',
            'graAcc': 'gravitational acceleration (m s-2)',
            'horRes': 'native horizontal resolution',
            'verRes': 'native vertical resolution',
            'vertK': 'vertical diffusivity scheme',
-           'mldSch': 'boundary-layer (mixed-layer) scheme',
-           'refRho': 'reference density (boussinesq)',
+           'mldSch': 'boundary-layer (mixed-) scheme',
            'vol': 'sea water volume',
            'initCl': 'initialization observed climatology',
            'spinYr': 'spinup length (years)',
@@ -173,6 +175,8 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
 
     modKeys = ['source_id', 'activity_id', 'experiment_id', 'ripf',
                'EOS (+constants)',
+               'specific heat capacity (cpocean)',
+               'ref. density (bouss-inesq, rhozero)',
                'freezing eqn.',
                'planet ang. rotation (radians s-1)',
                'gravit-ational accel. (m s-2)',
@@ -180,7 +184,6 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
                'native vert. resolution',
                'vertical diffusivity scheme',
                'boundary-layer (mld) scheme',
-               'ref. density (bouss-inesq)',
                'sea water volume',
                'initial-ization obs. clim.',
                'spinup length (years)',
@@ -220,22 +223,9 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
         fo.write("<td>%s</td>\n" % ripfStr)
         del(ripfStr)
         # Write entries for ripf #1
-        fo.write("<td>%s</td>\n" % eos)
-        fo.write("<td>%s</td>\n" % frzEqn)
-        fo.write("<td>%s</td>\n" % angRot)
-        print('angRot:', angRot)
-        fo.write("<td>%s</td>\n" % graAcc)
-        fo.write("<td>%s</td>\n" % horRes)
-        fo.write("<td>%s</td>\n" % verRes)
-        fo.write("<td>%s</td>\n" % vertK)
-        fo.write("<td>%s</td>\n" % mldSch)
-        fo.write("<td>%s</td>\n" % refRho)
-        fo.write("<td>%s</td>\n" % vol)
-        fo.write("<td>%s</td>\n" % initCl)
-        fo.write("<td>%s</td>\n" % spinYr)
-        fo.write("<td>%s</td>\n" % antAer)
-        fo.write("<td>%s</td>\n" % volcFo)
-        fo.write("<td>%s</td>\n" % aerInd)
+        for count2, key in enumerate(queries):
+            fo.write("<td>%s</td>\n" % eval(key))
+            print(key.ljust(6), ':', eval(key))
         fo.write("</tr>\n")
     fo.write("</table>")
     fo.write("""\n</body>\n</html>\n""")
