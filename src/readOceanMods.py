@@ -17,6 +17,7 @@ PJD 13 May 2021     - Reassign actId to decadal* (DCPP)
                         historicalExt (CMIP - extension beyond 2005)
                         historicalGHG, historicalMisc, historicalNat (DAMIP)
                         https://pcmdi.llnl.gov/mips/cmip5/docs/cmip5_data_reference_syntax_v1-02_marked.pdf
+PJD 13 May 2021     - queries, add cpocean (specific heat capacity, realign to Griffies et al., 2016 GMD)
                     TODO: add version info
                     TODO: collapse all decadal* exps into DCPP actId
 
@@ -315,14 +316,15 @@ mips['CMIP5'] = {}
 mips['CMIP3'] = {}
 
 queries = {'eos': 'equation of state (+ constants)',
-           'frzEqn': 'freezing equation',
+           'cp': 'specific heat capacity (cpocean, J kg-1 K-1)',
+           'refRho': 'reference density (boussinesq; rhozero, kg m-3)',
+           'frzEqn': 'freezing point (equation)',
            'angRot': 'planet angular rotation (radians s-1)',
            'graAcc': 'gravitational acceleration (m s-2)',
            'horRes': 'native horizontal resolution',
            'verRes': 'native vertical resolution',
            'vertK': 'vertical diffusivity scheme',
-           'mldSch': 'boundary-layer (mixed-layer) scheme',
-           'refRho': 'reference density (boussinesq)',
+           'mldSch': 'boundary-layer (mixed-) scheme',
            'vol': 'sea water volume',
            'initCl': 'initialization observed climatology',
            'spinYr': 'spinup length (years)',
