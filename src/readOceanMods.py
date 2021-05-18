@@ -26,6 +26,8 @@ PJD 18 May 2021     - Collapse all decadal* exps into DCPP actId,
                     midHolocene + past1000 to PMIP,
                     noVolcXXXX + volcInXXXX to VolMIP
                     https://github.com/durack1/CMIPOcean/issues/6
+PJD 18 May 2021     - update key 'aerosol indirect effects' -> 'sulphate aer*'
+PJD 18 May 2021     - Added modId 'ocean model id (+ version)'
                     TODO: add version info
 
 @author: durack1
@@ -338,7 +340,8 @@ mips['CMIP6'] = {}
 mips['CMIP5'] = {}
 mips['CMIP3'] = {}
 
-queries = {'eos': 'equation of state (+ constants)',
+queries = {'modId': 'ocean model id (+ version)',
+           'eos': 'equation of state (+ constants)',
            'cp': 'specific heat capacity (cpocean, J kg-1 K-1)',
            'refRho': 'reference density (boussinesq; rhozero, kg m-3)',
            'frzEqn': 'freezing point (equation)',
@@ -353,7 +356,7 @@ queries = {'eos': 'equation of state (+ constants)',
            'spinYr': 'spinup length (years)',
            'antAer': 'anthropogenic aerosol forcing',
            'volcFo': 'volcanic forcing',
-           'aerInd': 'aerosol indirect effects'}
+           'aerInd': 'sulphate aerosol indirect effects'}
 
 for count1, filePath in enumerate(fileList):
     if filePath in ['.DS_Store', 'ESGF.json']:

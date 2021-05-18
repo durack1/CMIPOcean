@@ -25,6 +25,7 @@ PJD 13 May 2021     - Update instId, srcId etc mappings, remove _, add space
 PJD 13 May 2021     - Update html table titles with - to allow word multi-line
 PJD 13 May 2021     - queries, add cpocean (specific heat capacity, realign to Griffies et al., 2016 GMD)
 PJD 13 May 2021     - More html table titles updated with - to allow word multi-line
+PJD 18 May 2021     - Added modId 'ocean model id (+ version)'
                    - TODO: Update default page lengths
 '''
 # This script takes the json file and turns it into a nice
@@ -117,7 +118,8 @@ versionInfo = CMIP.get('version')
 # %% Process html
 
 # Names and varId
-queries = {'eos': 'equation of state (+ constants)',
+queries = {'modId': 'ocean model id (+ version)',
+           'eos': 'equation of state (+ constants)',
            'cp': 'specific heat capacity (cpocean, J kg-1 K-1)',
            'refRho': 'reference density (boussinesq; rhozero, kg m-3)',
            'frzEqn': 'freezing point (equation)',
@@ -132,7 +134,7 @@ queries = {'eos': 'equation of state (+ constants)',
            'spinYr': 'spinup length (years)',
            'antAer': 'anthropogenic aerosol forcing',
            'volcFo': 'volcanic forcing',
-           'aerInd': 'aerosol indirect effects'}
+           'aerInd': 'sulphate aerosol indirect effects'}
 
 for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
     print(mipEra)
@@ -175,6 +177,7 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
     fo.write(html)
 
     modKeys = ['source_id', 'activity_id', 'experiment_id', 'ripf',
+               'ocean model id (+ version)',
                'EOS (+ constants)',
                'specific heat capacity (cpocean)',
                'ref. density (bouss-inesq, rhozero)',
@@ -190,7 +193,7 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
                'spinup length (years)',
                'anthrop. aerosol forcing',
                'volcanic forcing',
-               'aerosol indirect effects']
+               'sulphate aerosol indirect effects']
 
     first_row = False
     # Create table columns
