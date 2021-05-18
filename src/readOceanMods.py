@@ -17,9 +17,16 @@ PJD 13 May 2021     - Reassign actId to decadal* (DCPP)
                         historicalExt (CMIP - extension beyond 2005)
                         historicalGHG, historicalMisc, historicalNat (DAMIP)
                         https://pcmdi.llnl.gov/mips/cmip5/docs/cmip5_data_reference_syntax_v1-02_marked.pdf
-PJD 13 May 2021     - queries, add cpocean (specific heat capacity, realign to Griffies et al., 2016 GMD)
+PJD 13 May 2021     - queries, add cpocean (specific heat capacity, realign to
+                                            Griffies et al., 2016 GMD)
+PJD 18 May 2021     - Correct institution_id mappings (instRemap)
+                    https://github.com/durack1/CMIPOcean/issues/6
+PJD 18 May 2021     - Collapse all decadal* exps into DCPP actId,
+                    esmCon*/esmHist* to CMIP, esmrcp* to ScenarioMIP,
+                    midHolocene + past1000 to PMIP,
+                    noVolcXXXX + volcInXXXX to VolMIP
+                    https://github.com/durack1/CMIPOcean/issues/6
                     TODO: add version info
-                    TODO: collapse all decadal* exps into DCPP actId
 
 @author: durack1
 """
@@ -101,20 +108,34 @@ def siftBits(tmpId):
         # validate srcId
         expId = modId[4]
         # Kludge actId from expId
+        if expId in ['esmControl', 'esmHistorical']:
+            actId = 'CMIP'
         expTest = re.compile('^esmF*')
-        if expTest.match(expId):
+        tmp = expTest.match(expId)
+        if tmp and tmp.span()[1] == 4:
             actId = 'C4MIP'
         if expId in ['historicalGHG', 'historicalMisc', 'historicalNat']:
             actId = 'DAMIP'
         expTest = re.compile('^decadal\d{1,4}')
         if expTest.match(expId):
             actId = 'DCPP'
+        if expId in ['midHolocene', 'past1000']:
+            actId = 'PMIP'
+        expTest = re.compile('^esmrcp\d{1,2}')
+        if expTest.match(expId):
+            actId = 'ScenarioMIP'
         expTest = re.compile('^rcp\d{1,2}')
         if expTest.match(expId):
             actId = 'ScenarioMIP'
         expTest = re.compile('^sst20\d{1,2}')
         if expTest.match(expId):
             actId = 'ScenarioMIP'
+        expTest = re.compile('^noVolc\d{1,4}')
+        if expTest.match(expId):
+            actId = 'VolMIP'
+        expTest = re.compile('^volcIn\d{1,4}')
+        if expTest.match(expId):
+            actId = 'VolMIP'
         # Kludge - poor indexes, missing tableId
         if ('CCCma' in instId and 'CanCM4' in srcId and
             'v20130331' in modId[-1]
@@ -222,23 +243,25 @@ def instRemap(instId):
 
     """
     # Create CMIP6 alias for earlier mipEras
-    if instId in ['BCC', 'BCCR']:
-        instId = 'BCC'
-    if instId in ['IAP', 'CAS']:
+    if instId in ['CAS', 'IAP', 'LASG-CESS', 'LASG-IAP']:
         instId = 'CAS'
-    if instId in ['INGV', 'ICHEC', 'CMCC']:
+    if instId in ['CMCC', 'INGV']:
         instId = 'CMCC'
     if instId in ['CRNM_CERFACS', 'CNRM-CERFACS']:
         instId = 'CNRM-CERFACS'
-    if instId in ['CSIRO-BOM', 'CSIRO']:
+    if instId in ['CSIRO', 'CSIRO-BOM']:
         instId = 'CSIRO'
-    if instId in ['FIO', 'FIO-QLNM']:
+    if instId in ['EC-Earth-Consortium', 'ICHEC']:
+        instId = 'EC-Earth-Consortium'
+    if instId in ['FIO-QLNM', 'FIO']:
         instId = 'FIO-QLNM'
     if instId in ['NCAR', 'NSF-DOE-NCAR']:
         instId = 'NCAR'
-    if instId in ['NIMR-KMA', 'NIMS-KMA']:
+    if instId in ['NCC', 'BCCR']:
+        instId = 'NCC'
+    if instId in ['NIMS-KMA', 'NIMR-KMA']:
         instId = 'NIMS-KMA'
-    if instId in ['GFDL', 'NOAA-GFDL']:
+    if instId in ['NOAA-GFDL', 'GFDL']:
         instId = 'NOAA-GFDL'
 
     return instId
