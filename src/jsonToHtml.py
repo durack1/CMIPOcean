@@ -27,6 +27,8 @@ PJD 13 May 2021     - queries, add cpocean (specific heat capacity, realign to G
 PJD 13 May 2021     - More html table titles updated with - to allow word multi-line
 PJD 18 May 2021     - Added modId 'ocean model id (+ version)'
                    - TODO: Update default page lengths
+                   - TODO: Use <td rowspan="2">$50</td> across multiple actIds
+                   https://www.w3schools.com/TAgs/tryit.asp?filename=tryhtml_td_rowspan
 '''
 # This script takes the json file and turns it into a nice
 # jquery/data-tabled html doc
