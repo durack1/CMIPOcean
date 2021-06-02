@@ -26,6 +26,7 @@ PJD 13 May 2021     - Update html table titles with - to allow word multi-line
 PJD 13 May 2021     - queries, add cpocean (specific heat capacity, realign to Griffies et al., 2016 GMD)
 PJD 13 May 2021     - More html table titles updated with - to allow word multi-line
 PJD 18 May 2021     - Added modId 'ocean model id (+ version)'
+PJD  2 Jun 2021     - Updated jquery.dataTables-1.10.24.min.js with 500,1000 entries (line 176)
                    - TODO: Update default page lengths
                    - TODO: Use <td rowspan="2">$50</td> across multiple actIds
                    https://www.w3schools.com/TAgs/tryit.asp?filename=tryhtml_td_rowspan
