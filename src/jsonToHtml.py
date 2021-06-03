@@ -27,6 +27,7 @@ PJD 13 May 2021     - queries, add cpocean (specific heat capacity, realign to G
 PJD 13 May 2021     - More html table titles updated with - to allow word multi-line
 PJD 18 May 2021     - Added modId 'ocean model id (+ version)'
 PJD  2 Jun 2021     - Updated jquery.dataTables-1.10.24.min.js with 500,1000 entries (line 176)
+PJD  3 Jun 2021     - Added exclusion for CMIP5:DCPP/decadalXXXX exps
                    - TODO: Update default page lengths
                    - TODO: Use <td rowspan="2">$50</td> across multiple actIds
                    https://www.w3schools.com/TAgs/tryit.asp?filename=tryhtml_td_rowspan
@@ -212,6 +213,9 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
     for count, instEntry in enumerate(CMIPList):
         print('instEntry:', instEntry)
         instId, srcId, actId, expId, ripfId = instEntry
+        # Check case CMIP5:DCPP
+        if mipEra == 'CMIP5' and actId == 'DCPP':
+            continue  # Skip decadalXXXX experiments
         print('instId:', instId)
         print('srcId: ', srcId)
         print('actId: ', actId)
