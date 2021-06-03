@@ -5,6 +5,7 @@ Created on Tue May  4 14:27:40 2021
 
 PJD  6 May 2021     - Add sort by key
 PJD 11 May 2021     - Dealt with new directory info
+PJD  3 Jun 2021     - Updated variable_id=thetao, tos collecting atmos-only
 
 @author: durack1
 """
@@ -46,7 +47,7 @@ for mipEra in mips.keys():
         print('activity_id:', actId)
         # Call function - get json output
         js = get_dataset_time_data(project=mipEra, activity_id=actId,
-                                   variable_id='tos')
+                                   variable_id='thetao')
         # Write output
         outFile = '_'.join([timeFormatDir, mipEra, actId,
                             'ESGF-Datasets.json'])
