@@ -45,7 +45,7 @@ queries = {'modId': 'ocean model id (+ version)',
            'antAer': 'anthropogenic aerosol forcing',
            'volcFo': 'volcanic forcing',
            'aerInd': 'sulphate aerosol indirect effects',
-           'geotHt': 'geo-thermal heating'}
+           'geotHt': 'geothermal heating'}
 
 # template
 instKey = 'NOAA-GFDL'
@@ -92,6 +92,7 @@ volcFo = ''.join(['prescribed aerosol optical properties ([Sato et al., 1993',
                   '[Stenchikov et al., 1998](https://doi.org/10.1029/',
                   '98JD00693))'])
 aerInd = 'prescribed'
+geotHt = 'None'
 
 # specific CMIP3 models
 modId0 = ''.join(['GFDL-MOM4; OM3.0; [Delworth et al., 2006]',
@@ -154,6 +155,8 @@ modIdCM = ''.join(['GFDL-MOM4; OM3.0; [Delworth et al., 2006]',
 initClESM = 'WOA2005'
 antAerESM = 'prescribed aerosol concentration'
 aerIndESM = 'prescribed'
+geotHtESM = ''.join(['50 mW m-2; [Adcroft et al., 2001](https://doi.org/',
+                     '10.1029/2000GL012182)'])
 
 eos2G = ''.join(['[Wright, 1997](https://doi.org/10.1175/1520-0426(1997)014%',
                  '3C0735AEOSFU%3E2.0.CO;2) (EOS-80; thetao, so/Sp)'])
@@ -202,11 +205,13 @@ for count1, mod in enumerate(['GFDL-CM2p1', 'GFDL-CM3', 'GFDL-ESM2G',
         initCl = initClESM
         antAer = antAerESM
         aerInd = aerIndESM
+        geotHt = geotHtESM
     elif mod == 'GFDL-ESM2M':
         modId = modId2M
         initCl = initClESM
         antAer = antAerESM
         aerInd = aerIndESM
+        geotHt = geotHtESM
     for count2, queryKey in enumerate(queries.keys()):
         CMIP_modeller[mipEra][instKey][mod][queryKey] = eval(queryKey)
 
@@ -248,7 +253,8 @@ volcFo = ''.join(['prescribed aerosol optical properties based on input4MIPs',
                   ' [ETH Zürich (ETHZ), 2017](https://doi.org/10.22033/ESGF/',
                   'input4MIPs.1681)'])
 aerInd = 'yes; based on bulk mass concentration'
-geotHt = 'x'
+geotHt = ''.join(['95.9 mW m-2; [Davies, 2013](https://doi.org/',
+                  '10.1002/ggge.20271)'])
 
 # specific CMIP6 models
 key = 'GFDL-ESM2M'
@@ -276,8 +282,8 @@ volcFoE2M = ''.join(['prescribed aerosol optical properties [Sato et al., ',
                      '[Stenchikov et al., 1998](https://doi.org/10.1029/',
                      '98JD00693)'])
 aerIndE2M = 'prescribed'
-geotHtE2M = ''.join(['50mW m-2 ([Adcroft et al., 2001](https://doi.',
-                     'org/10.1029/2000GL012182))'])
+geotHtE2M = ''.join(['50 mW m-2; [Adcroft et al., 2001](https://doi.org/',
+                     '10.1029/2000GL012182)'])
 
 key = 'GFDL-ESM4' or 'GFDL-OM4p5B'
 modIdE4 = ''.join(['GFDL-MOM6; OM4.5; (Adcroft et al., 2019)[https://doi.org/',
@@ -285,6 +291,8 @@ modIdE4 = ''.join(['GFDL-MOM6; OM4.5; (Adcroft et al., 2019)[https://doi.org/',
 horResE4 = 'tripolar, nominal 0.5 deg; 720 x 576 longitude/latitude'
 volE4 = 1.33480E+18
 spinYrE4 = 1000
+geotHtE4 = ''.join(['95.9 mW m-2; [Davies, 2013](https://doi.org/',
+                    '10.1002/ggge.20271)'])
 
 # overwrite model specific info
 for count1, mod in enumerate(['GFDL-CM4', 'GFDL-ESM2M', 'GFDL-ESM4',
@@ -308,11 +316,13 @@ for count1, mod in enumerate(['GFDL-CM4', 'GFDL-ESM2M', 'GFDL-ESM4',
         antAer = antAerE2M
         volcFo = volcFoE2M
         aerInd = aerIndE2M
-    elif mod in ['GFDL-ESM2G', 'GFDL-OM4p5B']:
+        geotHt = geotHtE2M
+    elif mod in ['GFDL-ESM4', 'GFDL-OM4p5B']:
         modId = modIdE4
         horRes = horResE4
         vol = volE4
         spinYr = spinYrE4
+        geotHt = geotHtE4  # Reinstate
     for count2, queryKey in enumerate(queries.keys()):
         CMIP_modeller[mipEra][instKey][mod][queryKey] = eval(queryKey)
 
