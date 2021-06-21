@@ -28,6 +28,7 @@ PJD 18 May 2021     - Collapse all decadal* exps into DCPP actId,
                     https://github.com/durack1/CMIPOcean/issues/6
 PJD 18 May 2021     - update key 'aerosol indirect effects' -> 'sulphate aer*'
 PJD 18 May 2021     - Added modId 'ocean model id (+ version)'
+PJD 21 Jun 2021     - Added geothermal heating (geotHt)
                     TODO: add version info
 
 @author: durack1
@@ -356,7 +357,8 @@ queries = {'modId': 'ocean model id (+ version)',
            'spinYr': 'spinup length (years)',
            'antAer': 'anthropogenic aerosol forcing',
            'volcFo': 'volcanic forcing',
-           'aerInd': 'sulphate aerosol indirect effects'}
+           'aerInd': 'sulphate aerosol indirect effects',
+           'geotHt': 'geothermal heating'}
 
 for count1, filePath in enumerate(fileList):
     if filePath in ['.DS_Store', 'ESGF.json']:
