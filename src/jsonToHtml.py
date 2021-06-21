@@ -28,6 +28,7 @@ PJD 13 May 2021     - More html table titles updated with - to allow word multi-
 PJD 18 May 2021     - Added modId 'ocean model id (+ version)'
 PJD  2 Jun 2021     - Updated jquery.dataTables-1.10.24.min.js with 500,1000 entries (line 176)
 PJD  3 Jun 2021     - Added exclusion for CMIP5:DCPP/decadalXXXX exps
+PJD 21 Jun 2021     - Added geothermal heating (geotHt)
                    - TODO: Update default page lengths
                    - TODO: Use <td rowspan="2">$50</td> across multiple actIds
                    https://www.w3schools.com/TAgs/tryit.asp?filename=tryhtml_td_rowspan
@@ -138,7 +139,8 @@ queries = {'modId': 'ocean model id (+ version)',
            'spinYr': 'spinup length (years)',
            'antAer': 'anthropogenic aerosol forcing',
            'volcFo': 'volcanic forcing',
-           'aerInd': 'sulphate aerosol indirect effects'}
+           'aerInd': 'sulphate aerosol indirect effects',
+           'geotHt': 'geothermal heating'}
 
 for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
     print(mipEra)
@@ -197,7 +199,8 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
                'spinup length (years)',
                'anthrop. aerosol forcing',
                'volcanic forcing',
-               'sulphate aerosol indirect effects']
+               'sulphate aerosol indirect effects',
+               'geo-thermal heating']
 
     first_row = False
     # Create table columns

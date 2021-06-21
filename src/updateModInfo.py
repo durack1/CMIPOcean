@@ -9,6 +9,7 @@ and a CMIP-modeler-sourced registry which is merged to form the html tables
 
 PJD 18 May 2021     - Started
 PJD  2 Jun 2021     - Updated to reflect ESGF/modeler-sourced info
+PJD 21 Jun 2021     - Added geothermal heating (geotHt)
 
 @author: durack1
 """
@@ -43,7 +44,9 @@ queries = {'modId': 'ocean model id (+ version)',
            'spinYr': 'spinup length (years)',
            'antAer': 'anthropogenic aerosol forcing',
            'volcFo': 'volcanic forcing',
-           'aerInd': 'sulphate aerosol indirect effects'}
+           'aerInd': 'sulphate aerosol indirect effects',
+           'geotHt': 'geo-thermal heating'}
+
 # template
 instKey = 'NOAA-GFDL'
 modKey = 'gfdl_cm_2_0'
