@@ -29,6 +29,10 @@ PJD 18 May 2021     - Added modId 'ocean model id (+ version)'
 PJD  2 Jun 2021     - Updated jquery.dataTables-1.10.24.min.js with 500,1000 entries (line 176)
 PJD  3 Jun 2021     - Added exclusion for CMIP5:DCPP/decadalXXXX exps
 PJD 21 Jun 2021     - Added geothermal heating (geotHt)
+PJD 23 Jun 2021     - Download files from https://datatables.net/download/ [jQuery 3 and dataTables selected, minified];
+                      copy css/jquery.dataTables.min.css and js/jquery.dataTables.min.js (updating *dataTables* -> *dataTables-1.10.25*)
+                    - Update jquery.dataTables-1.10.25.min.js line 160 update ,aLengthMenu:[10,25,50,100], ->
+                    ,aLengthMenu:[5,10,25,50,100,150,200,250,300,350,400], (use jquery.dataTables.js for location lookup [non-minified])
                    - TODO: Update default page lengths
                    - TODO: Use <td rowspan="2">$50</td> across multiple actIds
                    https://www.w3schools.com/TAgs/tryit.asp?filename=tryhtml_td_rowspan
@@ -81,9 +85,9 @@ header = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www
 <meta name="description" content="CMIP ocean model configuration information" />
 <meta name="keywords" content="HTML, CSS, JavaScript" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" charset="utf-8" href="../src/jquery.dataTables-1.10.24.min.css" />
+<link rel="stylesheet" type="text/css" charset="utf-8" href="../src/jquery.dataTables-1.10.25.min.css" />
 <script type="text/javascript" charset="utf-8" src="../src/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="../src/jquery.dataTables-1.10.24.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../src/jquery.dataTables-1.10.25.min.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(document).ready( function () {
