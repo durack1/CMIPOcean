@@ -10,6 +10,8 @@ and a CMIP-modeler-sourced registry which is merged to form the html tables
 PJD 18 May 2021     - Started
 PJD  2 Jun 2021     - Updated to reflect ESGF/modeler-sourced info
 PJD 21 Jun 2021     - Added geothermal heating (geotHt)
+PJD 22 Jun 2021     - Update to meld resources before writing pages
+PJD 23 Jun 2021     - Update index to copy CMIP_ESGF 'all'
 
 @author: durack1
 """
@@ -103,14 +105,18 @@ modId1 = ''.join(['GFDL-MOM4p1; OM3.1; [Delworth et al., 2006]',
 # overwrite model specific info
 for count1, mod in enumerate(['gfdl_cm_2_0', 'gfdl_cm_2_1']):
     CMIP_modeller[mipEra][instKey][mod] = {}
+    CMIP_modeller[mipEra][instKey][mod]['all'] = {}
+    CMIP_modeller[mipEra][instKey][mod]['all']['all'] = {}
+    CMIP_modeller[mipEra][instKey][mod]['all']['all']['all'] = {}
     for count2, queryKey in enumerate(queries.keys()):
-        CMIP_modeller[mipEra][instKey][mod][queryKey] = eval(queryKey)
+        CMIP_modeller[mipEra][instKey][mod]['all']['all']['all'][queryKey] \
+            = eval(queryKey)
     # Overwrite default queries
     if mod == 'gfdl_cm_2_0':
         modId = modId0
     elif mod == 'gfdl_cm_2_1':
         modId = modId1
-    CMIP_modeller[mipEra][instKey][mod]['modId'] = modId
+    CMIP_modeller[mipEra][instKey][mod]['all']['all']['all']['modId'] = modId
 
 print('----------')
 keys = CMIP_modeller['CMIP3'][instKey].keys()
@@ -189,6 +195,9 @@ modId2M = ''.join(['GFDL-MOM4p1; OM3.1; [Delworth et al., 2006]',
 for count1, mod in enumerate(['GFDL-CM2p1', 'GFDL-CM3', 'GFDL-ESM2G',
                               'GFDL-ESM2M']):
     CMIP_modeller[mipEra][instKey][mod] = {}
+    CMIP_modeller[mipEra][instKey][mod]['all'] = {}
+    CMIP_modeller[mipEra][instKey][mod]['all']['all'] = {}
+    CMIP_modeller[mipEra][instKey][mod]['all']['all']['all'] = {}
     # Overwrite default queries
     if mod == 'GFDL-CM3':
         modId = modIdCM
@@ -213,7 +222,8 @@ for count1, mod in enumerate(['GFDL-CM2p1', 'GFDL-CM3', 'GFDL-ESM2G',
         aerInd = aerIndESM
         geotHt = geotHtESM
     for count2, queryKey in enumerate(queries.keys()):
-        CMIP_modeller[mipEra][instKey][mod][queryKey] = eval(queryKey)
+        CMIP_modeller[mipEra][instKey][mod]['all']['all']['all'][queryKey] \
+            = eval(queryKey)
 
 print('----------')
 keys = CMIP_modeller['CMIP5'][instKey].keys()
@@ -298,8 +308,9 @@ geotHtE4 = ''.join(['95.9 mW m-2; [Davies, 2013](https://doi.org/',
 for count1, mod in enumerate(['GFDL-CM4', 'GFDL-ESM2M', 'GFDL-ESM4',
                               'GFDL-OM4p5B']):
     CMIP_modeller[mipEra][instKey][mod] = {}
-    for count2, queryKey in enumerate(queries.keys()):
-        CMIP_modeller[mipEra][instKey][mod][queryKey] = eval(queryKey)
+    CMIP_modeller[mipEra][instKey][mod]['all'] = {}
+    CMIP_modeller[mipEra][instKey][mod]['all']['all'] = {}
+    CMIP_modeller[mipEra][instKey][mod]['all']['all']['all'] = {}
     # Overwrite default queries
     if mod == 'GFDL-ESM2M':
         modId = modIdE2M
@@ -324,7 +335,8 @@ for count1, mod in enumerate(['GFDL-CM4', 'GFDL-ESM2M', 'GFDL-ESM4',
         spinYr = spinYrE4
         geotHt = geotHtE4  # Reinstate
     for count2, queryKey in enumerate(queries.keys()):
-        CMIP_modeller[mipEra][instKey][mod][queryKey] = eval(queryKey)
+        CMIP_modeller[mipEra][instKey][mod]['all']['all']['all'][queryKey] \
+            = eval(queryKey)
 
 print('----------')
 keys = CMIP_modeller['CMIP6'][instKey].keys()
@@ -341,3 +353,7 @@ print('outFile:', outFile)
 with open(outFile, 'w', encoding='utf-8') as outJson:
     json.dump(CMIP_modeller, outJson, ensure_ascii=False, indent=4,
               sort_keys=True)
+
+# %% Now meld resources (ESGF index, modeller sourced info) and write html
+# CMIP_ESGF.     CMIP6.NOAA-GFDL.GFDL-CM4.CMIP.1pctCO2.r1i1p1f1.query
+# CMIP6_Modeller.CMIP6.NOAA-GFDL.GFDL-CM4.                      query
