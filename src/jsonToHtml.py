@@ -30,7 +30,7 @@ PJD  2 Jun 2021     - Updated jquery.dataTables-1.10.24.min.js with 500,1000 ent
 PJD  3 Jun 2021     - Added exclusion for CMIP5:DCPP/decadalXXXX exps
 PJD 21 Jun 2021     - Added geothermal heating (geotHt)
 PJD 23 Jun 2021     - Download files from https://datatables.net/download/ [jQuery 3 and dataTables selected, minified];
-                      copy css/jquery.dataTables.min.css and dataTables.min.js (updating *dataTables* -> *dataTables-1.10.25*)
+                      copy css/jquery.dataTables.min.css and datatables.min.js (updating *datatables* -> *dataTables-1.10.25*)
                     - Update dataTables-1.10.25.min.js line 176 update ,aLengthMenu:[10,25,50,100], ->
                     ,aLengthMenu:[5,10,25,50,100,150,200,250,300,350,400], (use jquery.dataTables.js for location lookup [non-minified])
                    - TODO: Update default page lengths
