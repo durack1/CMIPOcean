@@ -19,7 +19,7 @@ PJD 23 Jun 2021     - Update index to copy CMIP_ESGF 'all'
 import collections
 import json
 import os
-#import sys
+import pdb
 
 # %% run ESGF index scrape
 
@@ -103,7 +103,7 @@ modId1 = ''.join(['GFDL-MOM4p1; OM3.1; [Delworth et al., 2006]',
                   '(https://doi.org/10.1175/JCLI3629.1)'])
 
 # overwrite model specific info
-for count1, mod in enumerate(['gfdl_cm_2_0', 'gfdl_cm_2_1']):
+for count1, mod in enumerate(['gfdl_cm2_0', 'gfdl_cm2_1']):
     CMIP_modeller[mipEra][instKey][mod] = {}
     CMIP_modeller[mipEra][instKey][mod]['all'] = {}
     CMIP_modeller[mipEra][instKey][mod]['all']['all'] = {}
@@ -112,9 +112,9 @@ for count1, mod in enumerate(['gfdl_cm_2_0', 'gfdl_cm_2_1']):
         CMIP_modeller[mipEra][instKey][mod]['all']['all']['all'][queryKey] \
             = eval(queryKey)
     # Overwrite default queries
-    if mod == 'gfdl_cm_2_0':
+    if mod == 'gfdl_cm2_0':
         modId = modId0
-    elif mod == 'gfdl_cm_2_1':
+    elif mod == 'gfdl_cm2_1':
         modId = modId1
     CMIP_modeller[mipEra][instKey][mod]['all']['all']['all']['modId'] = modId
 
@@ -236,10 +236,10 @@ mipEra = 'CMIP6'
 CMIP_modeller[mipEra][instKey] = {}
 
 # all CMIP6 models
-modId = ('GFDL-MOM6; OM4.25; ([Adcroft et al., 2019](https://doi.org/',
-         '10.1029/2019MS001726))')
-eos = ('[Wright, 1997](https://doi.org/10.1175/1520-0426(1997)014<0735:',
-       'AEOSFU>2.0.CO;2) (EOS-80; thetao, so/Sp)')
+modId = ''.join(['GFDL-MOM6; OM4.25; [Adcroft et al., 2019](https://doi.org/',
+                 '10.1029/2019MS001726)'])
+eos = ''.join(['[Wright, 1997](https://doi.org/10.1175/1520-0426(1997)014',
+               '<0735:AEOSFU>2.0.CO;2) (EOS-80; thetao, so/Sp)'])
 cp = 3992.0
 refRho = 1035.0
 frzEqn = ' '.join(['T_Fr = dTFr_dS * S + dTFr_dp * pres; dTFr_dS = -0.054,',
@@ -250,7 +250,7 @@ horRes = 'tripolar, nominal 0.25 deg; 1440 x 1080 longitude/latitude'
 verRes = '75 hybrid layers (z* and rho2000); top grid cell 0-2 m; []'
 vertK = ''.join(['shear mixing ([Jackson et al., 2008](https://doi.org/',
                  '10.1175/2007JPO3779.1]), + tide mixing ([Melet et al., 2013',
-                 '](https://doi.org/10.1175/JPO-D-12-055.1), + constant',
+                 '](https://doi.org/10.1175/JPO-D-12-055.1)), + constant',
                  ' background diffusivity 1.5e-5 m-2 s-1 >30n/S, tapering to',
                  '2e-6 m-2 s-1 at equator'])
 mldSch = ''.join(['energy based boundary layer ([Reichl and Hallberg, 2018]',
@@ -296,8 +296,8 @@ geotHtE2M = ''.join(['50 mW m-2; [Adcroft et al., 2001](https://doi.org/',
                      '10.1029/2000GL012182)'])
 
 key = 'GFDL-ESM4' or 'GFDL-OM4p5B'
-modIdE4 = ''.join(['GFDL-MOM6; OM4.5; (Adcroft et al., 2019)[https://doi.org/',
-                   '10.1029/2019MS001726]'])
+modIdE4 = ''.join(['GFDL-MOM6; OM4.5; [Adcroft et al., 2019](https://doi.org/',
+                   '10.1029/2019MS001726)'])
 horResE4 = 'tripolar, nominal 0.5 deg; 720 x 576 longitude/latitude'
 volE4 = 1.33480E+18
 spinYrE4 = 1000
@@ -347,7 +347,7 @@ for count, key in enumerate(keys):
 # %% finally sort
 CMIP_modeller = collections.OrderedDict(CMIP_modeller)
 
-# Process data to fie
+# Process data to file
 outFile = os.path.join('..', 'CMIP_Modeller.json')
 print('outFile:', outFile)
 with open(outFile, 'w', encoding='utf-8') as outJson:
@@ -357,3 +357,98 @@ with open(outFile, 'w', encoding='utf-8') as outJson:
 # %% Now meld resources (ESGF index, modeller sourced info) and write html
 # CMIP_ESGF.     CMIP6.NOAA-GFDL.GFDL-CM4.CMIP.1pctCO2.r1i1p1f1.query
 # CMIP6_Modeller.CMIP6.NOAA-GFDL.GFDL-CM4.                      query
+
+# Load CMIP_ESGF
+inFile = '../CMIP_ESGF.json'
+with open(inFile) as jsonFile:
+    CMIP_merge = json.load(jsonFile)
+
+    # Overwrite CMIP_ESGF with CMIP_Modeller values
+    for countm, mipEra in enumerate(CMIP_modeller.keys()):
+        print('countm:', countm, mipEra)
+        for counti, instId in enumerate(CMIP_modeller[mipEra].keys()):
+            print('counti', counti, instId)
+            for countM, modIdM in enumerate(CMIP_modeller[mipEra]
+                                            [instId].keys()):
+                print('countM:', countM, modIdM)
+                for counta, actId in enumerate(CMIP_modeller[mipEra]
+                                               [instId][modIdM].keys()):
+                    print('counta:', counta, actId)
+                    for counte, expId in enumerate(CMIP_modeller[mipEra]
+                                                   [instId][modIdM]
+                                                   [actId].keys()):
+                        print('counte:', counte, expId)
+                        for countr, ripId in enumerate(CMIP_modeller[mipEra]
+                                                       [instId][modIdM]
+                                                       [actId].keys()):
+                            print('countr:', countr, ripId)
+                            # Test for all cases
+                            if 'all' in {actId, expId, ripId}:
+                                print('all across all')
+                                # Impose changes across all published instances
+                                for countaM, actIdM in enumerate(CMIP_merge
+                                                                 [mipEra]
+                                                                 [instId]
+                                                                 [modIdM]
+                                                                 .keys()):
+                                    for counteM, expIdM in enumerate(CMIP_merge
+                                                                     [mipEra]
+                                                                     [instId]
+                                                                     [modIdM]
+                                                                     [actIdM]
+                                                                     .keys()):
+                                        for countrM, ripIdM in enumerate(
+                                                CMIP_merge[mipEra][instId]
+                                                [modIdM][actIdM][expIdM]
+                                                .keys()):
+                                            print(mipEra, instId, modIdM,
+                                                  actIdM, expIdM, ripIdM)
+                                            for query in queries.keys():
+                                                print('-----')
+                                                #print('query:', query)
+                                                #print('modId', modIdM)
+                                                #print('keys:', CMIP_modeller
+                                                #      [mipEra][instId].keys())
+                                                #print('keys:', CMIP_modeller
+                                                #      [mipEra][instId][modIdM]
+                                                #      [actId][expId][ripId]
+                                                #      .keys())
+                                                #print('query:', CMIP_modeller
+                                                #      [mipEra][instId][modIdM]
+                                                #      [actId][expId][ripId]
+                                                #      [query])
+                                                # Reassign value over ESGF
+                                                print('Merge:', CMIP_merge
+                                                      [mipEra][instId][modIdM]
+                                                      [actIdM][expIdM][ripIdM]
+                                                      [queries[query]])
+                                                print('modeller:',
+                                                      CMIP_modeller[mipEra]
+                                                      [instId][modIdM][actId]
+                                                      [expId][ripId][query])
+                                                print('modeller type:',
+                                                      type(CMIP_modeller
+                                                           [mipEra][instId]
+                                                           [modIdM][actId]
+                                                           [expId][ripId]
+                                                           [query]))
+                                                print('queries:',
+                                                      queries[query])
+                                                # Overwrite values
+                                                CMIP_merge[mipEra][instId][modIdM][actIdM][expIdM][ripIdM][queries[query]] =\
+                                                    CMIP_modeller[mipEra][instId][modIdM][actId][expId][ripId][query]
+                                                print('after')
+                                                print(CMIP_merge[mipEra]
+                                                      [instId][modIdM][actIdM]
+                                                      [expIdM][ripIdM]
+                                                      [queries[query]])
+                            else:
+                                print('all not in all')
+
+# Send revised CMIP_ESGF to jsonToHtml as argument (no file read/open)
+# Process data to file
+outFile = os.path.join('..', 'CMIP_Merge.json')
+print('outFile:', outFile)
+with open(outFile, 'w', encoding='utf-8') as outJson:
+    json.dump(CMIP_merge, outJson, ensure_ascii=False, indent=4,
+              sort_keys=True)

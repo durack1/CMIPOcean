@@ -33,6 +33,7 @@ PJD 23 Jun 2021     - Download files from https://datatables.net/download/ [jQue
                       copy css/jquery.dataTables.min.css and datatables.min.js (updating *datatables* -> *dataTables-1.10.25*)
                     - Update dataTables-1.10.25.min.js line 176 update ,aLengthMenu:[10,25,50,100], ->
                     ,aLengthMenu:[5,10,25,50,100,150,200,250,300,350,400], (use jquery.dataTables.js for location lookup [non-minified])
+PJD 25 Jun 2021     - Update to read ESGF_Merge.json
                    - TODO: Update default page lengths
                    - TODO: Use <td rowspan="2">$50</td> across multiple actIds
                    https://www.w3schools.com/TAgs/tryit.asp?filename=tryhtml_td_rowspan
@@ -76,6 +77,93 @@ def humanSort(inList):
     return outList
 
 
+def convertMarkup(inStr):
+    """
+
+    Parameters
+    ----------
+    inStr : str
+        input data string
+
+    Returns
+    -------
+    outStr : str
+        output data string reformatted as html -> <a href="url">link text</a>
+
+    Ref:
+        https://stackoverflow.com/questions/23394608/python-regex-fails-to-identify-markdown-links
+
+    Test strings:
+        testStr1 = '[Wright, 1997](https://doi.org/10.1175/1520-0426(1997)014<0735:AEOSFU>2.0.CO;2) (EOS-80; thetao, so/Sp)'
+        testStr2 = 'blah blah [Wright, 1997](https://doi.org/10.1175/1520-0426(1997)014<0735:AEOSFU>2.0.CO;2) (EOS-80; thetao, so/Sp)'
+        testStr3 = '[Wright, 1997](https://doi.org/10.1175/1520-0426(1997)014<0735:AEOSFU>2.0.CO;2)'
+        testStr4 = 'blah blah [Wright, 1997](https://doi.org/10.1175/1520-0426(1997)014<0735:AEOSFU>2.0.CO;2)'
+        testStr5 = ' [ ['
+        testStr6 = 'vertK shear mixing ([Jackson et al., 2008](https://doi.org/10.1175/2007JPO3779.1]),
+                                       + tide mixing ([Melet et al., 2013](https://doi.org/10.1175/JPO-D-12-055.1)),
+                                       + constant background diffusivity 1.5e-5 m-2 s-1 >30n/S, tapering to2e-6 m-2 s-1 at equator''
+
+    """
+    outStrTmp = copy.copy(inStr)
+
+    # find around span
+    markdownMatch = re.compile('\]\(http')
+    # find "^[" or " [" before span
+    startStrMatch = re.compile('^\[')
+    startMarkdownMatch = re.compile(' \[')
+    # find ") " or ")$" after span
+    endStrMatch = re.compile('\)$')
+    endMarkdownMatch = re.compile('\) ')
+
+    # Using start/endInd as central search outward to find markdown starts
+    # for testStr in [testStr1, testStr2, testStr3, testStr4, testStr5]:
+    # print('----------')
+    # print(outStr)
+    tmp = markdownMatch.search(outStrTmp)
+    if tmp:
+        #print('tmp.span:', tmp.span())
+        endTextInd = tmp.start()
+        startURLInd = tmp.start() + 2
+    # Case no "](http"
+    else:
+        return outStrTmp
+    tmp = startStrMatch.search(outStrTmp)
+    if tmp:
+        #print('startStrMatch:', tmp.span())
+        startTextInd = tmp.start() + 1
+    for match in startMarkdownMatch.finditer(outStrTmp):
+        #print('startMarkdownMatch:', match.span())
+        startTextInd = match.start() + 2
+    tmp = endStrMatch.search(outStrTmp)
+    if tmp:
+        #print('endStrMatch:', tmp.span())
+        endURLInd = tmp.span()[-2]
+    for match in endMarkdownMatch.finditer(outStrTmp):
+        #print('endMarkdownMatch:', match.span())
+        endURLInd = match.span()[-2]
+    # get start [, get end ]
+    linkText = outStrTmp[startTextInd:endTextInd]
+    # get start (, get end )
+    URLText = outStrTmp[startURLInd:endURLInd]
+    #print('link text:', startTextInd, endTextInd, linkText)
+    #print('link URL:', startURLInd, endURLInd, URLText)
+    # print('')
+
+    # Composite href
+    outStr = ''.join(['<a href="', URLText, '" target="_blank">',
+                      linkText, '</a>'])
+    #print('outStr:', outStr)
+
+    # Add back in leading and trailing text
+    if startTextInd != 1:
+        outStr = ''.join([outStrTmp[0:startTextInd - 1], outStr])
+    if endURLInd != len(outStr):
+        outStr = ''.join([outStr, outStrTmp[endURLInd + 1:len(outStr)]])
+    print('outStr a:', outStr)
+
+    return outStr
+
+
 # %% Create generic header
 header = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
@@ -116,7 +204,7 @@ else:
 destDir = '../docs/'
 
 # %% Read data
-inFile = '../CMIP_ESGF.json'
+inFile = '../CMIP_Merge.json'
 with open(inFile) as jsonFile:
     CMIP = json.load(jsonFile)
 CMIP6 = CMIP.get('CMIP6')
@@ -176,6 +264,8 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
     print('len:', len(CMIPList))
     for count1, val in enumerate(CMIPList):
         print(count1, val)
+
+    # sys.exit()
 
     fout = os.path.join('..', 'docs', '.'.join([mipEra, 'html']))
     print("processing", fout)
@@ -242,8 +332,13 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
         del(ripfStr)
         # Write entries for ripf #1
         for count2, key in enumerate(queries):
-            fo.write("<td>%s</td>\n" % eval(key))
-            print(key.ljust(6), ':', eval(key))
+            # Get query value
+            val = CMIP[instId][srcId][actId][expId][ripfId[0]][queries[key]]
+            print('key/val:', key, val)
+            fo.write("<td>%s</td>\n" % val)
+            if isinstance(val, str):
+                fo.write("<td>%s</td>\n" % convertMarkup(val))
+            # print(key.ljust(6), ':', val)
         fo.write("</tr>\n")
     fo.write("</table>")
     fo.write("""\n</body>\n</html>\n""")
