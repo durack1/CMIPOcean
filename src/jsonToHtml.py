@@ -92,6 +92,7 @@ def convertMarkup(inStr):
 
     Ref:
         https://stackoverflow.com/questions/23394608/python-regex-fails-to-identify-markdown-links
+        https://pynative.com/python-find-position-of-regex-match-using-span-start-end/
 
     Test strings:
         testStr1 = '[Wright, 1997](https://doi.org/10.1175/1520-0426(1997)014<0735:AEOSFU>2.0.CO;2) (EOS-80; thetao, so/Sp)'
