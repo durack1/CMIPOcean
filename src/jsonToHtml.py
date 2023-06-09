@@ -34,6 +34,10 @@ PJD 23 Jun 2021     - Download files from https://datatables.net/download/ [jQue
                     - Update dataTables-1.10.25.min.js line 176 update ,aLengthMenu:[10,25,50,100], ->
                     ,aLengthMenu:[5,10,25,50,100,150,200,250,300,350,400], (use jquery.dataTables.js for location lookup [non-minified])
 PJD 25 Jun 2021     - Update to read ESGF_Merge.json
+PJD  9 Jun 2023     - Download files from https://datatables.net/download/ [jQuery 3 and dataTables selected, minified];
+                      copy css/jquery.dataTables.min.css and datatables.min.js (updating *datatables* -> *dataTables-1.14.3*)
+                    - Update jquery.dataTables-1.14.3.min.js ,aLengthMenu:[10,25,50,100], ->
+                    ,aLengthMenu:[5,10,25,50,100,150,200,250,300,350,400,450,500],
                    - TODO: Update default page lengths
                    - TODO: Use <td rowspan="2">$50</td> across multiple actIds
                    https://www.w3schools.com/TAgs/tryit.asp?filename=tryhtml_td_rowspan
@@ -100,9 +104,9 @@ def convertMarkup(inStr):
         testStr3 = '[Wright, 1997](https://doi.org/10.1175/1520-0426(1997)014<0735:AEOSFU>2.0.CO;2)'
         testStr4 = 'blah blah [Wright, 1997](https://doi.org/10.1175/1520-0426(1997)014<0735:AEOSFU>2.0.CO;2)'
         testStr5 = ' [ ['
-        testStr6 = 'vertK shear mixing ([Jackson et al., 2008](https://doi.org/10.1175/2007JPO3779.1]),
-                                       + tide mixing ([Melet et al., 2013](https://doi.org/10.1175/JPO-D-12-055.1)),
-                                       + constant background diffusivity 1.5e-5 m-2 s-1 >30n/S, tapering to2e-6 m-2 s-1 at equator''
+        testStr6 = ' '.join(['vertK shear mixing ([Jackson et al., 2008](https://doi.org/10.1175/2007JPO3779.1))',
+                             '+ tide mixing ([Melet et al., 2013](https://doi.org/10.1175/JPO-D-12-055.1))',
+                             '+ constant background diffusivity 1.5e-5 m-2 s-1 >30n/S, tapering to 2e-6 m-2 s-1 at equator'])
 
     """
     outStrTmp = copy.copy(inStr)
@@ -120,40 +124,44 @@ def convertMarkup(inStr):
     # for testStr in [testStr1, testStr2, testStr3, testStr4, testStr5]:
     # print('----------')
     # print(outStr)
-    tmp = markdownMatch.search(outStrTmp)
-    if tmp:
-        #print('tmp.span:', tmp.span())
-        endTextInd = tmp.start()
-        startURLInd = tmp.start() + 2
-    # Case no "](http"
-    else:
-        return outStrTmp
-    tmp = startStrMatch.search(outStrTmp)
-    if tmp:
-        #print('startStrMatch:', tmp.span())
-        startTextInd = tmp.start() + 1
-    for match in startMarkdownMatch.finditer(outStrTmp):
-        #print('startMarkdownMatch:', match.span())
-        startTextInd = match.start() + 2
-    tmp = endStrMatch.search(outStrTmp)
-    if tmp:
-        #print('endStrMatch:', tmp.span())
-        endURLInd = tmp.span()[-2]
-    for match in endMarkdownMatch.finditer(outStrTmp):
-        #print('endMarkdownMatch:', match.span())
-        endURLInd = match.span()[-2]
-    # get start [, get end ]
-    linkText = outStrTmp[startTextInd:endTextInd]
-    # get start (, get end )
-    URLText = outStrTmp[startURLInd:endURLInd]
-    #print('link text:', startTextInd, endTextInd, linkText)
-    #print('link URL:', startURLInd, endURLInd, URLText)
-    # print('')
+    cnt = 0
+    for tmp in markdownMatch.finditer(outStrTmp):
+        cnt += 1
+        print('tmp:', tmp)
+        #tmp = markdownMatch.search(outStrTmp)
+        if tmp:
+            print('tmp.span:', tmp.span())
+            endTextInd = tmp.start()
+            startURLInd = tmp.start() + 2
+        # Case no "](http"
+        else:
+            return outStrTmp
+        tmp = startStrMatch.search(outStrTmp)
+        if tmp:
+            print('startStrMatch:', tmp.span())
+            startTextInd = tmp.start() + 1
+        for match in startMarkdownMatch.finditer(outStrTmp):
+            print('startMarkdownMatch:', match.span())
+            startTextInd = match.start() + 2
+        tmp = endStrMatch.search(outStrTmp)
+        if tmp:
+            print('endStrMatch:', tmp.span())
+            endURLInd = tmp.span()[-2]
+        for match in endMarkdownMatch.finditer(outStrTmp):
+            print('endMarkdownMatch:', match.span())
+            endURLInd = match.span()[-2]
+        # get start [, get end ]
+        linkText = outStrTmp[startTextInd:endTextInd]
+        # get start (, get end )
+        URLText = outStrTmp[startURLInd:endURLInd]
+        print('link text:', startTextInd, endTextInd, linkText)
+        print('link URL:', startURLInd, endURLInd, URLText)
+        print('')
 
-    # Composite href
-    outStr = ''.join(['<a href="', URLText, '" target="_blank">',
-                      linkText, '</a>'])
-    #print('outStr:', outStr)
+        # Composite href
+        outStr = ''.join(['<a href="', URLText, '" target="_blank">',
+                          linkText, '</a>'])
+        print('outStr:', outStr)
 
     # Add back in leading and trailing text
     if startTextInd != 1:
@@ -174,9 +182,11 @@ header = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www
 <meta name="description" content="CMIP ocean model configuration information" />
 <meta name="keywords" content="HTML, CSS, JavaScript" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" charset="utf-8" href="../src/jquery.dataTables-1.10.25.min.css" />
-<script type="text/javascript" charset="utf-8" src="../src/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="../src/dataTables-1.10.25.min.js"></script>
+<link rel="stylesheet" type="text/css" charset="utf-8" href="../src/jquery.dataTables-1.13.4.min.css" />
+<script type="text/javascript" charset="utf-8" src="../src/jquery-3.7.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../src/dataTables-1.13.4.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="text/javascript" src="../src/googleAnalyticsTag.js" ></script>
 <script type="text/javascript">
 //<![CDATA[
 $(document).ready( function () {
