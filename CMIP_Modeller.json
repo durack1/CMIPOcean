@@ -179,12 +179,12 @@
                             "graAcc": 9.8,
                             "horRes": "tripolar, nominal 0.25 deg; 1440 x 1080 longitude/latitude",
                             "initCl": "WOA2013",
-                            "mldSch": "energy based boundary layer ([Reichl and Hallberg, 2018](https://doi.org/10.1016/j.ocemod.2018.10.004])",
+                            "mldSch": "energy based boundary layer ([Reichl and Hallberg, 2018](https://doi.org/10.1016/j.ocemod.2018.10.004))",
                             "modId": "GFDL-MOM6; OM4.25; [Adcroft et al., 2019](https://doi.org/10.1029/2019MS001726)",
                             "refRho": 1035.0,
                             "spinYr": 600,
                             "verRes": "75 hybrid layers (z* and rho2000); top grid cell 0-2 m; []",
-                            "vertK": "shear mixing ([Jackson et al., 2008](https://doi.org/10.1175/2007JPO3779.1]), + tide mixing ([Melet et al., 2013](https://doi.org/10.1175/JPO-D-12-055.1)), + constant background diffusivity 1.5e-5 m-2 s-1 >30n/S, tapering to2e-6 m-2 s-1 at equator",
+                            "vertK": "shear mixing ([Jackson et al., 2008](https://doi.org/10.1175/2007JPO3779.1)), + tide mixing ([Melet et al., 2013](https://doi.org/10.1175/JPO-D-12-055.1)), + constant background diffusivity 1.5e-5 m-2 s-1 >30n/S, tapering to2e-6 m-2 s-1 at equator",
                             "vol": 1.33511e+18,
                             "volcFo": "prescribed aerosol optical properties based on input4MIPs [ETH Zürich (ETHZ), 2017](https://doi.org/10.22033/ESGF/input4MIPs.1681)"
                         }

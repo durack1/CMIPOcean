@@ -249,12 +249,12 @@ frzEqn = ' '.join(['T_Fr = dTFr_dS * S + dTFr_dp * pres; dTFr_dS = -0.054,',
 horRes = 'tripolar, nominal 0.25 deg; 1440 x 1080 longitude/latitude'
 verRes = '75 hybrid layers (z* and rho2000); top grid cell 0-2 m; []'
 vertK = ''.join(['shear mixing ([Jackson et al., 2008](https://doi.org/',
-                 '10.1175/2007JPO3779.1]), + tide mixing ([Melet et al., 2013',
+                 '10.1175/2007JPO3779.1)), + tide mixing ([Melet et al., 2013',
                  '](https://doi.org/10.1175/JPO-D-12-055.1)), + constant',
                  ' background diffusivity 1.5e-5 m-2 s-1 >30n/S, tapering to',
                  '2e-6 m-2 s-1 at equator'])
 mldSch = ''.join(['energy based boundary layer ([Reichl and Hallberg, 2018]',
-                  '(https://doi.org/10.1016/j.ocemod.2018.10.004])'])
+                  '(https://doi.org/10.1016/j.ocemod.2018.10.004))'])
 vol = 1.33511E+18
 initCl = 'WOA2013'
 spinYr = 600
@@ -407,13 +407,13 @@ with open(inFile) as jsonFile:
                                                 print('-----')
                                                 #print('query:', query)
                                                 #print('modId', modIdM)
-                                                #print('keys:', CMIP_modeller
+                                                # print('keys:', CMIP_modeller
                                                 #      [mipEra][instId].keys())
-                                                #print('keys:', CMIP_modeller
+                                                # print('keys:', CMIP_modeller
                                                 #      [mipEra][instId][modIdM]
                                                 #      [actId][expId][ripId]
                                                 #      .keys())
-                                                #print('query:', CMIP_modeller
+                                                # print('query:', CMIP_modeller
                                                 #      [mipEra][instId][modIdM]
                                                 #      [actId][expId][ripId]
                                                 #      [query])
