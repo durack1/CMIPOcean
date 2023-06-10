@@ -179,7 +179,7 @@
                             "graAcc": 9.8,
                             "horRes": "tripolar, nominal 0.25 deg; 1440 x 1080 longitude/latitude",
                             "initCl": "WOA2013",
-                            "mldSch": "energy based boundary layer ([Reichl and Hallberg, 2018](https://doi.org/10.1016/j.ocemod.2018.10.004])",
+                            "mldSch": "energy based boundary layer ([Reichl and Hallberg, 2018](https://doi.org/10.1016/j.ocemod.2018.10.004))",
                             "modId": "GFDL-MOM6; OM4.25; [Adcroft et al., 2019](https://doi.org/10.1029/2019MS001726)",
                             "refRho": 1035.0,
                             "spinYr": 600,

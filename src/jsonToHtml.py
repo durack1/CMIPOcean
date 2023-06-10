@@ -116,9 +116,11 @@ def convertMarkup(inStr):
     # find "^[" or " [" before span
     startStrMatch = re.compile('^\[')
     startMarkdownMatch = re.compile(' \[')
+    startMarkdownMatch2 = re.compile(' \(\[')
     # find ") " or ")$" after span
     endStrMatch = re.compile('\)$')
     endMarkdownMatch = re.compile('\) ')
+    endMarkdownMatch2 = re.compile('\)\)')
 
     # Using start/endInd as central search outward to find markdown starts
     # for testStr in [testStr1, testStr2, testStr3, testStr4, testStr5]:
@@ -347,8 +349,10 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
             val = CMIP[instId][srcId][actId][expId][ripfId[0]][queries[key]]
             print('key/val:', key, val)
             fo.write("<td>%s</td>\n" % val)
-            if isinstance(val, str):
+            if isinstance(val, str) and val.count("https") == 1:
                 fo.write("<td>%s</td>\n" % convertMarkup(val))
+            else:
+                fo.write("<td>%s</td>\n" % val)  # write without links
             # print(key.ljust(6), ':', val)
         fo.write("</tr>\n")
     fo.write("</table>")
