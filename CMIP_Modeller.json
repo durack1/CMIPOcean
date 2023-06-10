@@ -19,7 +19,7 @@
                             "modId": "GFDL-MOM4; OM3.0; [Delworth et al., 2006](https://doi.org/10.1175/JCLI3629.1)",
                             "refRho": 1035.0,
                             "spinYr": 300,
-                            "verRes": "50 z-vertical layers; top grid cell 0-10 m; []",
+                            "verRes": "50 z-vertical layers; top grid cell 0-10 m",
                             "vertK": "shear mixing ([Large et al., 1994](https://doi.org/10.1029/94RG01872)) + tide mixing ([Simmons et al., 2004](https://doi.org/10.1016/j.dsr2.2004.09.015)) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical [Bryan and Lewis, 1979](https://doi.org/10.1029/JC084iC05p02503) profile",
                             "vol": 1.325363e+18,
                             "volcFo": "prescribed aerosol optical properties ([Sato et al., 1993 updated](https://doi.org/10.1029/93JD02553) and [Stenchikov et al., 1998](https://doi.org/10.1029/98JD00693))"
@@ -45,7 +45,7 @@
                             "modId": "GFDL-MOM4p1; OM3.1; [Delworth et al., 2006](https://doi.org/10.1175/JCLI3629.1)",
                             "refRho": 1035.0,
                             "spinYr": 300,
-                            "verRes": "50 z-vertical layers; top grid cell 0-10 m; []",
+                            "verRes": "50 z-vertical layers; top grid cell 0-10 m",
                             "vertK": "shear mixing ([Large et al., 1994](https://doi.org/10.1029/94RG01872)) + tide mixing ([Simmons et al., 2004](https://doi.org/10.1016/j.dsr2.2004.09.015)) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical [Bryan and Lewis, 1979](https://doi.org/10.1029/JC084iC05p02503) profile",
                             "vol": 1.325363e+18,
                             "volcFo": "prescribed aerosol optical properties ([Sato et al., 1993 updated](https://doi.org/10.1029/93JD02553) and [Stenchikov et al., 1998](https://doi.org/10.1029/98JD00693))"
@@ -75,7 +75,7 @@
                             "modId": "GFDL-MOM4p1; OM3.1; [Delworth et al., 2006](https://doi.org/10.1175/JCLI3629.1)",
                             "refRho": 1035.0,
                             "spinYr": 1000,
-                            "verRes": "50 z-vertical layers; top grid cell 0-10 m; []",
+                            "verRes": "50 z-vertical layers; top grid cell 0-10 m",
                             "vertK": "shear mixing ([Large et al., 1994](https://doi.org/10.1029/94RG01872)) + tide mixing ([Simmons et al., 2004](https://doi.org/10.1016/j.dsr2.2004.09.015)) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical [Bryan and Lewis, 1979](https://doi.org/10.1029/JC084iC05p02503) profile",
                             "vol": 1.325363e+18,
                             "volcFo": "prescribed aerosol optical properties ([Sato et al., 1993 updated](https://doi.org/10.1029/93JD02553) and [Stenchikov et al., 1998](https://doi.org/10.1029/98JD00693))"
@@ -101,7 +101,7 @@
                             "modId": "GFDL-MOM4; OM3.0; [Delworth et al., 2006](https://doi.org/10.1175/JCLI3629.1)",
                             "refRho": 1035.0,
                             "spinYr": 1000,
-                            "verRes": "50 z-vertical layers; top grid cell 0-10 m; []",
+                            "verRes": "50 z-vertical layers; top grid cell 0-10 m",
                             "vertK": "shear mixing ([Large et al., 1994](https://doi.org/10.1029/94RG01872)) + tide mixing ([Simmons et al., 2004](https://doi.org/10.1016/j.dsr2.2004.09.015)) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical [Bryan and Lewis, 1979](https://doi.org/10.1029/JC084iC05p02503) profile",
                             "vol": 1.325363e+18,
                             "volcFo": "prescribed aerosol optical properties ([Sato et al., 1993 updated](https://doi.org/10.1029/93JD02553) and [Stenchikov et al., 1998](https://doi.org/10.1029/98JD00693))"
@@ -127,7 +127,7 @@
                             "modId": "GFDL-GOLD; Hallberg, 1995",
                             "refRho": 1035.0,
                             "spinYr": 1000,
-                            "verRes": "59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m; []",
+                            "verRes": "59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m",
                             "vertK": "shear mixing ([Jackson et al., 2008](https://doi.org/10.1175/2007JPO3779.1)) + tide mixing ([Simmons et al., 2004](https://doi.org/10.1016/j.dsr2.2004.09.015)) + bottom boundary layer [Legg and Huijts, 2006](https://doi.org/10.1016/j.dsr2.2005.09.014) + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator",
                             "vol": 1.325363e+18,
                             "volcFo": "prescribed aerosol optical properties ([Sato et al., 1993 updated](https://doi.org/10.1029/93JD02553) and [Stenchikov et al., 1998](https://doi.org/10.1029/98JD00693))"
@@ -153,7 +153,7 @@
                             "modId": "GFDL-MOM4p1; OM3.1; [Delworth et al., 2006](https://doi.org/10.1175/JCLI3629.1)",
                             "refRho": 1035.0,
                             "spinYr": 1000,
-                            "verRes": "59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m; []",
+                            "verRes": "59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m",
                             "vertK": "shear mixing ([Jackson et al., 2008](https://doi.org/10.1175/2007JPO3779.1)) + tide mixing ([Simmons et al., 2004](https://doi.org/10.1016/j.dsr2.2004.09.015)) + bottom boundary layer [Legg and Huijts, 2006](https://doi.org/10.1016/j.dsr2.2005.09.014) + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator",
                             "vol": 1.325363e+18,
                             "volcFo": "prescribed aerosol optical properties ([Sato et al., 1993 updated](https://doi.org/10.1029/93JD02553) and [Stenchikov et al., 1998](https://doi.org/10.1029/98JD00693))"
@@ -183,7 +183,7 @@
                             "modId": "GFDL-MOM6; OM4.25; [Adcroft et al., 2019](https://doi.org/10.1029/2019MS001726)",
                             "refRho": 1035.0,
                             "spinYr": 600,
-                            "verRes": "75 hybrid layers (z* and rho2000); top grid cell 0-2 m; []",
+                            "verRes": "75 hybrid layers (z* and rho2000); top grid cell 0-2 m",
                             "vertK": "shear mixing ([Jackson et al., 2008](https://doi.org/10.1175/2007JPO3779.1)), + tide mixing ([Melet et al., 2013](https://doi.org/10.1175/JPO-D-12-055.1)), + constant background diffusivity 1.5e-5 m-2 s-1 >30n/S, tapering to2e-6 m-2 s-1 at equator",
                             "vol": 1.33511e+18,
                             "volcFo": "prescribed aerosol optical properties based on input4MIPs [ETH Zürich (ETHZ), 2017](https://doi.org/10.22033/ESGF/input4MIPs.1681)"
@@ -206,13 +206,10 @@
                             "horRes": "tripolar, nominal 1 deg; 360 x 200 longitude/latitude",
                             "initCl": "WOA2005",
                             "mldSch": "KPP diffusivity ([Large et al., 1994](https://doi.org/10.1029/94RG01872))",
-                            "modId": [
-                                "GFDL-MOM4p1; OM3.1; [Dunne et al., 2012](https://doi.org/",
-                                "10.1175/JCLI-D-11-00560.1)"
-                            ],
+                            "modId": "GFDL-MOM4p1; OM3.1; [Dunne et al., 2012](https://doi.org/10.1175/JCLI-D-11-00560.1)",
                             "refRho": 1035.0,
                             "spinYr": 1000,
-                            "verRes": "50 z-vertical layers; top grid cell 0-10 m; []",
+                            "verRes": "50 z-vertical layers; top grid cell 0-10 m",
                             "vertK": "shear mixing ([Large et al., 1994](https://doi.org/10.1029/94RG01872)) + tide mixing ([Simmons et al., 2004](https://doi.org/10.1016/j.dsr2.2004.09.015)) + constant background diffusivity 1.5e-5 m-2 s-1 >30N/S, tapering to 1e-5 m-2 s-1 at equator",
                             "vol": 1.325363e+18,
                             "volcFo": "prescribed aerosol optical properties [Sato et al., 1993 updated](https://doi.org/10.1029/93JD02553) and [Stenchikov et al., 1998](https://doi.org/10.1029/98JD00693)"
@@ -238,7 +235,7 @@
                             "modId": "GFDL-MOM6; OM4.5; [Adcroft et al., 2019](https://doi.org/10.1029/2019MS001726)",
                             "refRho": 1035.0,
                             "spinYr": 1000,
-                            "verRes": "50 z-vertical layers; top grid cell 0-10 m; []",
+                            "verRes": "50 z-vertical layers; top grid cell 0-10 m",
                             "vertK": "shear mixing ([Large et al., 1994](https://doi.org/10.1029/94RG01872)) + tide mixing ([Simmons et al., 2004](https://doi.org/10.1016/j.dsr2.2004.09.015)) + constant background diffusivity 1.5e-5 m-2 s-1 >30N/S, tapering to 1e-5 m-2 s-1 at equator",
                             "vol": 1.3348e+18,
                             "volcFo": "prescribed aerosol optical properties [Sato et al., 1993 updated](https://doi.org/10.1029/93JD02553) and [Stenchikov et al., 1998](https://doi.org/10.1029/98JD00693)"
@@ -264,7 +261,7 @@
                             "modId": "GFDL-MOM6; OM4.5; [Adcroft et al., 2019](https://doi.org/10.1029/2019MS001726)",
                             "refRho": 1035.0,
                             "spinYr": 1000,
-                            "verRes": "50 z-vertical layers; top grid cell 0-10 m; []",
+                            "verRes": "50 z-vertical layers; top grid cell 0-10 m",
                             "vertK": "shear mixing ([Large et al., 1994](https://doi.org/10.1029/94RG01872)) + tide mixing ([Simmons et al., 2004](https://doi.org/10.1016/j.dsr2.2004.09.015)) + constant background diffusivity 1.5e-5 m-2 s-1 >30N/S, tapering to 1e-5 m-2 s-1 at equator",
                             "vol": 1.3348e+18,
                             "volcFo": "prescribed aerosol optical properties [Sato et al., 1993 updated](https://doi.org/10.1029/93JD02553) and [Stenchikov et al., 1998](https://doi.org/10.1029/98JD00693)"
