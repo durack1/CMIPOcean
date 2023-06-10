@@ -38,20 +38,15 @@ PJD  9 Jun 2023     - Download files from https://datatables.net/download/ [jQue
                       copy css/jquery.dataTables.min.css and datatables.min.js (updating *datatables* -> *dataTables-1.14.3*)
                     - Update jquery.dataTables-1.14.3.min.js ,aLengthMenu:[10,25,50,100], ->
                     ,aLengthMenu:[5,10,25,50,100,150,200,250,300,350,400,450,500],
-                    
-                    
-PJD 22 Feb 2023    - Updated sources to latest 1.12.1 -> 1.13.2; 3.6.0 -> 3.6.3
-                   - Update jquery.dataTables-1.13.2.min.js line 71576 update
-                   ,aLengthMenu:[10,25,50,100], ->
-                   ,aLengthMenu:[5,10,25,50,100,150,200,250,300,350,400],
-                   - macOS update files to remove
-                   extended attributes "$ xattr -c jquery-3.6.3.slim.min.js", "$ xattr -c jquery.dataTables-1.13*", "$ xattr -c 230222_DataTables-1p13p3.zip"
-                   file permissions "$ chmod 644 jquery.dataTables-1.13*"
-                   - Update dataTables styling
-                   <table id="table_id" class="display"> ->
-                   <table id="table_id" class="display compact" style="width:100%">
-                    
-                    
+                    - macOS update files to remove
+                    extended attributes "$ xattr -c jquery-3.7.0.slim.min.js",
+                    "$ xattr -c jquery.dataTables-1.14.3*",
+                    "$ xattr -c 230222_DataTables-1p13p3.zip"
+                    file permissions "$ chmod 644 jquery.dataTables-1.13*"                    
+                    - Update dataTables styling
+                    <table id="table_id" class="display"> ->
+                    <table id="table_id" class="display compact" style="width:100%">
+                                        
                    - TODO: Update default page lengths
                    - TODO: Use <td rowspan="2">$50</td> across multiple actIds
                    https://www.w3schools.com/TAgs/tryit.asp?filename=tryhtml_td_rowspan
@@ -62,7 +57,7 @@ import argparse
 import copy
 import json
 import os
-import pdb
+#import pdb
 import re
 import sys
 
@@ -329,7 +324,7 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
     html = ''.join([header, '<title>', mipEra,
                     ' ocean model configurations</title>\n</head>\n<body>\n',
                     '<p>CMIPOcean version: ', version, ' - ', mipEra, '</p>\n',
-                    '<table id="table_id" class="display">\n'])
+                    '<table id="table_id" class="display compact" style="width:100%">\n'])
     fo.write(html)
 
     modKeys = ['source_id', 'activity_id', 'experiment_id', 'ripf',
