@@ -38,6 +38,20 @@ PJD  9 Jun 2023     - Download files from https://datatables.net/download/ [jQue
                       copy css/jquery.dataTables.min.css and datatables.min.js (updating *datatables* -> *dataTables-1.14.3*)
                     - Update jquery.dataTables-1.14.3.min.js ,aLengthMenu:[10,25,50,100], ->
                     ,aLengthMenu:[5,10,25,50,100,150,200,250,300,350,400,450,500],
+                    
+                    
+PJD 22 Feb 2023    - Updated sources to latest 1.12.1 -> 1.13.2; 3.6.0 -> 3.6.3
+                   - Update jquery.dataTables-1.13.2.min.js line 71576 update
+                   ,aLengthMenu:[10,25,50,100], ->
+                   ,aLengthMenu:[5,10,25,50,100,150,200,250,300,350,400],
+                   - macOS update files to remove
+                   extended attributes "$ xattr -c jquery-3.6.3.slim.min.js", "$ xattr -c jquery.dataTables-1.13*", "$ xattr -c 230222_DataTables-1p13p3.zip"
+                   file permissions "$ chmod 644 jquery.dataTables-1.13*"
+                   - Update dataTables styling
+                   <table id="table_id" class="display"> ->
+                   <table id="table_id" class="display compact" style="width:100%">
+                    
+                    
                    - TODO: Update default page lengths
                    - TODO: Use <td rowspan="2">$50</td> across multiple actIds
                    https://www.w3schools.com/TAgs/tryit.asp?filename=tryhtml_td_rowspan
@@ -48,6 +62,7 @@ import argparse
 import copy
 import json
 import os
+import pdb
 import re
 import sys
 
@@ -81,18 +96,16 @@ def humanSort(inList):
     return outList
 
 
-def convertMarkup(inStr):
+def markupSwitch(s):
     """
-
+    take string and switch markdown for fully expanded html <a href= ... </a>
     Parameters
     ----------
-    inStr : str
-        input data string
+    is : input data string
 
     Returns
     -------
-    outStr : str
-        output data string reformatted as html -> <a href="url">link text</a>
+    outS : output data string reformatted as html -> <a href="url">link text</a>
 
     Ref:
         https://stackoverflow.com/questions/23394608/python-regex-fails-to-identify-markdown-links
@@ -107,72 +120,102 @@ def convertMarkup(inStr):
         testStr6 = ' '.join(['vertK shear mixing ([Jackson et al., 2008](https://doi.org/10.1175/2007JPO3779.1))',
                              '+ tide mixing ([Melet et al., 2013](https://doi.org/10.1175/JPO-D-12-055.1))',
                              '+ constant background diffusivity 1.5e-5 m-2 s-1 >30n/S, tapering to 2e-6 m-2 s-1 at equator'])
+        testStr7 = 'mldSch energy based boundary layer ([Reichl and Hallberg, 2018](https://doi.org/10.1016/j.ocemod.2018.10.004))'
+        testStr8 = ''.join(['prescribed aerosol optical properties based on input4MIPs',
+                          ' [ETH Zürich (ETHZ), 2017](https://doi.org/10.22033/ESGF/',
+                          'input4MIPs.1681)'])
+        testStr9 = 'GFDL-MOM6; OM4.25; [Adcroft et al., 2019](https://doi.org/10.1029/2019MS001726)'
+        testStr10 = 'KPP diffusivity ([Large et al., 1994](https://doi.org/10.1029/94RG01872))'
 
     """
-    outStrTmp = copy.copy(inStr)
+    outStrTmp = copy.copy(s)
+    #print("outStrTmp in:", outStrTmp)
+
+    # determine number of links
+    urlCount = outStrTmp.count("](http")
 
     # find around span
     markdownMatch = re.compile('\]\(http')
-    # find "^[" or " [" before span
-    startStrMatch = re.compile('^\[')
-    startMarkdownMatch = re.compile(' \[')
-    startMarkdownMatch2 = re.compile(' \(\[')
-    # find ") " or ")$" after span
-    endStrMatch = re.compile('\)$')
-    endMarkdownMatch = re.compile('\) ')
-    endMarkdownMatch2 = re.compile('\)\)')
 
-    # Using start/endInd as central search outward to find markdown starts
-    # for testStr in [testStr1, testStr2, testStr3, testStr4, testStr5]:
-    # print('----------')
-    # print(outStr)
     cnt = 0
-    for tmp in markdownMatch.finditer(outStrTmp):
+    # loop over "(http" entries in string
+    while cnt < urlCount:
         cnt += 1
-        print('tmp:', tmp)
-        #tmp = markdownMatch.search(outStrTmp)
-        if tmp:
-            print('tmp.span:', tmp.span())
-            endTextInd = tmp.start()
-            startURLInd = tmp.start() + 2
-        # Case no "](http"
-        else:
-            return outStrTmp
-        tmp = startStrMatch.search(outStrTmp)
-        if tmp:
-            print('startStrMatch:', tmp.span())
-            startTextInd = tmp.start() + 1
-        for match in startMarkdownMatch.finditer(outStrTmp):
-            print('startMarkdownMatch:', match.span())
-            startTextInd = match.start() + 2
-        tmp = endStrMatch.search(outStrTmp)
-        if tmp:
-            print('endStrMatch:', tmp.span())
-            endURLInd = tmp.span()[-2]
-        for match in endMarkdownMatch.finditer(outStrTmp):
-            print('endMarkdownMatch:', match.span())
-            endURLInd = match.span()[-2]
-        # get start [, get end ]
-        linkText = outStrTmp[startTextInd:endTextInd]
-        # get start (, get end )
-        URLText = outStrTmp[startURLInd:endURLInd]
-        print('link text:', startTextInd, endTextInd, linkText)
-        print('link URL:', startURLInd, endURLInd, URLText)
-        print('')
+        tmp = markdownMatch.search(outStrTmp)
+        #print("tmp:", tmp)
+        # find all "[" - start of markdown pattern
+        indSquOpen = findChar(outStrTmp, "[")
+        #print("indSquOpen:", indSquOpen)
+        # find all ")" - end of markdown pattern
+        indParOpen = findChar(outStrTmp, ")")
+        #print("indParOpen:", indParOpen)
+        #print("tmp:", tmp)
+        startInd = min(indSquOpen, key=lambda x: abs(x-tmp.start()))
+        # pdb.set_trace()
+        # check to ensure all parens are greater than startInd
+        indParOpen = [x for x in indParOpen if x > startInd]
+        # check to ensure all parens are greater than tmp.start()
+        indParOpen = [x for x in indParOpen if x > tmp.start()]
+        # check to ensure doi url > 39
+        if "[Wright, 1997]" in outStrTmp:
+            indParOpen = [x for x in indParOpen if (x - tmp.end()) > 39]
+        endInd = min(indParOpen, key=lambda x: abs(x-tmp.end()))
+        url = outStrTmp[tmp.start()+2:endInd]
+        #print("outStrTmp:", outStrTmp)
+        #print("url:", url)
+        link = outStrTmp[startInd+1:tmp.start()]
+        #print("link:", link)
+        oldText = outStrTmp[startInd:endInd+1]
+        #print("oldText:", oldText)
+        newText = flipMarkdown(url, link)
+        #print("newText:", newText)
+        outStrTmp = outStrTmp.replace(oldText, newText)
+        #print("outStrTmp:", outStrTmp)
 
-        # Composite href
-        outStr = ''.join(['<a href="', URLText, '" target="_blank">',
-                          linkText, '</a>'])
-        print('outStr:', outStr)
+    return outStrTmp
 
-    # Add back in leading and trailing text
-    if startTextInd != 1:
-        outStr = ''.join([outStrTmp[0:startTextInd - 1], outStr])
-    if endURLInd != len(outStr):
-        outStr = ''.join([outStr, outStrTmp[endURLInd + 1:len(outStr)]])
-    print('outStr a:', outStr)
 
-    return outStr
+def findChar(s, ch):
+    """
+    find all indexes of a single character in a string
+
+    Parameters
+    ----------
+    s : string
+    ch : character to find in string
+
+    Returns
+    -------
+    list of indexes
+    """
+    # first check for single character lookup
+    if len(ch) != 1:
+        print("len(ch) > 1, only single character lookup available, exiting")
+        return
+    else:
+        return [i for i, ltr in enumerate(s) if ltr == ch]
+
+
+def flipMarkdown(url, link):
+    """
+    code to flip markdown syntax to html
+
+    Parameters
+    ----------
+    url : full url using https
+    link : descriptive link
+
+    Returns
+    -------
+    html : fully expanded html link expansion
+
+    """
+
+    # Composite href
+    html = ''.join(['<a href="', url, '" target="_blank">',
+                    link, '</a>'])
+
+    return html
 
 
 # %% Create generic header
@@ -184,9 +227,9 @@ header = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www
 <meta name="description" content="CMIP ocean model configuration information" />
 <meta name="keywords" content="HTML, CSS, JavaScript" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" charset="utf-8" href="../src/jquery.dataTables-1.13.4.min.css" />
-<script type="text/javascript" charset="utf-8" src="../src/jquery-3.7.0.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="../src/dataTables-1.13.4.min.js"></script>
+<link rel="stylesheet" type="text/css" charset="utf-8" href="../src/jquery.dataTables-1.14.3.min.css" />
+<script type="text/javascript" charset="utf-8" src="../src/jquery-3.7.0.slim.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../src/jquery.dataTables-1.14.3.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script type="text/javascript" src="../src/googleAnalyticsTag.js" ></script>
 <script type="text/javascript">
@@ -348,11 +391,12 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
             # Get query value
             val = CMIP[instId][srcId][actId][expId][ripfId[0]][queries[key]]
             print('key/val:', key, val)
-            fo.write("<td>%s</td>\n" % val)
-            if isinstance(val, str) and val.count("https") == 1:
-                fo.write("<td>%s</td>\n" % convertMarkup(val))
+            # if "[(http" in val:
+            #    fo.write("<td>%s</td>\n" % markupSwitch(val))
+            if isinstance(val, str):
+                fo.write("<td>%s</td>\n" % markupSwitch(val))
             else:
-                fo.write("<td>%s</td>\n" % val)  # write without links
+                fo.write("<td>%s</td>\n" % val)
             # print(key.ljust(6), ':', val)
         fo.write("</tr>\n")
     fo.write("</table>")
