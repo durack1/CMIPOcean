@@ -224,7 +224,7 @@ header = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www
 <meta name="keywords" content="HTML, CSS, JavaScript" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" charset="utf-8" href="https://github.com/PCMDI/assets/blob/main/jquery/jquery.dataTables.min.css" />
-<script type="text/javascript" charset="utf-8" src="https://github.com/PCMDI/assets/blob/main/jquery/jquery/jquery.slim.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://github.com/PCMDI/assets/blob/main/jquery/jquery.slim.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="https://github.com/PCMDI/assets/blob/main/jquery/jquery.dataTables.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script type="text/javascript" src="https://github.com/PCMDI/assets/blob/main/google/googleAnalyticsTag.js" ></script>
