@@ -46,7 +46,8 @@ PJD  9 Jun 2023     - Download files from https://datatables.net/download/ [jQue
                     - Update dataTables styling
                     <table id="table_id" class="display"> ->
                     <table id="table_id" class="display compact" style="width:100%">
-PJD 14 Jun 2023     - update to use pcmdi.github.io/assets jquery libraries so to single update across repos              
+PJD 14 Jun 2023     - update to use pcmdi.github.io/assets jquery libraries so to single update across repos   
+PJD 15 Jun 2023     - updated github.com/pcmdi/assets to use github-pages - so https://pcmdi.github.io/assets/ resolves, as do symlinks           
                                         
                    - TODO: Update default page lengths
                    - TODO: Use <td rowspan="2">$50</td> across multiple actIds
@@ -223,11 +224,11 @@ header = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www
 <meta name="description" content="CMIP ocean model configuration information" />
 <meta name="keywords" content="HTML, CSS, JavaScript" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" charset="utf-8" href="https://github.com/PCMDI/assets/blob/main/jquery/jquery.dataTables.min.css" />
-<script type="text/javascript" charset="utf-8" src="https://github.com/PCMDI/assets/blob/main/jquery/jquery.slim.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="https://github.com/PCMDI/assets/blob/main/jquery/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" charset="utf-8" href="https://pcmdi.github.io/assets/jquery/jquery.dataTables.min.css" />
+<script type="text/javascript" charset="utf-8" src="https://pcmdi.github.io/assets/jquery/jquery.slim.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://pcmdi.github.io/assets/jquery/jquery.dataTables.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script type="text/javascript" src="https://github.com/PCMDI/assets/blob/main/google/googleAnalyticsTag.js" ></script>
+<script type="text/javascript" src="https://pcmdi.github.io/assets/google/googleAnalyticsTag.js" ></script>
 <script type="text/javascript">
 //<![CDATA[
 $(document).ready( function () {
