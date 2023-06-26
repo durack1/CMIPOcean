@@ -1,6 +1,6 @@
 #!/bin/env python
 
-'''
+"""
 To run conversion:
 (cdat)duro@ocean:[src]:[master]:[1168]> jsonToHtml.py ../CMIP6_experiment_id.json experiment_id CMIP6_experiment_id.html
 {u'note': u'Correct getGitInfo call', u'author': u'Paul J. Durack <durack1@llnl.gov>', u'creation_date': u'Wed Aug 31 16:36:15 2016 -0700',
@@ -47,19 +47,21 @@ PJD  9 Jun 2023     - Download files from https://datatables.net/download/ [jQue
                     <table id="table_id" class="display"> ->
                     <table id="table_id" class="display compact" style="width:100%">
 PJD 14 Jun 2023     - update to use pcmdi.github.io/assets jquery libraries so to single update across repos   
-PJD 15 Jun 2023     - updated github.com/pcmdi/assets to use github-pages - so https://pcmdi.github.io/assets/ resolves, as do symlinks           
+PJD 15 Jun 2023     - updated github.com/pcmdi/assets to use github-pages - so https://pcmdi.github.io/assets/ resolves, as do symlinks    
+PJD 26 Jun 2023     - updated github.com/pcmdi/assets to separate jquery/dataTables source - see https://github.com/PCMDI/assets/pull/5
                                         
                    - TODO: Update default page lengths
                    - TODO: Use <td rowspan="2">$50</td> across multiple actIds
                    https://www.w3schools.com/TAgs/tryit.asp?filename=tryhtml_td_rowspan
-'''
+"""
 # This script takes the json file and turns it into a nice
 # jquery/data-tabled html doc
 import argparse
 import copy
 import json
 import os
-#import pdb
+
+# import pdb
 import re
 import sys
 
@@ -86,7 +88,7 @@ def humanSort(inList):
         return int(text) if text.isdigit() else text
 
     def alphanum(key):
-        return [convert(c) for c in re.split('([0-9]+)', key)]
+        return [convert(c) for c in re.split("([0-9]+)", key)]
 
     outList.sort(key=alphanum)
 
@@ -126,28 +128,28 @@ def markupSwitch(s):
 
     """
     outStrTmp = copy.copy(s)
-    #print("outStrTmp in:", outStrTmp)
+    # print("outStrTmp in:", outStrTmp)
 
     # determine number of links
     urlCount = outStrTmp.count("](http")
 
     # find around span
-    markdownMatch = re.compile('\]\(http')
+    markdownMatch = re.compile("\]\(http")
 
     cnt = 0
     # loop over "(http" entries in string
     while cnt < urlCount:
         cnt += 1
         tmp = markdownMatch.search(outStrTmp)
-        #print("tmp:", tmp)
+        # print("tmp:", tmp)
         # find all "[" - start of markdown pattern
         indSquOpen = findChar(outStrTmp, "[")
-        #print("indSquOpen:", indSquOpen)
+        # print("indSquOpen:", indSquOpen)
         # find all ")" - end of markdown pattern
         indParOpen = findChar(outStrTmp, ")")
-        #print("indParOpen:", indParOpen)
-        #print("tmp:", tmp)
-        startInd = min(indSquOpen, key=lambda x: abs(x-tmp.start()))
+        # print("indParOpen:", indParOpen)
+        # print("tmp:", tmp)
+        startInd = min(indSquOpen, key=lambda x: abs(x - tmp.start()))
         # pdb.set_trace()
         # check to ensure all parens are greater than startInd
         indParOpen = [x for x in indParOpen if x > startInd]
@@ -156,18 +158,18 @@ def markupSwitch(s):
         # check to ensure doi url > 39
         if "[Wright, 1997]" in outStrTmp:
             indParOpen = [x for x in indParOpen if (x - tmp.end()) > 39]
-        endInd = min(indParOpen, key=lambda x: abs(x-tmp.end()))
-        url = outStrTmp[tmp.start()+2:endInd]
-        #print("outStrTmp:", outStrTmp)
-        #print("url:", url)
-        link = outStrTmp[startInd+1:tmp.start()]
-        #print("link:", link)
-        oldText = outStrTmp[startInd:endInd+1]
-        #print("oldText:", oldText)
+        endInd = min(indParOpen, key=lambda x: abs(x - tmp.end()))
+        url = outStrTmp[tmp.start() + 2 : endInd]
+        # print("outStrTmp:", outStrTmp)
+        # print("url:", url)
+        link = outStrTmp[startInd + 1 : tmp.start()]
+        # print("link:", link)
+        oldText = outStrTmp[startInd : endInd + 1]
+        # print("oldText:", oldText)
         newText = flipMarkdown(url, link)
-        #print("newText:", newText)
+        # print("newText:", newText)
         outStrTmp = outStrTmp.replace(oldText, newText)
-        #print("outStrTmp:", outStrTmp)
+        # print("outStrTmp:", outStrTmp)
 
     return outStrTmp
 
@@ -209,8 +211,7 @@ def flipMarkdown(url, link):
     """
 
     # Composite href
-    html = ''.join(['<a href="', url, '" target="_blank">',
-                    link, '</a>'])
+    html = "".join(['<a href="', url, '" target="_blank">', link, "</a>"])
 
     return html
 
@@ -224,9 +225,9 @@ header = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www
 <meta name="description" content="CMIP ocean model configuration information" />
 <meta name="keywords" content="HTML, CSS, JavaScript" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" charset="utf-8" href="https://pcmdi.github.io/assets/jquery/jquery.dataTables.min.css" />
+<link rel="stylesheet" type="text/css" charset="utf-8" href="https://pcmdi.github.io/assets/dataTables/jquery.dataTables.min.css" />
+<script type="text/javascript" charset="utf-8" src="https://pcmdi.github.io/assets/dataTables/jquery.dataTables.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="https://pcmdi.github.io/assets/jquery/jquery.slim.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="https://pcmdi.github.io/assets/jquery/jquery.dataTables.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script type="text/javascript" src="https://pcmdi.github.io/assets/google/googleAnalyticsTag.js" ></script>
 <script type="text/javascript">
@@ -239,55 +240,65 @@ $(document).ready( function () {
 
 # %% Argparse extract
 # Matching version format 0.10.23
-verTest = re.compile(r'[0-2][.][0-9]+[.][0-9]+')
+verTest = re.compile(r"[0-2][.][0-9]+[.][0-9]+")
 parser = argparse.ArgumentParser()
-parser.add_argument('ver', metavar='str', type=str,
-                    help=' '.join(['For e.g. \'0.10.23\' as a command line',
-                                   'argument will ensure version information',
-                                   'is written to the html output']))
+parser.add_argument(
+    "ver",
+    metavar="str",
+    type=str,
+    help=" ".join(
+        [
+            "For e.g. '0.10.23' as a command line",
+            "argument will ensure version information",
+            "is written to the html output",
+        ]
+    ),
+)
 args = parser.parse_args()
 if re.search(verTest, args.ver):
     version = args.ver  # 1 = make files
-    print('** HTML Write mode - ', version, ' will be written **')
+    print("** HTML Write mode - ", version, " will be written **")
 else:
-    print('** Version: ', version, ' invalid, exiting')
+    print("** Version: ", args.ver, " invalid, exiting")
     sys.exit()
 
 # %% Set global arguments
-destDir = '../docs/'
+destDir = "../docs/"
 
 # %% Read data
-inFile = '../CMIP_Merge.json'
+inFile = "../CMIP_Merge.json"
 with open(inFile) as jsonFile:
     CMIP = json.load(jsonFile)
-CMIP6 = CMIP.get('CMIP6')
-CMIP5 = CMIP.get('CMIP5')
-CMIP3 = CMIP.get('CMIP3')
-versionInfo = CMIP.get('version')
+CMIP6 = CMIP.get("CMIP6")
+CMIP5 = CMIP.get("CMIP5")
+CMIP3 = CMIP.get("CMIP3")
+versionInfo = CMIP.get("version")
 
 # %% Process html
 
 # Names and varId
-queries = {'modId': 'ocean model id (+ version)',
-           'eos': 'equation of state (+ constants)',
-           'cp': 'specific heat capacity (cpocean, J kg-1 K-1)',
-           'refRho': 'reference density (boussinesq; rhozero, kg m-3)',
-           'frzEqn': 'freezing point (equation)',
-           'angRot': 'planet angular rotation (radians s-1)',
-           'graAcc': 'gravitational acceleration (m s-2)',
-           'horRes': 'native horizontal resolution',
-           'verRes': 'native vertical resolution',
-           'vertK': 'vertical diffusivity scheme',
-           'mldSch': 'boundary-layer (mixed-) scheme',
-           'vol': 'sea water volume',
-           'initCl': 'initialization observed climatology',
-           'spinYr': 'spinup length (years)',
-           'antAer': 'anthropogenic aerosol forcing',
-           'volcFo': 'volcanic forcing',
-           'aerInd': 'sulphate aerosol indirect effects',
-           'geotHt': 'geothermal heating'}
+queries = {
+    "modId": "ocean model id (+ version)",
+    "eos": "equation of state (+ constants)",
+    "cp": "specific heat capacity (cpocean, J kg-1 K-1)",
+    "refRho": "reference density (boussinesq; rhozero, kg m-3)",
+    "frzEqn": "freezing point (equation)",
+    "angRot": "planet angular rotation (radians s-1)",
+    "graAcc": "gravitational acceleration (m s-2)",
+    "horRes": "native horizontal resolution",
+    "verRes": "native vertical resolution",
+    "vertK": "vertical diffusivity scheme",
+    "mldSch": "boundary-layer (mixed-) scheme",
+    "vol": "sea water volume",
+    "initCl": "initialization observed climatology",
+    "spinYr": "spinup length (years)",
+    "antAer": "anthropogenic aerosol forcing",
+    "volcFo": "volcanic forcing",
+    "aerInd": "sulphate aerosol indirect effects",
+    "geotHt": "geothermal heating",
+}
 
-for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
+for mipEra in ["CMIP6", "CMIP5", "CMIP3"]:
     print(mipEra)
     CMIP = eval(mipEra)
     # Preformat inputs to be a single line for each source_id
@@ -301,53 +312,68 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
                 for count4, expId in enumerate(CMIP[instId][srcId][actId]):
                     print(count4, instId, srcId, actId, expId)
                     ripfList = []
-                    for count5, ripId in\
-                            enumerate(CMIP[instId][srcId][actId][expId]):
+                    for count5, ripId in enumerate(CMIP[instId][srcId][actId][expId]):
                         print(count5, instId, srcId, actId, expId, ripId)
                         ripfList.append(ripId)
                         # Get first ripf values
                         if count5 == 0:
                             for count6, query in enumerate(queries.keys()):
-                                vars()[query] = CMIP[instId][srcId][actId][
-                                    expId][ripId][queries[query]]
+                                vars()[query] = CMIP[instId][srcId][actId][expId][
+                                    ripId
+                                ][queries[query]]
                     dump = [instId, srcId, actId, expId, ripfList]
                     print(dump)
                     CMIPList.append(dump)
     print(CMIPList)
-    print('len:', len(CMIPList))
+    print("len:", len(CMIPList))
     for count1, val in enumerate(CMIPList):
         print(count1, val)
 
     # sys.exit()
 
-    fout = os.path.join('..', 'docs', '.'.join([mipEra, 'html']))
+    fout = os.path.join("..", "docs", ".".join([mipEra, "html"]))
     print("processing", fout)
-    fo = open(fout, 'w')
-    html = ''.join([header, '<title>', mipEra,
-                    ' ocean model configurations</title>\n</head>\n<body>\n',
-                    '<p>CMIPOcean version: ', version, ' - ', mipEra, '</p>\n',
-                    '<table id="table_id" class="display compact" style="width:100%">\n'])
+    fo = open(fout, "w")
+    html = "".join(
+        [
+            header,
+            "<title>",
+            mipEra,
+            " ocean model configurations</title>\n</head>\n<body>\n",
+            "<p>CMIPOcean version: ",
+            version,
+            " - ",
+            mipEra,
+            "</p>\n",
+            '<table id="table_id" class="display compact" style="width:100%">\n',
+        ]
+    )
     fo.write(html)
 
-    modKeys = ['source_id', 'activity_id', 'experiment_id', 'ripf',
-               'ocean model id (+ version)',
-               'EOS (+ constants)',
-               'specific heat capacity (cpocean)',
-               'ref. density (bouss-inesq, rhozero)',
-               'freezing eqn.',
-               'planet ang. rotation (radians s-1)',
-               'gravit-ational accel. (m s-2)',
-               'native horiz. resol-ution',
-               'native vert. resol-ution',
-               'vertical diffus-ivity scheme',
-               'boundary-layer (mld) scheme',
-               'sea water volume',
-               'initial-ization obs. clim.',
-               'spinup length (years)',
-               'anthrop. aerosol forcing',
-               'volcanic forcing',
-               'sulphate aerosol indirect effects',
-               'geo-thermal heating']
+    modKeys = [
+        "source_id",
+        "activity_id",
+        "experiment_id",
+        "ripf",
+        "ocean model id (+ version)",
+        "EOS (+ constants)",
+        "specific heat capacity (cpocean)",
+        "ref. density (bouss-inesq, rhozero)",
+        "freezing eqn.",
+        "planet ang. rotation (radians s-1)",
+        "gravit-ational accel. (m s-2)",
+        "native horiz. resol-ution",
+        "native vert. resol-ution",
+        "vertical diffus-ivity scheme",
+        "boundary-layer (mld) scheme",
+        "sea water volume",
+        "initial-ization obs. clim.",
+        "spinup length (years)",
+        "anthrop. aerosol forcing",
+        "volcanic forcing",
+        "sulphate aerosol indirect effects",
+        "geo-thermal heating",
+    ]
 
     first_row = False
     # Create table columns
@@ -355,39 +381,39 @@ for mipEra in ['CMIP6', 'CMIP5', 'CMIP3']:
         for hf in ["thead", "tfoot"]:
             fo.write("<%s>\n<tr>\n<th>institution id</th>\n" % hf)
             for i in modKeys:
-                i = i.replace('_id', ' id')  # Remove '_' from table titles
+                i = i.replace("_id", " id")  # Remove '_' from table titles
                 fo.write("<th>%s</th>\n" % i)
             fo.write("</tr>\n</%s>\n" % hf)
     first_row = True
     # Get data and populate rows
     for count, instEntry in enumerate(CMIPList):
-        print('instEntry:', instEntry)
+        print("instEntry:", instEntry)
         instId, srcId, actId, expId, ripfId = instEntry
         # Check case CMIP5:DCPP
-        if mipEra == 'CMIP5' and actId == 'DCPP':
+        if mipEra == "CMIP5" and actId == "DCPP":
             continue  # Skip decadalXXXX experiments
-        print('instId:', instId)
-        print('srcId: ', srcId)
-        print('actId: ', actId)
-        print('expId: ', expId)
-        print('ripfId:', ripfId)
+        print("instId:", instId)
+        print("srcId: ", srcId)
+        print("actId: ", actId)
+        print("expId: ", expId)
+        print("ripfId:", ripfId)
         ripfId = humanSort(ripfId)
-        print('ripfId (humanSort):', ripfId)
+        print("ripfId (humanSort):", ripfId)
         fo.write("<tr>\n<td>%s</td>\n" % instId)
         # Deal with more than single model
         fo.write("<td>%s</td>\n" % srcId)
         fo.write("<td>%s</td>\n" % actId)
         fo.write("<td>%s</td>\n" % expId)
-        ripfStr = ''
-        ripfStr = ', '.join([str(rip) for rip in ripfId])
-        print('ripfStr:', ripfStr)
+        ripfStr = ""
+        ripfStr = ", ".join([str(rip) for rip in ripfId])
+        print("ripfStr:", ripfStr)
         fo.write("<td>%s</td>\n" % ripfStr)
-        del(ripfStr)
+        del ripfStr
         # Write entries for ripf #1
         for count2, key in enumerate(queries):
             # Get query value
             val = CMIP[instId][srcId][actId][expId][ripfId[0]][queries[key]]
-            print('key/val:', key, val)
+            print("key/val:", key, val)
             # if "[(http" in val:
             #    fo.write("<td>%s</td>\n" % markupSwitch(val))
             if isinstance(val, str):
