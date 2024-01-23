@@ -49,6 +49,7 @@ PJD  9 Jun 2023     - Download files from https://datatables.net/download/ [jQue
 PJD 14 Jun 2023     - update to use pcmdi.github.io/assets jquery libraries so to single update across repos   
 PJD 15 Jun 2023     - updated github.com/pcmdi/assets to use github-pages - so https://pcmdi.github.io/assets/ resolves, as do symlinks    
 PJD 26 Jun 2023     - updated github.com/pcmdi/assets to separate jquery/dataTables source - see https://github.com/PCMDI/assets/pull/5
+PJD 23 Jan 2024     - updated to include E3SM-2-0 entries; needed parens switch out for AMS ..(1995).. dois
                                         
                    - TODO: Update default page lengths
                    - TODO: Use <td rowspan="2">$50</td> across multiple actIds
@@ -125,6 +126,8 @@ def markupSwitch(s):
                           'input4MIPs.1681)'])
         testStr9 = 'GFDL-MOM6; OM4.25; [Adcroft et al., 2019](https://doi.org/10.1029/2019MS001726)'
         testStr10 = 'KPP diffusivity ([Large et al., 1994](https://doi.org/10.1029/94RG01872))'
+        testStr11 = '[Jackett & McDougall, 1995](https://doi.org/10.1175/1520-0426(1995)012%3C0381:MAOHPT%3E2.0.CO;2) (EOS-80; thetao, so/Sp)'
+        testStr12 = '[Jackett & McDougall, 1995](https://doi.org/10.1175/1520-0426&#40;1995&#41;012%3C0381:MAOHPT%3E2.0.CO;2) (EOS-80; thetao, so/Sp)'  # parens switch out ) == &#41;
 
     """
     outStrTmp = copy.copy(s)

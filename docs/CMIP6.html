@@ -21,7 +21,7 @@ $(document).ready( function () {
 <title>CMIP6 ocean model configurations</title>
 </head>
 <body>
-<p>CMIPOcean version: 0.0.6 - CMIP6</p>
+<p>CMIPOcean version: 0.1.0 - CMIP6</p>
 <table id="table_id" class="display compact" style="width:100%">
 <thead>
 <tr>
@@ -7355,6 +7355,31 @@ $(document).ready( function () {
 <tr>
 <td>CSIRO</td>
 <td>ACCESS-ESM1-5</td>
+<td>PMIP</td>
+<td>past1000</td>
+<td>r1i1p1f1</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>CSIRO</td>
+<td>ACCESS-ESM1-5</td>
 <td>ScenarioMIP</td>
 <td>ssp126</td>
 <td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1, r31i1p1f1, r32i1p1f1, r33i1p1f1, r34i1p1f1, r35i1p1f1, r36i1p1f1, r37i1p1f1, r38i1p1f1, r39i1p1f1, r40i1p1f1</td>
@@ -7832,7 +7857,7 @@ $(document).ready( function () {
 <td>ACCESS-CM2</td>
 <td>ScenarioMIP</td>
 <td>ssp126</td>
-<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -7857,7 +7882,7 @@ $(document).ready( function () {
 <td>ACCESS-CM2</td>
 <td>ScenarioMIP</td>
 <td>ssp245</td>
-<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -7882,7 +7907,7 @@ $(document).ready( function () {
 <td>ACCESS-CM2</td>
 <td>ScenarioMIP</td>
 <td>ssp370</td>
-<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -8633,23 +8658,23 @@ $(document).ready( function () {
 <td>CMIP</td>
 <td>1pctCO2</td>
 <td>r1i1p1f1</td>
+<td>MPAS-Ocean (E3SMv2.0 <a href="https://doi.org/10.1029/2022MS003156" target="_blank">Golaz et al., 2022</a> and <a href="https://doi.org/10.1029/2018MS001373" target="_blank">Peterson et al., 2019</a>, EC30to60E2r2 unstructured SVTs mesh)</td>
+<td><a href="https://doi.org/10.1175/1520-0426&#40;1995&#41;012%3C0381:MAOHPT%3E2.0.CO;2" target="_blank">Jackett & McDougall, 1995</a> (EOS-80; thetao, so/Sp)</td>
+<td>3996.0</td>
+<td>1026.0</td>
+<td><a href="https://doi.org/10.1002/2014JC010358" target="_blank">Turner & Hunke, 2015</a></td>
+<td>7.27220521664304e-05</td>
+<td>9.80616</td>
+<td>unstructured SVTs mesh with 236853 cells, 719506 edges, variable resolution 60 to 30 km</td>
+<td>60 hybrid layers (z*); top grid cell 0-10 m</td>
+<td>Redi isopycnal mixing (<a href="https://doi.org/10.1175/1520-0485&#4;1998&#41;028%3C0805:IDIAZC%3E2.0.CO;2" target="_blank">Griffies et al., 1998</a>), shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>) + constant background diffusivity 0 and viscosity 1e-4 m-2 s-1</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>)</td>
 <td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
+<td>PHC v3.0 (updated from <a href="https://doi.org/10.1175/1520-0442&#40;2001&#41;014%3C2079:PAGOHW%3E2.0.CO;2" target="_blank">Steele et al., 2001</a>)</td>
+<td>1000</td>
+<td>emission-driven based on input4MIPs (<a href="https://doi.org/10.5194/gmd-11-369-2018" target="_blank">Hoesly et al., 2018</a>)</td>
+<td>prescribed aerosol optical properties based on input4MIPs <a href="https://doi.org/10.22033/ESGF/input4MIPs.1681" target="_blank">ETH Zürich (ETHZ), 2017</a></td>
+<td>yes; based on a four-sized mixed mode and secondary organic aerosol formation scheme (<a href="https://doi.org/10.1029/2019MS001851" target="_blank">Wang et al., 2020</a>)</td>
 <td>None</td>
 </tr>
 <tr>
@@ -8658,23 +8683,23 @@ $(document).ready( function () {
 <td>CMIP</td>
 <td>abrupt-4xCO2</td>
 <td>r1i1p1f1, r2i1p1f1</td>
+<td>MPAS-Ocean (E3SMv2.0 <a href="https://doi.org/10.1029/2022MS003156" target="_blank">Golaz et al., 2022</a> and <a href="https://doi.org/10.1029/2018MS001373" target="_blank">Peterson et al., 2019</a>, EC30to60E2r2 unstructured SVTs mesh)</td>
+<td><a href="https://doi.org/10.1175/1520-0426&#40;1995&#41;012%3C0381:MAOHPT%3E2.0.CO;2" target="_blank">Jackett & McDougall, 1995</a> (EOS-80; thetao, so/Sp)</td>
+<td>3996.0</td>
+<td>1026.0</td>
+<td><a href="https://doi.org/10.1002/2014JC010358" target="_blank">Turner & Hunke, 2015</a></td>
+<td>7.27220521664304e-05</td>
+<td>9.80616</td>
+<td>unstructured SVTs mesh with 236853 cells, 719506 edges, variable resolution 60 to 30 km</td>
+<td>60 hybrid layers (z*); top grid cell 0-10 m</td>
+<td>Redi isopycnal mixing (<a href="https://doi.org/10.1175/1520-0485&#4;1998&#41;028%3C0805:IDIAZC%3E2.0.CO;2" target="_blank">Griffies et al., 1998</a>), shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>) + constant background diffusivity 0 and viscosity 1e-4 m-2 s-1</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>)</td>
 <td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
+<td>PHC v3.0 (updated from <a href="https://doi.org/10.1175/1520-0442&#40;2001&#41;014%3C2079:PAGOHW%3E2.0.CO;2" target="_blank">Steele et al., 2001</a>)</td>
+<td>1000</td>
+<td>emission-driven based on input4MIPs (<a href="https://doi.org/10.5194/gmd-11-369-2018" target="_blank">Hoesly et al., 2018</a>)</td>
+<td>prescribed aerosol optical properties based on input4MIPs <a href="https://doi.org/10.22033/ESGF/input4MIPs.1681" target="_blank">ETH Zürich (ETHZ), 2017</a></td>
+<td>yes; based on a four-sized mixed mode and secondary organic aerosol formation scheme (<a href="https://doi.org/10.1029/2019MS001851" target="_blank">Wang et al., 2020</a>)</td>
 <td>None</td>
 </tr>
 <tr>
@@ -8682,24 +8707,24 @@ $(document).ready( function () {
 <td>E3SM-2-0</td>
 <td>CMIP</td>
 <td>historical</td>
-<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1</td>
+<td>MPAS-Ocean (E3SMv2.0 <a href="https://doi.org/10.1029/2022MS003156" target="_blank">Golaz et al., 2022</a> and <a href="https://doi.org/10.1029/2018MS001373" target="_blank">Peterson et al., 2019</a>, EC30to60E2r2 unstructured SVTs mesh)</td>
+<td><a href="https://doi.org/10.1175/1520-0426&#40;1995&#41;012%3C0381:MAOHPT%3E2.0.CO;2" target="_blank">Jackett & McDougall, 1995</a> (EOS-80; thetao, so/Sp)</td>
+<td>3996.0</td>
+<td>1026.0</td>
+<td><a href="https://doi.org/10.1002/2014JC010358" target="_blank">Turner & Hunke, 2015</a></td>
+<td>7.27220521664304e-05</td>
+<td>9.80616</td>
+<td>unstructured SVTs mesh with 236853 cells, 719506 edges, variable resolution 60 to 30 km</td>
+<td>60 hybrid layers (z*); top grid cell 0-10 m</td>
+<td>Redi isopycnal mixing (<a href="https://doi.org/10.1175/1520-0485&#4;1998&#41;028%3C0805:IDIAZC%3E2.0.CO;2" target="_blank">Griffies et al., 1998</a>), shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>) + constant background diffusivity 0 and viscosity 1e-4 m-2 s-1</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>)</td>
 <td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
-<td>None</td>
+<td>PHC v3.0 (updated from <a href="https://doi.org/10.1175/1520-0442&#40;2001&#41;014%3C2079:PAGOHW%3E2.0.CO;2" target="_blank">Steele et al., 2001</a>)</td>
+<td>1000</td>
+<td>emission-driven based on input4MIPs (<a href="https://doi.org/10.5194/gmd-11-369-2018" target="_blank">Hoesly et al., 2018</a>)</td>
+<td>prescribed aerosol optical properties based on input4MIPs <a href="https://doi.org/10.22033/ESGF/input4MIPs.1681" target="_blank">ETH Zürich (ETHZ), 2017</a></td>
+<td>yes; based on a four-sized mixed mode and secondary organic aerosol formation scheme (<a href="https://doi.org/10.1029/2019MS001851" target="_blank">Wang et al., 2020</a>)</td>
 <td>None</td>
 </tr>
 <tr>
@@ -8707,6 +8732,131 @@ $(document).ready( function () {
 <td>E3SM-2-0</td>
 <td>CMIP</td>
 <td>piControl</td>
+<td>r1i1p1f1</td>
+<td>MPAS-Ocean (E3SMv2.0 <a href="https://doi.org/10.1029/2022MS003156" target="_blank">Golaz et al., 2022</a> and <a href="https://doi.org/10.1029/2018MS001373" target="_blank">Peterson et al., 2019</a>, EC30to60E2r2 unstructured SVTs mesh)</td>
+<td><a href="https://doi.org/10.1175/1520-0426&#40;1995&#41;012%3C0381:MAOHPT%3E2.0.CO;2" target="_blank">Jackett & McDougall, 1995</a> (EOS-80; thetao, so/Sp)</td>
+<td>3996.0</td>
+<td>1026.0</td>
+<td><a href="https://doi.org/10.1002/2014JC010358" target="_blank">Turner & Hunke, 2015</a></td>
+<td>7.27220521664304e-05</td>
+<td>9.80616</td>
+<td>unstructured SVTs mesh with 236853 cells, 719506 edges, variable resolution 60 to 30 km</td>
+<td>60 hybrid layers (z*); top grid cell 0-10 m</td>
+<td>Redi isopycnal mixing (<a href="https://doi.org/10.1175/1520-0485&#4;1998&#41;028%3C0805:IDIAZC%3E2.0.CO;2" target="_blank">Griffies et al., 1998</a>), shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>) + constant background diffusivity 0 and viscosity 1e-4 m-2 s-1</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>)</td>
+<td>None</td>
+<td>PHC v3.0 (updated from <a href="https://doi.org/10.1175/1520-0442&#40;2001&#41;014%3C2079:PAGOHW%3E2.0.CO;2" target="_blank">Steele et al., 2001</a>)</td>
+<td>1000</td>
+<td>emission-driven based on input4MIPs (<a href="https://doi.org/10.5194/gmd-11-369-2018" target="_blank">Hoesly et al., 2018</a>)</td>
+<td>prescribed aerosol optical properties based on input4MIPs <a href="https://doi.org/10.22033/ESGF/input4MIPs.1681" target="_blank">ETH Zürich (ETHZ), 2017</a></td>
+<td>yes; based on a four-sized mixed mode and secondary organic aerosol formation scheme (<a href="https://doi.org/10.1029/2019MS001851" target="_blank">Wang et al., 2020</a>)</td>
+<td>None</td>
+</tr>
+<tr>
+<td>E3SM-Project</td>
+<td>E3SM-2-0</td>
+<td>DAMIP</td>
+<td>hist-GHG</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1</td>
+<td>MPAS-Ocean (E3SMv2.0 <a href="https://doi.org/10.1029/2022MS003156" target="_blank">Golaz et al., 2022</a> and <a href="https://doi.org/10.1029/2018MS001373" target="_blank">Peterson et al., 2019</a>, EC30to60E2r2 unstructured SVTs mesh)</td>
+<td><a href="https://doi.org/10.1175/1520-0426&#40;1995&#41;012%3C0381:MAOHPT%3E2.0.CO;2" target="_blank">Jackett & McDougall, 1995</a> (EOS-80; thetao, so/Sp)</td>
+<td>3996.0</td>
+<td>1026.0</td>
+<td><a href="https://doi.org/10.1002/2014JC010358" target="_blank">Turner & Hunke, 2015</a></td>
+<td>7.27220521664304e-05</td>
+<td>9.80616</td>
+<td>unstructured SVTs mesh with 236853 cells, 719506 edges, variable resolution 60 to 30 km</td>
+<td>60 hybrid layers (z*); top grid cell 0-10 m</td>
+<td>Redi isopycnal mixing (<a href="https://doi.org/10.1175/1520-0485&#4;1998&#41;028%3C0805:IDIAZC%3E2.0.CO;2" target="_blank">Griffies et al., 1998</a>), shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>) + constant background diffusivity 0 and viscosity 1e-4 m-2 s-1</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>)</td>
+<td>None</td>
+<td>PHC v3.0 (updated from <a href="https://doi.org/10.1175/1520-0442&#40;2001&#41;014%3C2079:PAGOHW%3E2.0.CO;2" target="_blank">Steele et al., 2001</a>)</td>
+<td>1000</td>
+<td>emission-driven based on input4MIPs (<a href="https://doi.org/10.5194/gmd-11-369-2018" target="_blank">Hoesly et al., 2018</a>)</td>
+<td>prescribed aerosol optical properties based on input4MIPs <a href="https://doi.org/10.22033/ESGF/input4MIPs.1681" target="_blank">ETH Zürich (ETHZ), 2017</a></td>
+<td>yes; based on a four-sized mixed mode and secondary organic aerosol formation scheme (<a href="https://doi.org/10.1029/2019MS001851" target="_blank">Wang et al., 2020</a>)</td>
+<td>None</td>
+</tr>
+<tr>
+<td>E3SM-Project</td>
+<td>E3SM-2-0</td>
+<td>DAMIP</td>
+<td>hist-aer</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1</td>
+<td>MPAS-Ocean (E3SMv2.0 <a href="https://doi.org/10.1029/2022MS003156" target="_blank">Golaz et al., 2022</a> and <a href="https://doi.org/10.1029/2018MS001373" target="_blank">Peterson et al., 2019</a>, EC30to60E2r2 unstructured SVTs mesh)</td>
+<td><a href="https://doi.org/10.1175/1520-0426&#40;1995&#41;012%3C0381:MAOHPT%3E2.0.CO;2" target="_blank">Jackett & McDougall, 1995</a> (EOS-80; thetao, so/Sp)</td>
+<td>3996.0</td>
+<td>1026.0</td>
+<td><a href="https://doi.org/10.1002/2014JC010358" target="_blank">Turner & Hunke, 2015</a></td>
+<td>7.27220521664304e-05</td>
+<td>9.80616</td>
+<td>unstructured SVTs mesh with 236853 cells, 719506 edges, variable resolution 60 to 30 km</td>
+<td>60 hybrid layers (z*); top grid cell 0-10 m</td>
+<td>Redi isopycnal mixing (<a href="https://doi.org/10.1175/1520-0485&#4;1998&#41;028%3C0805:IDIAZC%3E2.0.CO;2" target="_blank">Griffies et al., 1998</a>), shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>) + constant background diffusivity 0 and viscosity 1e-4 m-2 s-1</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>)</td>
+<td>None</td>
+<td>PHC v3.0 (updated from <a href="https://doi.org/10.1175/1520-0442&#40;2001&#41;014%3C2079:PAGOHW%3E2.0.CO;2" target="_blank">Steele et al., 2001</a>)</td>
+<td>1000</td>
+<td>emission-driven based on input4MIPs (<a href="https://doi.org/10.5194/gmd-11-369-2018" target="_blank">Hoesly et al., 2018</a>)</td>
+<td>prescribed aerosol optical properties based on input4MIPs <a href="https://doi.org/10.22033/ESGF/input4MIPs.1681" target="_blank">ETH Zürich (ETHZ), 2017</a></td>
+<td>yes; based on a four-sized mixed mode and secondary organic aerosol formation scheme (<a href="https://doi.org/10.1029/2019MS001851" target="_blank">Wang et al., 2020</a>)</td>
+<td>None</td>
+</tr>
+<tr>
+<td>E3SM-Project</td>
+<td>E3SM-2-0</td>
+<td>DAMIP</td>
+<td>hist-nat</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1</td>
+<td>MPAS-Ocean (E3SMv2.0 <a href="https://doi.org/10.1029/2022MS003156" target="_blank">Golaz et al., 2022</a> and <a href="https://doi.org/10.1029/2018MS001373" target="_blank">Peterson et al., 2019</a>, EC30to60E2r2 unstructured SVTs mesh)</td>
+<td><a href="https://doi.org/10.1175/1520-0426&#40;1995&#41;012%3C0381:MAOHPT%3E2.0.CO;2" target="_blank">Jackett & McDougall, 1995</a> (EOS-80; thetao, so/Sp)</td>
+<td>3996.0</td>
+<td>1026.0</td>
+<td><a href="https://doi.org/10.1002/2014JC010358" target="_blank">Turner & Hunke, 2015</a></td>
+<td>7.27220521664304e-05</td>
+<td>9.80616</td>
+<td>unstructured SVTs mesh with 236853 cells, 719506 edges, variable resolution 60 to 30 km</td>
+<td>60 hybrid layers (z*); top grid cell 0-10 m</td>
+<td>Redi isopycnal mixing (<a href="https://doi.org/10.1175/1520-0485&#4;1998&#41;028%3C0805:IDIAZC%3E2.0.CO;2" target="_blank">Griffies et al., 1998</a>), shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>) + constant background diffusivity 0 and viscosity 1e-4 m-2 s-1</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>)</td>
+<td>None</td>
+<td>PHC v3.0 (updated from <a href="https://doi.org/10.1175/1520-0442&#40;2001&#41;014%3C2079:PAGOHW%3E2.0.CO;2" target="_blank">Steele et al., 2001</a>)</td>
+<td>1000</td>
+<td>emission-driven based on input4MIPs (<a href="https://doi.org/10.5194/gmd-11-369-2018" target="_blank">Hoesly et al., 2018</a>)</td>
+<td>prescribed aerosol optical properties based on input4MIPs <a href="https://doi.org/10.22033/ESGF/input4MIPs.1681" target="_blank">ETH Zürich (ETHZ), 2017</a></td>
+<td>yes; based on a four-sized mixed mode and secondary organic aerosol formation scheme (<a href="https://doi.org/10.1029/2019MS001851" target="_blank">Wang et al., 2020</a>)</td>
+<td>None</td>
+</tr>
+<tr>
+<td>E3SM-Project</td>
+<td>E3SM-2-0</td>
+<td>ScenarioMIP</td>
+<td>ssp370</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1</td>
+<td>MPAS-Ocean (E3SMv2.0 <a href="https://doi.org/10.1029/2022MS003156" target="_blank">Golaz et al., 2022</a> and <a href="https://doi.org/10.1029/2018MS001373" target="_blank">Peterson et al., 2019</a>, EC30to60E2r2 unstructured SVTs mesh)</td>
+<td><a href="https://doi.org/10.1175/1520-0426&#40;1995&#41;012%3C0381:MAOHPT%3E2.0.CO;2" target="_blank">Jackett & McDougall, 1995</a> (EOS-80; thetao, so/Sp)</td>
+<td>3996.0</td>
+<td>1026.0</td>
+<td><a href="https://doi.org/10.1002/2014JC010358" target="_blank">Turner & Hunke, 2015</a></td>
+<td>7.27220521664304e-05</td>
+<td>9.80616</td>
+<td>unstructured SVTs mesh with 236853 cells, 719506 edges, variable resolution 60 to 30 km</td>
+<td>60 hybrid layers (z*); top grid cell 0-10 m</td>
+<td>Redi isopycnal mixing (<a href="https://doi.org/10.1175/1520-0485&#4;1998&#41;028%3C0805:IDIAZC%3E2.0.CO;2" target="_blank">Griffies et al., 1998</a>), shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>) + constant background diffusivity 0 and viscosity 1e-4 m-2 s-1</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a> and updated by <a href="https://doi.org/10.1029/2018MS001336" target="_blank">van Roeckel et al., 2018</a>)</td>
+<td>None</td>
+<td>PHC v3.0 (updated from <a href="https://doi.org/10.1175/1520-0442&#40;2001&#41;014%3C2079:PAGOHW%3E2.0.CO;2" target="_blank">Steele et al., 2001</a>)</td>
+<td>1000</td>
+<td>emission-driven based on input4MIPs (<a href="https://doi.org/10.5194/gmd-11-369-2018" target="_blank">Hoesly et al., 2018</a>)</td>
+<td>prescribed aerosol optical properties based on input4MIPs <a href="https://doi.org/10.22033/ESGF/input4MIPs.1681" target="_blank">ETH Zürich (ETHZ), 2017</a></td>
+<td>yes; based on a four-sized mixed mode and secondary organic aerosol formation scheme (<a href="https://doi.org/10.1029/2019MS001851" target="_blank">Wang et al., 2020</a>)</td>
+<td>None</td>
+</tr>
+<tr>
+<td>E3SM-Project</td>
+<td>E3SM-2-0-NARRM</td>
+<td>CMIP</td>
+<td>1pctCO2</td>
 <td>r1i1p1f1</td>
 <td>None</td>
 <td>None</td>
@@ -8729,10 +8879,10 @@ $(document).ready( function () {
 </tr>
 <tr>
 <td>E3SM-Project</td>
-<td>E3SM-2-0</td>
-<td>DAMIP</td>
-<td>hist-GHG</td>
-<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1</td>
+<td>E3SM-2-0-NARRM</td>
+<td>CMIP</td>
+<td>abrupt-4xCO2</td>
+<td>r1i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -8754,10 +8904,10 @@ $(document).ready( function () {
 </tr>
 <tr>
 <td>E3SM-Project</td>
-<td>E3SM-2-0</td>
-<td>DAMIP</td>
-<td>hist-aer</td>
-<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1</td>
+<td>E3SM-2-0-NARRM</td>
+<td>CMIP</td>
+<td>historical</td>
+<td>r1i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -8779,10 +8929,10 @@ $(document).ready( function () {
 </tr>
 <tr>
 <td>E3SM-Project</td>
-<td>E3SM-2-0</td>
-<td>DAMIP</td>
-<td>hist-nat</td>
-<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1</td>
+<td>E3SM-2-0-NARRM</td>
+<td>CMIP</td>
+<td>piControl</td>
+<td>r1i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -9257,7 +9407,7 @@ $(document).ready( function () {
 <td>EC-Earth3-AerChem</td>
 <td>CMIP</td>
 <td>1pctCO2</td>
-<td>r1i1p1f1</td>
+<td>r1i1p1f1, r1i1p4f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -9307,7 +9457,7 @@ $(document).ready( function () {
 <td>EC-Earth3-AerChem</td>
 <td>CMIP</td>
 <td>historical</td>
-<td>r1i1p1f1, r3i1p1f1, r4i1p1f1</td>
+<td>r1i1p1f1, r1i1p4f1, r3i1p1f1, r4i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -9332,7 +9482,32 @@ $(document).ready( function () {
 <td>EC-Earth3-AerChem</td>
 <td>CMIP</td>
 <td>piControl</td>
-<td>r1i1p1f1</td>
+<td>r1i1p1f1, r1i1p4f1</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>EC-Earth-Consortium</td>
+<td>EC-Earth3-AerChem</td>
+<td>ScenarioMIP</td>
+<td>ssp245</td>
+<td>r1i1p4f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -14507,7 +14682,7 @@ $(document).ready( function () {
 <td>HadGEM3-GC31-LL</td>
 <td>CMIP</td>
 <td>historical</td>
-<td>r1i1p1f3, r2i1p1f3, r3i1p1f3, r4i1p1f3, r5i1p1f3</td>
+<td>r1i1p1f3, r2i1p1f3, r3i1p1f3, r4i1p1f3, r5i1p1f3, r11i1p1f3, r12i1p1f3, r13i1p1f3, r14i1p1f3, r15i1p1f3, r16i1p1f3, r17i1p1f3, r18i1p1f3, r19i1p1f3, r20i1p1f3, r21i1p1f3, r22i1p1f3, r23i1p1f3, r24i1p1f3, r25i1p1f3, r26i1p1f3, r27i1p1f3, r28i1p1f3, r29i1p1f3, r30i1p1f3, r31i1p1f3, r32i1p1f3, r33i1p1f3, r34i1p1f3, r35i1p1f3, r36i1p1f3, r37i1p1f3, r38i1p1f3, r39i1p1f3, r40i1p1f3, r41i1p1f3, r42i1p1f3, r43i1p1f3, r44i1p1f3, r45i1p1f3, r46i1p1f3, r47i1p1f3, r48i1p1f3, r49i1p1f3, r50i1p1f3, r51i1p1f3, r52i1p1f3, r53i1p1f3, r54i1p1f3, r55i1p1f3, r56i1p1f3, r57i1p1f3, r58i1p1f3, r59i1p1f3, r60i1p1f3</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -14557,7 +14732,7 @@ $(document).ready( function () {
 <td>HadGEM3-GC31-LL</td>
 <td>DAMIP</td>
 <td>hist-GHG</td>
-<td>r1i1p1f3, r2i1p1f3, r3i1p1f3, r4i1p1f3, r5i1p1f3</td>
+<td>r1i1p1f3, r2i1p1f3, r3i1p1f3, r4i1p1f3, r5i1p1f3, r11i1p1f3, r12i1p1f3, r13i1p1f3, r14i1p1f3, r15i1p1f3, r16i1p1f3, r17i1p1f3, r18i1p1f3, r19i1p1f3, r20i1p1f3, r21i1p1f3, r22i1p1f3, r23i1p1f3, r24i1p1f3, r25i1p1f3, r26i1p1f3, r27i1p1f3, r28i1p1f3, r29i1p1f3, r30i1p1f3, r31i1p1f3, r32i1p1f3, r33i1p1f3, r34i1p1f3, r35i1p1f3, r36i1p1f3, r37i1p1f3, r38i1p1f3, r39i1p1f3, r40i1p1f3, r41i1p1f3, r42i1p1f3, r43i1p1f3, r44i1p1f3, r45i1p1f3, r46i1p1f3, r47i1p1f3, r48i1p1f3, r49i1p1f3, r50i1p1f3, r51i1p1f3, r52i1p1f3, r53i1p1f3, r54i1p1f3, r55i1p1f3, r56i1p1f3, r57i1p1f3, r58i1p1f3, r59i1p1f3, r60i1p1f3</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -14582,7 +14757,7 @@ $(document).ready( function () {
 <td>HadGEM3-GC31-LL</td>
 <td>DAMIP</td>
 <td>hist-aer</td>
-<td>r1i1p1f3, r2i1p1f3, r3i1p1f3, r4i1p1f3, r5i1p1f3, r11i1p1f3, r12i1p1f3, r13i1p1f3, r14i1p1f3, r15i1p1f3, r16i1p1f3, r17i1p1f3, r18i1p1f3, r19i1p1f3, r20i1p1f3, r21i1p1f3, r22i1p1f3, r23i1p1f3, r24i1p1f3, r25i1p1f3, r26i1p1f3, r27i1p1f3, r28i1p1f3, r29i1p1f3, r30i1p1f3, r31i1p1f3, r32i1p1f3, r33i1p1f3, r34i1p1f3, r35i1p1f3, r36i1p1f3, r37i1p1f3, r38i1p1f3, r39i1p1f3, r40i1p1f3, r41i1p1f3, r42i1p1f3, r43i1p1f3, r44i1p1f3, r45i1p1f3, r46i1p1f3, r47i1p1f3, r48i1p1f3, r49i1p1f3, r50i1p1f3, r51i1p1f3, r52i1p1f3, r54i1p1f3, r55i1p1f3, r56i1p1f3, r57i1p1f3, r58i1p1f3, r59i1p1f3, r60i1p1f3</td>
+<td>r1i1p1f3, r2i1p1f3, r3i1p1f3, r4i1p1f3, r5i1p1f3, r11i1p1f3, r12i1p1f3, r13i1p1f3, r14i1p1f3, r15i1p1f3, r16i1p1f3, r17i1p1f3, r18i1p1f3, r19i1p1f3, r20i1p1f3, r21i1p1f3, r22i1p1f3, r23i1p1f3, r24i1p1f3, r25i1p1f3, r26i1p1f3, r27i1p1f3, r28i1p1f3, r29i1p1f3, r30i1p1f3, r31i1p1f3, r32i1p1f3, r33i1p1f3, r34i1p1f3, r35i1p1f3, r36i1p1f3, r37i1p1f3, r38i1p1f3, r39i1p1f3, r40i1p1f3, r41i1p1f3, r42i1p1f3, r43i1p1f3, r44i1p1f3, r45i1p1f3, r46i1p1f3, r47i1p1f3, r48i1p1f3, r49i1p1f3, r50i1p1f3, r51i1p1f3, r52i1p1f3, r53i1p1f3, r54i1p1f3, r55i1p1f3, r56i1p1f3, r57i1p1f3, r58i1p1f3, r59i1p1f3, r60i1p1f3</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -14607,7 +14782,82 @@ $(document).ready( function () {
 <td>HadGEM3-GC31-LL</td>
 <td>DAMIP</td>
 <td>hist-nat</td>
-<td>r1i1p1f3, r2i1p1f3, r3i1p1f3, r4i1p1f3, r5i1p1f3, r6i1p1f3, r7i1p1f3, r8i1p1f3, r9i1p1f3, r10i1p1f3</td>
+<td>r1i1p1f3, r2i1p1f3, r3i1p1f3, r4i1p1f3, r5i1p1f3, r6i1p1f3, r7i1p1f3, r8i1p1f3, r9i1p1f3, r10i1p1f3, r11i1p1f3, r12i1p1f3, r13i1p1f3, r14i1p1f3, r15i1p1f3, r16i1p1f3, r17i1p1f3, r18i1p1f3, r19i1p1f3, r20i1p1f3, r21i1p1f3, r22i1p1f3, r23i1p1f3, r24i1p1f3, r25i1p1f3, r26i1p1f3, r27i1p1f3, r28i1p1f3, r29i1p1f3, r30i1p1f3, r33i1p1f3, r34i1p1f3, r35i1p1f3, r36i1p1f3, r38i1p1f3, r39i1p1f3, r40i1p1f3, r41i1p1f3, r42i1p1f3, r43i1p1f3, r44i1p1f3, r45i1p1f3, r46i1p1f3, r47i1p1f3, r48i1p1f3, r49i1p1f3, r50i1p1f3, r51i1p1f3, r52i1p1f3, r53i1p1f3, r54i1p1f3, r55i1p1f3, r56i1p1f3, r57i1p1f3, r58i1p1f3, r59i1p1f3, r60i1p1f3</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>MOHC</td>
+<td>HadGEM3-GC31-LL</td>
+<td>DAMIP</td>
+<td>hist-sol</td>
+<td>r11i1p1f3, r12i1p1f3, r13i1p1f3, r14i1p1f3, r15i1p1f3, r16i1p1f3, r17i1p1f3, r18i1p1f3, r19i1p1f3, r20i1p1f3, r21i1p1f3, r22i1p1f3, r23i1p1f3, r24i1p1f3, r25i1p1f3, r26i1p1f3, r27i1p1f3, r28i1p1f3, r29i1p1f3, r30i1p1f3, r31i1p1f3, r32i1p1f3, r33i1p1f3, r34i1p1f3, r35i1p1f3, r36i1p1f3, r37i1p1f3, r38i1p1f3, r39i1p1f3, r40i1p1f3, r41i1p1f3, r42i1p1f3, r43i1p1f3, r44i1p1f3, r45i1p1f3, r46i1p1f3, r47i1p1f3, r48i1p1f3, r49i1p1f3, r50i1p1f3, r51i1p1f3, r52i1p1f3, r53i1p1f3, r54i1p1f3, r55i1p1f3, r56i1p1f3, r57i1p1f3, r58i1p1f3, r59i1p1f3, r60i1p1f3</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>MOHC</td>
+<td>HadGEM3-GC31-LL</td>
+<td>DAMIP</td>
+<td>hist-totalO3</td>
+<td>r11i1p1f3, r12i1p1f3, r13i1p1f3, r14i1p1f3, r15i1p1f3, r16i1p1f3, r17i1p1f3, r18i1p1f3, r19i1p1f3, r20i1p1f3, r21i1p1f3, r22i1p1f3, r23i1p1f3, r24i1p1f3, r25i1p1f3, r26i1p1f3, r27i1p1f3, r28i1p1f3, r29i1p1f3, r30i1p1f3, r31i1p1f3, r32i1p1f3, r33i1p1f3, r34i1p1f3, r35i1p1f3, r36i1p1f3, r37i1p1f3, r38i1p1f3, r39i1p1f3, r40i1p1f3, r41i1p1f3, r42i1p1f3, r43i1p1f3, r44i1p1f3, r45i1p1f3, r46i1p1f3, r47i1p1f3, r48i1p1f3, r49i1p1f3, r50i1p1f3, r51i1p1f3, r52i1p1f3, r53i1p1f3, r54i1p1f3, r55i1p1f3, r56i1p1f3, r57i1p1f3, r58i1p1f3, r59i1p1f3, r60i1p1f3</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>MOHC</td>
+<td>HadGEM3-GC31-LL</td>
+<td>DAMIP</td>
+<td>hist-volc</td>
+<td>r11i1p1f3, r12i1p1f3, r13i1p1f3, r14i1p1f3, r15i1p1f3, r16i1p1f3, r17i1p1f3, r18i1p1f3, r19i1p1f3, r20i1p1f3, r21i1p1f3, r22i1p1f3, r23i1p1f3, r24i1p1f3, r25i1p1f3, r26i1p1f3, r27i1p1f3, r28i1p1f3, r29i1p1f3, r30i1p1f3, r31i1p1f3, r32i1p1f3, r33i1p1f3, r34i1p1f3, r35i1p1f3, r36i1p1f3, r37i1p1f3, r38i1p1f3, r39i1p1f3, r40i1p1f3, r41i1p1f3, r42i1p1f3, r43i1p1f3, r44i1p1f3, r45i1p1f3, r46i1p1f3, r47i1p1f3, r48i1p1f3, r49i1p1f3, r50i1p1f3, r51i1p1f3, r52i1p1f3, r53i1p1f3, r54i1p1f3, r55i1p1f3, r56i1p1f3, r57i1p1f3, r58i1p1f3, r59i1p1f3, r60i1p1f3</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -14782,7 +15032,7 @@ $(document).ready( function () {
 <td>HadGEM3-GC31-LL</td>
 <td>ScenarioMIP</td>
 <td>ssp245</td>
-<td>r1i1p1f3, r2i1p1f3, r3i1p1f3, r4i1p1f3, r5i1p1f3</td>
+<td>r1i1p1f3, r2i1p1f3, r3i1p1f3, r4i1p1f3, r5i1p1f3, r11i1p1f3, r12i1p1f3, r13i1p1f3, r14i1p1f3, r15i1p1f3, r16i1p1f3, r17i1p1f3, r18i1p1f3, r19i1p1f3, r20i1p1f3, r21i1p1f3, r22i1p1f3, r23i1p1f3, r24i1p1f3, r25i1p1f3, r26i1p1f3, r27i1p1f3, r28i1p1f3, r29i1p1f3, r30i1p1f3, r31i1p1f3, r32i1p1f3, r33i1p1f3, r34i1p1f3, r35i1p1f3, r36i1p1f3, r37i1p1f3, r38i1p1f3, r39i1p1f3, r40i1p1f3, r41i1p1f3, r42i1p1f3, r43i1p1f3, r44i1p1f3, r45i1p1f3, r46i1p1f3, r47i1p1f3, r48i1p1f3, r49i1p1f3, r50i1p1f3, r51i1p1f3, r52i1p1f3, r53i1p1f3, r54i1p1f3, r55i1p1f3, r56i1p1f3, r57i1p1f3, r58i1p1f3, r59i1p1f3, r60i1p1f3</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -16557,7 +16807,7 @@ $(document).ready( function () {
 <td>MPI-ESM1-2-LR</td>
 <td>CMIP</td>
 <td>historical</td>
-<td>r1i1p1f1, r1i2000p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1</td>
+<td>r1i1p1f1, r1i2000p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1, r31i1p1f1, r32i1p1f1, r33i1p1f1, r34i1p1f1, r35i1p1f1, r36i1p1f1, r37i1p1f1, r38i1p1f1, r39i1p1f1, r40i1p1f1, r41i1p1f1, r42i1p1f1, r43i1p1f1, r44i1p1f1, r45i1p1f1, r46i1p1f1, r47i1p1f1, r48i1p1f1, r49i1p1f1, r50i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -16583,6 +16833,131 @@ $(document).ready( function () {
 <td>CMIP</td>
 <td>piControl</td>
 <td>r1i1p1f1, r2i1p1f1</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>MPI-M</td>
+<td>MPI-ESM1-2-LR</td>
+<td>DAMIP</td>
+<td>hist-GHG</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>MPI-M</td>
+<td>MPI-ESM1-2-LR</td>
+<td>DAMIP</td>
+<td>hist-aer</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>MPI-M</td>
+<td>MPI-ESM1-2-LR</td>
+<td>DAMIP</td>
+<td>hist-sol</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>MPI-M</td>
+<td>MPI-ESM1-2-LR</td>
+<td>DAMIP</td>
+<td>hist-totalO3</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>MPI-M</td>
+<td>MPI-ESM1-2-LR</td>
+<td>DAMIP</td>
+<td>hist-volc</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -16931,8 +17306,33 @@ $(document).ready( function () {
 <td>MPI-M</td>
 <td>MPI-ESM1-2-LR</td>
 <td>ScenarioMIP</td>
+<td>ssp119</td>
+<td>r31i1p1f1, r32i1p1f1, r33i1p1f1, r34i1p1f1, r35i1p1f1, r36i1p1f1, r37i1p1f1, r38i1p1f1, r39i1p1f1, r40i1p1f1, r41i1p1f1, r42i1p1f1, r43i1p1f1, r44i1p1f1, r45i1p1f1, r46i1p1f1, r47i1p1f1, r48i1p1f1, r49i1p1f1, r50i1p1f1</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>MPI-M</td>
+<td>MPI-ESM1-2-LR</td>
+<td>ScenarioMIP</td>
 <td>ssp126</td>
-<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1, r31i1p1f1, r32i1p1f1, r33i1p1f1, r34i1p1f1, r35i1p1f1, r36i1p1f1, r37i1p1f1, r38i1p1f1, r39i1p1f1, r40i1p1f1, r41i1p1f1, r42i1p1f1, r43i1p1f1, r44i1p1f1, r45i1p1f1, r46i1p1f1, r47i1p1f1, r48i1p1f1, r49i1p1f1, r50i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -16957,7 +17357,7 @@ $(document).ready( function () {
 <td>MPI-ESM1-2-LR</td>
 <td>ScenarioMIP</td>
 <td>ssp245</td>
-<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1, r31i1p1f1, r32i1p1f1, r33i1p1f1, r34i1p1f1, r35i1p1f1, r36i1p1f1, r37i1p1f1, r38i1p1f1, r39i1p1f1, r40i1p1f1, r41i1p1f1, r42i1p1f1, r43i1p1f1, r44i1p1f1, r45i1p1f1, r46i1p1f1, r47i1p1f1, r48i1p1f1, r49i1p1f1, r50i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -16982,7 +17382,7 @@ $(document).ready( function () {
 <td>MPI-ESM1-2-LR</td>
 <td>ScenarioMIP</td>
 <td>ssp370</td>
-<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1, r31i1p1f1, r32i1p1f1, r33i1p1f1, r34i1p1f1, r35i1p1f1, r36i1p1f1, r37i1p1f1, r38i1p1f1, r39i1p1f1, r40i1p1f1, r41i1p1f1, r42i1p1f1, r43i1p1f1, r44i1p1f1, r45i1p1f1, r46i1p1f1, r47i1p1f1, r48i1p1f1, r49i1p1f1, r50i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -17007,7 +17407,7 @@ $(document).ready( function () {
 <td>MPI-ESM1-2-LR</td>
 <td>ScenarioMIP</td>
 <td>ssp585</td>
-<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1, r11i1p1f1, r12i1p1f1, r13i1p1f1, r14i1p1f1, r15i1p1f1, r16i1p1f1, r17i1p1f1, r18i1p1f1, r19i1p1f1, r20i1p1f1, r21i1p1f1, r22i1p1f1, r23i1p1f1, r24i1p1f1, r25i1p1f1, r26i1p1f1, r27i1p1f1, r28i1p1f1, r29i1p1f1, r30i1p1f1, r31i1p1f1, r32i1p1f1, r33i1p1f1, r34i1p1f1, r35i1p1f1, r36i1p1f1, r37i1p1f1, r38i1p1f1, r39i1p1f1, r40i1p1f1, r41i1p1f1, r42i1p1f1, r43i1p1f1, r44i1p1f1, r45i1p1f1, r46i1p1f1, r47i1p1f1, r48i1p1f1, r49i1p1f1, r50i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -18307,7 +18707,7 @@ $(document).ready( function () {
 <td>GISS-E2-1-G</td>
 <td>DAMIP</td>
 <td>hist-GHG</td>
-<td>r1i1p1f1, r1i1p1f2, r2i1p1f1, r2i1p1f2, r3i1p1f1, r3i1p1f2, r4i1p1f1, r4i1p1f2, r5i1p1f1, r5i1p1f2</td>
+<td>r1i1p1f1, r1i1p1f2, r2i1p1f1, r2i1p1f2, r3i1p1f1, r3i1p1f2, r4i1p1f1, r4i1p1f2, r5i1p1f1, r5i1p1f2, r6i1p1f2, r7i1p1f2, r8i1p1f2, r9i1p1f2, r10i1p1f2, r11i1p1f2, r12i1p1f2, r13i1p1f2, r14i1p1f2, r15i1p1f2, r17i1p1f2, r18i1p1f2, r19i1p1f2, r20i1p1f2</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -21632,7 +22032,7 @@ $(document).ready( function () {
 <td>NorESM2-LM</td>
 <td>CMIP</td>
 <td>1pctCO2</td>
-<td>r1i1p1f1</td>
+<td>r1i1p1f1, r1i1p4f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -21682,7 +22082,7 @@ $(document).ready( function () {
 <td>NorESM2-LM</td>
 <td>CMIP</td>
 <td>esm-hist</td>
-<td>r1i1p1f1</td>
+<td>r1i1p1f1, r2i1p1f1, r3i1p1f1, r4i1p1f1, r5i1p1f1, r6i1p1f1, r7i1p1f1, r8i1p1f1, r9i1p1f1, r10i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -21732,7 +22132,7 @@ $(document).ready( function () {
 <td>NorESM2-LM</td>
 <td>CMIP</td>
 <td>historical</td>
-<td>r1i1p1f1, r2i1p1f1, r3i1p1f1</td>
+<td>r1i1p1f1, r1i1p4f1, r2i1p1f1, r3i1p1f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -21757,7 +22157,7 @@ $(document).ready( function () {
 <td>NorESM2-LM</td>
 <td>CMIP</td>
 <td>piControl</td>
-<td>r1i1p1f1</td>
+<td>r1i1p1f1, r1i1p4f1</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -22107,7 +22507,7 @@ $(document).ready( function () {
 <td>NorESM2-LM</td>
 <td>ScenarioMIP</td>
 <td>ssp245</td>
-<td>r1i1p1f1, r1i1p1f2, r2i1p1f1, r2i1p1f2, r3i1p1f1, r3i1p1f2, r4i1p1f2, r5i1p1f2, r6i1p1f2, r7i1p1f2, r8i1p1f2, r9i1p1f2, r10i1p1f2</td>
+<td>r1i1p1f1, r1i1p1f2, r1i1p4f1, r2i1p1f1, r2i1p1f2, r3i1p1f1, r3i1p1f2, r4i1p1f2, r5i1p1f2, r6i1p1f2, r7i1p1f2, r8i1p1f2, r9i1p1f2, r10i1p1f2</td>
 <td>None</td>
 <td>None</td>
 <td>None</td>
@@ -22782,6 +23182,31 @@ $(document).ready( function () {
 <td>GFDL-CM4</td>
 <td>OMIP</td>
 <td>omip1</td>
+<td>r1i1p1f1</td>
+<td>GFDL-MOM6; OM4.25; <a href="https://doi.org/10.1029/2019MS001726" target="_blank">Adcroft et al., 2019</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014<0735:AEOSFU>2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S + dTFr_dp * pres; dTFr_dS = -0.054, dTFr_dp = -7.75e-8, pres = gauge pressure (Pa)</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 0.25 deg; 1440 x 1080 longitude/latitude</td>
+<td>75 hybrid layers (z* and rho2000); top grid cell 0-2 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>), + tide mixing (<a href="https://doi.org/10.1175/JPO-D-12-055.1" target="_blank">Melet et al., 2013</a>), + constant background diffusivity 1.5e-5 m-2 s-1 >30n/S, tapering to2e-6 m-2 s-1 at equator</td>
+<td>energy based boundary layer (<a href="https://doi.org/10.1016/j.ocemod.2018.10.004" target="_blank">Reichl and Hallberg, 2018</a>)</td>
+<td>1.33511e+18</td>
+<td>WOA2013</td>
+<td>600</td>
+<td>emission-driven based on input4MIPs; CM4 has simplified chemistry</td>
+<td>prescribed aerosol optical properties based on input4MIPs <a href="https://doi.org/10.22033/ESGF/input4MIPs.1681" target="_blank">ETH Zürich (ETHZ), 2017</a></td>
+<td>yes; based on bulk mass concentration</td>
+<td>95.9 mW m-2; <a href="https://doi.org/10.1002/ggge.20271" target="_blank">Davies, 2013</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM4</td>
+<td>OMIP</td>
+<td>omip2</td>
 <td>r1i1p1f1</td>
 <td>GFDL-MOM6; OM4.25; <a href="https://doi.org/10.1029/2019MS001726" target="_blank">Adcroft et al., 2019</a></td>
 <td><a href="https://doi.org/10.1175/1520-0426(1997)014<0735:AEOSFU>2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
@@ -24182,6 +24607,31 @@ $(document).ready( function () {
 <td>E3SM-1-0</td>
 <td>CMIP</td>
 <td>historical</td>
+<td>r1i2p2f1, r2i2p2f1, r3i2p2f1, r4i2p2f1, r5i2p2f1, r6i2p2f1, r7i2p2f1, r8i2p2f1, r9i2p2f1, r10i2p2f1, r11i2p2f1, r12i2p2f1, r13i2p2f1, r14i2p2f1, r15i2p2f1, r16i2p2f1, r17i2p2f1, r18i2p2f1, r19i2p2f1, r20i2p2f1</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>UCSB</td>
+<td>E3SM-1-0</td>
+<td>ScenarioMIP</td>
+<td>ssp370</td>
 <td>r1i2p2f1, r2i2p2f1, r3i2p2f1, r4i2p2f1, r5i2p2f1, r6i2p2f1, r7i2p2f1, r8i2p2f1, r9i2p2f1, r10i2p2f1, r11i2p2f1, r12i2p2f1, r13i2p2f1, r14i2p2f1, r15i2p2f1, r16i2p2f1, r17i2p2f1, r18i2p2f1, r19i2p2f1, r20i2p2f1</td>
 <td>None</td>
 <td>None</td>
