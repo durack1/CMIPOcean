@@ -15,6 +15,7 @@ PJD 23 Jun 2021     - Update index to copy CMIP_ESGF "all"
 PJD 10 Jun 2023     - Updated to fix "".join syntax
 PJD 23 Jan 2024     - Updated to add E3SM-2-0 entries, with email guidance from Luke Van Roeckel and Xylar Asay-Davis
                     Parenthesis chars may need replacing: ) = &#41; https://www.toptal.com/designers/htmlarrows/punctuation/right-parenthesis/
+PJD 23 Jan 2024     - Updated Griffies et al., 1998 with paren mapping
 
 @author: durack1
 """
@@ -22,7 +23,8 @@ PJD 23 Jan 2024     - Updated to add E3SM-2-0 entries, with email guidance from 
 import collections
 import json
 import os
-import pdb
+
+# import pdb
 
 # %% run ESGF index scrape
 
@@ -482,7 +484,7 @@ verRes = "60 hybrid layers (z*); top grid cell 0-10 m"
 vertK = "".join(
     [
         "Redi isopycnal mixing ([Griffies et al., 1998](https://",
-        "doi.org/10.1175/1520-0485&#4;1998&#41;028%3C0805:IDIAZC%3E2.0.CO;2)), ",
+        "doi.org/10.1175/1520-0485&#40;1998&#41;028%3C0805:IDIAZC%3E2.0.CO;2)), ",
         "shear mixing ([Large et al., 1994](https://doi.org/",
         "10.1029/94RG01872) and updated by [van Roeckel et al., 2018]",
         "(https://doi.org/10.1029/2018MS001336)) + constant",

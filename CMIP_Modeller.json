@@ -184,7 +184,7 @@
                             "refRho": 1026.0,
                             "spinYr": 1000,
                             "verRes": "60 hybrid layers (z*); top grid cell 0-10 m",
-                            "vertK": "Redi isopycnal mixing ([Griffies et al., 1998](https://doi.org/10.1175/1520-0485&#4;1998&#41;028%3C0805:IDIAZC%3E2.0.CO;2)), shear mixing ([Large et al., 1994](https://doi.org/10.1029/94RG01872) and updated by [van Roeckel et al., 2018](https://doi.org/10.1029/2018MS001336)) + constant background diffusivity 0 and viscosity 1e-4 m-2 s-1",
+                            "vertK": "Redi isopycnal mixing ([Griffies et al., 1998](https://doi.org/10.1175/1520-0485&#40;1998&#41;028%3C0805:IDIAZC%3E2.0.CO;2)), shear mixing ([Large et al., 1994](https://doi.org/10.1029/94RG01872) and updated by [van Roeckel et al., 2018](https://doi.org/10.1029/2018MS001336)) + constant background diffusivity 0 and viscosity 1e-4 m-2 s-1",
                             "vol": null,
                             "volcFo": "prescribed aerosol optical properties based on input4MIPs [ETH Zürich (ETHZ), 2017](https://doi.org/10.22033/ESGF/input4MIPs.1681)"
                         }
