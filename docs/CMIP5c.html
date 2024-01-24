@@ -1,0 +1,2457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="author" content="Paul J. Durack" />
+<meta name="description" content="CMIP ocean model configuration information" />
+<meta name="keywords" content="HTML, CSS, JavaScript" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" type="text/css" charset="utf-8" href="https://pcmdi.github.io/assets/dataTables/jquery.dataTables.min.css" />
+<script type="text/javascript" charset="utf-8" src="https://pcmdi.github.io/assets/jquery/jquery.slim.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://pcmdi.github.io/assets/dataTables/jquery.dataTables.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="text/javascript" src="https://pcmdi.github.io/assets/google/googleAnalyticsTag.js" ></script>
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready( function () {
+    $('#table_id').DataTable();
+    } );
+//]]>
+</script>
+<title>CMIP5c ocean model configurations</title>
+</head>
+<body>
+<p>CMIPOcean version: 0.2.0 - CMIP5c</p>
+<table id="table_id" class="display compact" style="width:100%">
+<thead>
+<tr>
+<th>institution id</th>
+<th>source id</th>
+<th>activity id</th>
+<th>experiment id</th>
+<th>ripf</th>
+<th>ocean model id (+ version)</th>
+<th>EOS (+ constants)</th>
+<th>specific heat capacity (cpocean)</th>
+<th>ref. density (bouss-inesq, rhozero)</th>
+<th>freezing eqn.</th>
+<th>planet ang. rotation (radians s-1)</th>
+<th>gravit-ational accel. (m s-2)</th>
+<th>native horiz. resol-ution</th>
+<th>native vert. resol-ution</th>
+<th>vertical diffus-ivity scheme</th>
+<th>boundary-layer (mld) scheme</th>
+<th>sea water volume</th>
+<th>initial-ization obs. clim.</th>
+<th>spinup length (years)</th>
+<th>anthrop. aerosol forcing</th>
+<th>volcanic forcing</th>
+<th>sulphate aerosol indirect effects</th>
+<th>geo-thermal heating</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th>institution id</th>
+<th>source id</th>
+<th>activity id</th>
+<th>experiment id</th>
+<th>ripf</th>
+<th>ocean model id (+ version)</th>
+<th>EOS (+ constants)</th>
+<th>specific heat capacity (cpocean)</th>
+<th>ref. density (bouss-inesq, rhozero)</th>
+<th>freezing eqn.</th>
+<th>planet ang. rotation (radians s-1)</th>
+<th>gravit-ational accel. (m s-2)</th>
+<th>native horiz. resol-ution</th>
+<th>native vert. resol-ution</th>
+<th>vertical diffus-ivity scheme</th>
+<th>boundary-layer (mld) scheme</th>
+<th>sea water volume</th>
+<th>initial-ization obs. clim.</th>
+<th>spinup length (years)</th>
+<th>anthrop. aerosol forcing</th>
+<th>volcanic forcing</th>
+<th>sulphate aerosol indirect effects</th>
+<th>geo-thermal heating</th>
+</tr>
+</tfoot>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>CMIP</td>
+<td>historical</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1961</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1962</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1963</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1964</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1965</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1966</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1967</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1968</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1969</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1970</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1971</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1972</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1973</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1974</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1975</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1976</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1977</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1978</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1979</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1980</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1981</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1982</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1983</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1984</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1985</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1986</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1987</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1988</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1989</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1990</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1991</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1992</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1993</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1994</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1995</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1996</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1997</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1998</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal1999</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal2000</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal2001</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal2002</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal2003</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal2004</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal2005</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal2006</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal2007</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal2008</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal2009</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal2010</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal2011</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>DCPP</td>
+<td>decadal2012</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM2p1</td>
+<td>ScenarioMIP</td>
+<td>rcp45</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM3</td>
+<td>CMIP</td>
+<td>1pctCO2</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4; OM3.0; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>emission-driven based on <a href="https://doi.org/10.5194/acp-10-7017-2010" target="_blank">Lamarque et al., 2010</a> (full chemistry)</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>yes, based on bulk mass concentration</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM3</td>
+<td>CMIP</td>
+<td>abrupt4xCO2</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1, r6i1p1, r7i1p1, r8i1p1, r9i1p1, r10i1p1, r11i1p1, r12i1p1</td>
+<td>GFDL-MOM4; OM3.0; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>emission-driven based on <a href="https://doi.org/10.5194/acp-10-7017-2010" target="_blank">Lamarque et al., 2010</a> (full chemistry)</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>yes, based on bulk mass concentration</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM3</td>
+<td>CMIP</td>
+<td>historical</td>
+<td>r1i1p1, r2i1p1, r3i1p1, r4i1p1, r5i1p1</td>
+<td>GFDL-MOM4; OM3.0; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>emission-driven based on <a href="https://doi.org/10.5194/acp-10-7017-2010" target="_blank">Lamarque et al., 2010</a> (full chemistry)</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>yes, based on bulk mass concentration</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM3</td>
+<td>CMIP</td>
+<td>piControl</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4; OM3.0; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>emission-driven based on <a href="https://doi.org/10.5194/acp-10-7017-2010" target="_blank">Lamarque et al., 2010</a> (full chemistry)</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>yes, based on bulk mass concentration</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM3</td>
+<td>DAMIP</td>
+<td>historicalGHG</td>
+<td>r1i1p1, r3i1p1, r5i1p1</td>
+<td>GFDL-MOM4; OM3.0; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>emission-driven based on <a href="https://doi.org/10.5194/acp-10-7017-2010" target="_blank">Lamarque et al., 2010</a> (full chemistry)</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>yes, based on bulk mass concentration</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM3</td>
+<td>DAMIP</td>
+<td>historicalMisc</td>
+<td>r1i1p1, r1i1p2, r3i1p1, r3i1p2, r5i1p1, r5i1p2</td>
+<td>GFDL-MOM4; OM3.0; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>emission-driven based on <a href="https://doi.org/10.5194/acp-10-7017-2010" target="_blank">Lamarque et al., 2010</a> (full chemistry)</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>yes, based on bulk mass concentration</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM3</td>
+<td>DAMIP</td>
+<td>historicalNat</td>
+<td>r1i1p1, r3i1p1, r5i1p1</td>
+<td>GFDL-MOM4; OM3.0; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>emission-driven based on <a href="https://doi.org/10.5194/acp-10-7017-2010" target="_blank">Lamarque et al., 2010</a> (full chemistry)</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>yes, based on bulk mass concentration</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM3</td>
+<td>ScenarioMIP</td>
+<td>rcp26</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4; OM3.0; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>emission-driven based on <a href="https://doi.org/10.5194/acp-10-7017-2010" target="_blank">Lamarque et al., 2010</a> (full chemistry)</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>yes, based on bulk mass concentration</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM3</td>
+<td>ScenarioMIP</td>
+<td>rcp45</td>
+<td>r1i1p1, r3i1p1, r5i1p1</td>
+<td>GFDL-MOM4; OM3.0; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>emission-driven based on <a href="https://doi.org/10.5194/acp-10-7017-2010" target="_blank">Lamarque et al., 2010</a> (full chemistry)</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>yes, based on bulk mass concentration</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM3</td>
+<td>ScenarioMIP</td>
+<td>rcp60</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4; OM3.0; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>emission-driven based on <a href="https://doi.org/10.5194/acp-10-7017-2010" target="_blank">Lamarque et al., 2010</a> (full chemistry)</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>yes, based on bulk mass concentration</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-CM3</td>
+<td>ScenarioMIP</td>
+<td>rcp85</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4; OM3.0; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/JTECH1946.1" target="_blank">Jackett et al., 2006</a> (EOS-80; thetao, so/Sp)</td>
+<td>3992.1</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 200 longitude/latitude</td>
+<td>50 z-vertical layers; top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + constant background diffusivity 3e-5 m-2 s-1 >30N/S, tapering to 1.5e-5 m-2 s-1 at equator with vertical <a href="https://doi.org/10.1029/JC084iC05p02503" target="_blank">Bryan and Lewis, 1979</a> profile</td>
+<td>KPP diffusivity (<a href="https://doi.org/10.1029/94RG01872" target="_blank">Large et al., 1994</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA1998; step-wise initialization</td>
+<td>1000</td>
+<td>emission-driven based on <a href="https://doi.org/10.5194/acp-10-7017-2010" target="_blank">Lamarque et al., 2010</a> (full chemistry)</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>yes, based on bulk mass concentration</td>
+<td>None</td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2G</td>
+<td>CMIP</td>
+<td>1pctCO2</td>
+<td>r1i1p1, r1i1p2</td>
+<td>GFDL-GOLD; Hallberg, 1995</td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2G</td>
+<td>CMIP</td>
+<td>abrupt4xCO2</td>
+<td>r1i1p1</td>
+<td>GFDL-GOLD; Hallberg, 1995</td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2G</td>
+<td>CMIP</td>
+<td>esmControl</td>
+<td>r1i1p1</td>
+<td>GFDL-GOLD; Hallberg, 1995</td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2G</td>
+<td>CMIP</td>
+<td>esmHistorical</td>
+<td>r1i1p1</td>
+<td>GFDL-GOLD; Hallberg, 1995</td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2G</td>
+<td>CMIP</td>
+<td>historical</td>
+<td>r1i1p1</td>
+<td>GFDL-GOLD; Hallberg, 1995</td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2G</td>
+<td>CMIP</td>
+<td>piControl</td>
+<td>r1i1p1</td>
+<td>GFDL-GOLD; Hallberg, 1995</td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2G</td>
+<td>DAMIP</td>
+<td>historicalMisc</td>
+<td>r1i1p3, r1i1p4</td>
+<td>GFDL-GOLD; Hallberg, 1995</td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2G</td>
+<td>ScenarioMIP</td>
+<td>esmrcp85</td>
+<td>r1i1p1</td>
+<td>GFDL-GOLD; Hallberg, 1995</td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2G</td>
+<td>ScenarioMIP</td>
+<td>rcp26</td>
+<td>r1i1p1</td>
+<td>GFDL-GOLD; Hallberg, 1995</td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2G</td>
+<td>ScenarioMIP</td>
+<td>rcp45</td>
+<td>r1i1p1</td>
+<td>GFDL-GOLD; Hallberg, 1995</td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2G</td>
+<td>ScenarioMIP</td>
+<td>rcp60</td>
+<td>r1i1p1</td>
+<td>GFDL-GOLD; Hallberg, 1995</td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2G</td>
+<td>ScenarioMIP</td>
+<td>rcp85</td>
+<td>r1i1p1</td>
+<td>GFDL-GOLD; Hallberg, 1995</td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>C4MIP</td>
+<td>esmFdbk1</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>C4MIP</td>
+<td>esmFdbk2</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>C4MIP</td>
+<td>esmFixClim1</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>C4MIP</td>
+<td>esmFixClim2</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>CMIP</td>
+<td>1pctCO2</td>
+<td>r1i1p1, r1i1p2</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>CMIP</td>
+<td>abrupt4xCO2</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>CMIP</td>
+<td>esmControl</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>CMIP</td>
+<td>esmHistorical</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>CMIP</td>
+<td>historical</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>CMIP</td>
+<td>piControl</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>DAMIP</td>
+<td>historicalGHG</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>DAMIP</td>
+<td>historicalMisc</td>
+<td>r1i1p2, r1i1p3, r1i1p4, r1i1p5, r1i1p6, r1i1p7, r1i1p8</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>DAMIP</td>
+<td>historicalNat</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>ScenarioMIP</td>
+<td>esmrcp85</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>ScenarioMIP</td>
+<td>rcp26</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>ScenarioMIP</td>
+<td>rcp45</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>ScenarioMIP</td>
+<td>rcp60</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+<tr>
+<td>NOAA-GFDL</td>
+<td>GFDL-ESM2M</td>
+<td>ScenarioMIP</td>
+<td>rcp85</td>
+<td>r1i1p1</td>
+<td>GFDL-MOM4p1; OM3.1; <a href="https://doi.org/10.1175/JCLI3629.1" target="_blank">Delworth et al., 2006</a></td>
+<td><a href="https://doi.org/10.1175/1520-0426(1997)014%3C0735AEOSFU%3E2.0.CO;2" target="_blank">Wright, 1997</a> (EOS-80; thetao, so/Sp)</td>
+<td>3925.0</td>
+<td>1035.0</td>
+<td>T_Fr = dTFr_dS * S; dTFr_dS = -0.054</td>
+<td>7.2921e-05</td>
+<td>9.8</td>
+<td>tripolar, nominal 1 deg; 360 x 210 longitude/latitude</td>
+<td>59 rho2000 layers + 4 z-like layers in upper boundary (rho2000 = potential density referenced to 2000dbar); top grid cell 0-10 m</td>
+<td>shear mixing (<a href="https://doi.org/10.1175/2007JPO3779.1" target="_blank">Jackson et al., 2008</a>) + tide mixing (<a href="https://doi.org/10.1016/j.dsr2.2004.09.015" target="_blank">Simmons et al., 2004</a>) + bottom boundary layer <a href="https://doi.org/10.1016/j.dsr2.2005.09.014" target="_blank">Legg and Huijts, 2006</a> + constant background diffusivity 2e-5 m-2 s-1 >30N/S, tapering to 2e-6 m-2 s-1 at equator</td>
+<td>bulk mixed layer (<a href="http://www.soest.hawaii.edu/PubServices/2003pdfs/Hallberg.pdf" target="_blank">Hallberg, 2003</a>)</td>
+<td>1.325363e+18</td>
+<td>WOA2005</td>
+<td>1000</td>
+<td>prescribed aerosol concentration</td>
+<td>prescribed aerosol optical properties (<a href="https://doi.org/10.1029/93JD02553" target="_blank">Sato et al., 1993 updated</a> and <a href="https://doi.org/10.1029/98JD00693" target="_blank">Stenchikov et al., 1998</a>)</td>
+<td>prescribed</td>
+<td>50 mW m-2; <a href="https://doi.org/10.1029/2000GL012182" target="_blank">Adcroft et al., 2001</a></td>
+</tr>
+</table>
+</body>
+</html>

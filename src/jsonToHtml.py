@@ -61,8 +61,7 @@ import argparse
 import copy
 import json
 import os
-
-# import pdb
+import pdb
 import re
 import sys
 
@@ -301,9 +300,9 @@ queries = {
     "geotHt": "geothermal heating",
 }
 
-for mipEra in ["CMIP6", "CMIP5", "CMIP3"]:
+for mipEra in ["CMIP6", "CMIP5", "CMIP3", "CMIP6c", "CMIP5c", "CMIP3c"]:
     print(mipEra)
-    CMIP = eval(mipEra)
+    CMIP = eval(mipEra[0:5])
     # Preformat inputs to be a single line for each source_id
     CMIPList = []  # [[] for _ in range(1)]
     for count1, instId in enumerate(CMIP.keys()):
@@ -402,6 +401,13 @@ for mipEra in ["CMIP6", "CMIP5", "CMIP3"]:
         print("ripfId:", ripfId)
         ripfId = humanSort(ripfId)
         print("ripfId (humanSort):", ripfId)
+
+        # Check valid entries - process only complete entries if mipEra == CMIPxc
+        if (CMIP[instId][srcId][actId][expId][ripfId[0]][queries["modId"]] is None) & (
+            len(mipEra) == 6
+        ):
+            continue
+
         fo.write("<tr>\n<td>%s</td>\n" % instId)
         # Deal with more than single model
         fo.write("<td>%s</td>\n" % srcId)
